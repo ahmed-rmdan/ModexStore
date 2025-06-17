@@ -36,7 +36,7 @@ if(props.type==='slider' ){
    
     return(
 
-        <li className="flex flex-col w-[350px] bg-gray-100 h-[100%] text-2xl rounded-2xl  items-center justify-around" >
+        <li className="flex flex-col min-w-[350px] max-w-[350px] bg-gray-100 h-[100%] text-2xl rounded-2xl  items-center justify-around" >
             <div className="flex flex-row w-[95%] h-[60%] justify-around">
                    <img src={props.imgeurl} className="w-[40%] h-full" >
                 
