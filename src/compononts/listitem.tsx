@@ -4,7 +4,7 @@ import React from "react"
 
 export const Listitem:React.FC<{imgeurl:string,name:string,quantity:number,price:number,type:string,id:string}>=(props)=>{
   
-if(props.type==='cart'){
+if(props.type==='cart' ){
    
     return(
 
@@ -26,6 +26,34 @@ if(props.type==='cart'){
                 <button className=" text-[0.9em] cursor-pointer  " >+</button>
                 <button className=" text-[0.9em] cursor-pointer  " >-</button>
                 <button className="buttonstyle text-[0.7em] w-[35%]  " >remove</button>
+                
+
+             </div>
+        </li>
+    )
+}
+if(props.type==='slider' ){
+   
+    return(
+
+        <li className="flex flex-col w-[350px] bg-gray-100 h-[100%] text-2xl rounded-2xl  items-center justify-around" >
+            <div className="flex flex-row w-[95%] h-[60%] justify-around">
+                   <img src={props.imgeurl} className="w-[40%] h-full" >
+                
+                  
+                   </img>   
+                   <div className="maininfo w-[55%] flex flex-col items-center justify-around ">
+                         <p className="text-[0.7em] text-center">{props.name}</p>
+                       
+                          <p className="text-[0.8em] text-red-600 line-through"> 120</p>
+                         <p className="text-[0.9em] text-purple-800">price : {props.price*props.quantity} </p>
+                   </div>
+             
+
+             </div>
+             <div className="itembuttons h-[25%] w-full flex flex-row justify-around items-center">
+           
+                <button className="buttonstyle text-[0.8em] w-[35%]  " >add to cart</button>
                 
 
              </div>
