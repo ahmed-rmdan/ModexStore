@@ -11,12 +11,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 } */
-body{
-  margin-right: auto;
-  margin-left: auto;
-}
+
 @layer{
   .buttonstyle{
-    @apply bg-purple-800 rounded-2xl text-white transition-all duration-200 cursor-pointer hover:bg-purple-400 
+    @apply bg-purple-800 rounded-[13px] text-white transition-all duration-200 cursor-pointer hover:bg-purple-400 
   }
 }
