@@ -1,12 +1,13 @@
 import { Mainpg } from "./pages/mainpaige"
-
+import { Locationspg } from "./pages/locatinpg"
 
 function App() {
 
 
   return (
     <>
- <Mainpg></Mainpg>
+ {/* <Mainpg></Mainpg> */}
+ <Locationspg></Locationspg>
     </>
   )
 }

@@ -35,7 +35,7 @@ export const Cart:React.FC= ()=> {
         listStyle: "none",
         margin: 0,
         padding: 0,
-        zIndex: 100,
+        zIndex: 1000,
         gap:5
       }}>
         

@@ -1,17 +1,14 @@
 import React from "react";
 import { Header } from "../compononts/header";
-import { Welcome } from "../compononts/welcome";
-import { Offers } from "../compononts/offers";
 import { End } from "../compononts/end";
 import { Locations } from "../compononts/locations";
 
 
-export const Mainpg:React.FC<{}>=()=>{
+export const Locationspg:React.FC<{}>=()=>{
     return(
            <>
        <Header></Header>
-       <Welcome></Welcome>
-       <Offers></Offers>
+   <Locations></Locations>
 
              <End></End>
              
