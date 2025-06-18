@@ -53,7 +53,7 @@ if(props.type==='slider' ){
              </div>
              <div className="itembuttons h-[25%] w-full flex flex-row justify-around items-center">
            
-                <button className="buttonstyle text-[0.8em] w-[35%]  " >add to cart</button>
+                <button className="buttonstyle text-[0.8em] w-[35%] h-[50%]  " >Add to cart</button>
                 
 
              </div>
