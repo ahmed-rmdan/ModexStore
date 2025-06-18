@@ -68,19 +68,12 @@ if(props.open==='contact'){
     <dialog open={props.open==='contact'} >
        <div className="fixed w-full h-full bg-gray-500 opacity-80 z-[2000]">
                <div className="fixed w-[50%] h-[50%] top-[25%] left-[25%] bg-white z-3000 opacity-100 flex flex-col items-center justify-around">
-                            <div className="flex flex-col items-center justify-around text-3xl gap-12 text-purple-800">
+                            <div className="flex flex-col items-center justify-around text-xl gap-12 text-purple-800 lg:text-2xl 2xl:text-3xl">
                                   <p> E-MAIL : FOOD-ORDER@gmail.com</p>
                               <p> TELPHONE : 021111000000</p>
                               <p>HOTLINE : 19088</p>
                                <button className="buttonstyle w-[120px] h-[40px]" > close</button>
-                            </div>
-                             
-                              
-                    
-                        
-                       
-                    
-
+                            </div>                                                                                                                          
                </div>
        </div>
        
