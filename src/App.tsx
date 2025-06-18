@@ -6,8 +6,8 @@ function App() {
 
   return (
     <>
- {/* <Mainpg></Mainpg> */}
- <Locationspg></Locationspg>
+ <Mainpg></Mainpg>
+ {/* <Locationspg></Locationspg> */}
     </>
   )
 }

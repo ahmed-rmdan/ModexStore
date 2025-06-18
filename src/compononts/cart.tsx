@@ -23,7 +23,7 @@ export const Cart:React.FC= ()=> {
         </button>
 
     {isOpen && (
-      <ul className='bg-gray-100 left-[-125%] w-[10em] '   style={{
+      <ul className='bg-gray-100 left-[-125%] w-[10em] z-[1000] '   style={{
         position: "absolute",
         display: "flex",
         
@@ -35,7 +35,7 @@ export const Cart:React.FC= ()=> {
         listStyle: "none",
         margin: 0,
         padding: 0,
-        zIndex: 1000,
+       
         gap:5
       }}>
         
