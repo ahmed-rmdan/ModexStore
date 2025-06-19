@@ -39,10 +39,10 @@ export const Cart:React.FC= ()=> {
         gap:5
       }}>
         
-         <Listitem type="cart" price={100} id="151515" imgeurl="" name="blue shirt wit v cut sex" quantity={1}></Listitem>
-                  <Listitem type="cart" price={100} id="151515" imgeurl="" name="blue shirt wit v cut sex" quantity={1}></Listitem>
-                           <Listitem type="cart" price={100} id="151515" imgeurl="" name="blue shirt wit v cut sex" quantity={1}></Listitem>
-                                    <Listitem type="cart" price={100} id="151515" imgeurl="" name="blue shirt wit v cut sex" quantity={1}></Listitem>
+         <Listitem type="cart" price={100} id="151515" imgeurl="" name="blue shirt wit v cut " quantity={1}></Listitem>
+                  <Listitem type="cart" price={100} id="151515" imgeurl="" name="blue shirt wit v cut " quantity={1}></Listitem>
+                           <Listitem type="cart" price={100} id="151515" imgeurl="" name="blue shirt wit v cut " quantity={1}></Listitem>
+                                    <Listitem type="cart" price={100} id="151515" imgeurl="" name="blue shirt wit v cut " quantity={1}></Listitem>
            
 
            <div className="flex flex-row justify-around w-[100%] items-center h-[1.5em] ">

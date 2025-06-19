@@ -16,7 +16,7 @@ function handleprev(){
 return(
                          <div className="flex flex-row ">
 
-                               <button className="items-center justify-center" onClick={handleprev}><ArrowLeft/></button>
+                               <button className="cursor-pointer" onClick={handleprev}><ArrowLeft/></button>
                              
                            
                                <div className="flex flex-row w-[100px] overflow-hidden "  >
@@ -28,7 +28,7 @@ return(
 
                                </div>
                               
-                              <button className="next" onClick={handlenext}><ArrowRight /></button>
+                              <button className="cursor-pointer" onClick={handlenext}><ArrowRight /></button>
                             
                                
                         </div>
