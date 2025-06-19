@@ -18,7 +18,7 @@ export const Cart:React.FC= ()=> {
 // const empty=<p>no products yet</p>
   return (
   <div  className="relative">
-        <button className="cursor-pointer hover:text-purple-800 hover:text-[110%] transition-all duration-200 " onClick={toggleDropdown}>
+        <button className="cursor-pointer hover:text-purple-800  transition-all duration-200 " onClick={toggleDropdown}>
                  cart 0
         </button>
 

@@ -1,14 +1,12 @@
-import { Mainpg } from "./pages/mainpaige"
-import { Locationspg } from "./pages/locatinpg"
-import { Categoriespg } from "./pages/categoriespg"
+
+import { Shoppg } from "./pages/shoppg"
 function App() {
 
 
   return (
     <>
-    <Categoriespg></Categoriespg>
- {/* <Mainpg></Mainpg> */}
- {/* <Locationspg></Locationspg> */}
+    <Shoppg></Shoppg>
+
     </>
   )
 }
