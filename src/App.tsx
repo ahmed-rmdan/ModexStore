@@ -1,11 +1,13 @@
 
-import { Shoppg } from "./pages/shoppg"
+import { Productpg } from "./pages/productpg"
+
+
 function App() {
 
 
   return (
     <>
-    <Shoppg></Shoppg>
+        <Productpg></Productpg>
 
     </>
   )
