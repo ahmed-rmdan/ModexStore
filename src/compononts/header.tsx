@@ -1,15 +1,17 @@
 import React from "react";
 import { Cart } from "./cart";
-
+import { NavLink } from "react-router-dom";
 export const Header:React.FC<{}>=()=>{
+
+
     return(
-           <nav className="flex flex-col  w-full p-10  justify-between gap-[20px]  items-center text-black text-[2.1px] sm:text-[3.5px]  lg:gap-[40px] lg:text-[6px] xl:flex-row xl:text-[4px] 2xl:text-[4.5px]   ">
-             <h1 className=" text-center  font-bold w-[40%] sm:w-[25%]  text-[6em] xl:w-[15%]  2xl:w-[20%] 2xl:text-[7em] " > Clothes Shop</h1>
+           <nav className="flex flex-col  w-full p-10  justify-between gap-[20px]  items-center text-black text-[2.5px] sm:text-[3.5px]  lg:gap-[40px] lg:text-[6px] xl:flex-row xl:text-[4px] 2xl:text-[4.5px]   ">
+             <NavLink className=" text-center  font-bold w-[40%] sm:w-[25%]  text-[6em] xl:w-[15%]  2xl:w-[20%] 2xl:text-[7em] " to={'/'}><h1  > Clothes Shop</h1></NavLink>
              <div className="flex flex-row items-center justify-evenly w-[100%] sm:w-[70%] text-[5em] text-black font-semibold md:w-[80%] lg:w-[90%] xl:w-[40%] 2xl:w-[40%] ">
-                <button className="cursor-pointer hover:text-purple-800  transition-all duration-200"> Shop</button>
-                <button className="cursor-pointer hover:text-purple-800  transition-all duration-200"> categories</button>
-                <button className="cursor-pointer hover:text-purple-800  transition-all duration-200"> contact</button>
-                <button className="cursor-pointer hover:text-purple-800  transition-all duration-200"> LOCATIONS</button>
+                <NavLink to={'/products'} className={({isActive})=>isActive?"cursor-pointer text-purple-800 ":"cursor-pointer hover:text-purple-800"}> Shop</NavLink>
+                <NavLink to={'/categories'} className={({isActive})=>isActive?"cursor-pointer text-purple-800 ":"cursor-pointer hover:text-purple-800"}> categories</NavLink>
+                <button className="cursor-pointer hover:text-purple-800  transition-all duration-200" > contact</button>
+               <NavLink className={({isActive})=>isActive?"cursor-pointer text-purple-800 ":"cursor-pointer hover:text-purple-800"} to={'/locations'}> LOCATIONS</NavLink> 
                <Cart></Cart>
              </div>
              <form className="flex flex-row justify-between   sm:w-[85%] md:w-[75%] lg:w-[100%] xl:w-[45%] 2xl:w-[40%] ">

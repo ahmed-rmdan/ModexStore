@@ -9,14 +9,14 @@ import { Locationspg } from "./pages/locatinpg"
 import { Categoriespg } from "./pages/categoriespg"
 import { Shoppg } from "./pages/shoppg"
 import { Productpg } from "./pages/productpg"
-
+import { Catogry } from "./compononts/catogry"
 const router=createBrowserRouter([
   {path:'/',element:<Root></Root>,errorElement:<Eroor></Eroor>,
     children:[
       {index:true,element:<Mainpg></Mainpg>},
       {path:'/locations',element:<Locationspg></Locationspg>},
-      {path:'/catagories',element:<Categoriespg></Categoriespg>},
-      {path:'/catagories/:catagory'},
+      {path:'/categories',element:<Categoriespg></Categoriespg>},
+      {path:'/categories/:catogry',element:<Catogry></Catogry>},
       {path:'/products',element:<Shoppg></Shoppg>},
       
       {path:'/products/:productid',element:<Productpg></Productpg>}

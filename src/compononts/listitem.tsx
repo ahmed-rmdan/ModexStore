@@ -1,6 +1,5 @@
 import React from "react"
-
-
+import { NavLink} from "react-router-dom"
 
 export const Listitem:React.FC<{imgeurl:string,name:string,quantity:number,price:number,type:string,id:string}>=(props)=>{
   
@@ -53,7 +52,8 @@ if(props.type==='slider' ){
              </div>
              <div className="itembuttons h-[25%] w-full flex flex-row justify-around items-center">
            
-                <button className="buttonstyle text-[0.8em] w-[35%] h-[50%]  " >Add to cart</button>
+                <button className="buttonstyle text-[0.7em] w-[35%] h-[50%]  " >Add to cart</button>
+               <NavLink className="buttonstyle text-[0.6em] w-[35%] h-[50%] flex items-center justify-center  " to={`/products/${props.id}`}>Go to Product</NavLink> 
                 
 
              </div>
@@ -81,7 +81,7 @@ if(props.type==='products')
              <div className="itembuttons h-[25%] w-full flex flex-row justify-around items-center">
            
                 <button className="buttonstyle text-[0.8em] w-[25%] h-[80%]  " >Add to cart</button>
-                <button className="buttonstyle text-[0.8em] w-[25%] h-[80%]  " >go to product</button>
+                <NavLink to={`/products/${props.id}`} className="buttonstyle text-[0.8em] w-[25%] h-[80%] flex items-center justify-center  " >go to product</NavLink>
                 
 
              </div>

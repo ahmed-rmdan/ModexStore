@@ -19,7 +19,7 @@ export const Product:React.FC<{}>=()=>{
                          <p className="text-[1.1em] text-center font-bold"> jeans with blue </p>
                          <p className="text-[1.2em] text-purple-800">price : 100 </p>
                          <div className="flex flex-row w-full items-center justify-center">
-                            <button className="buttonstyle w-[40%] sm:w-[30%]">add product</button>
+                            <button className="buttonstyle w-[40%] sm:w-[25%]"> Add Product</button>
                             
 
                          </div>
