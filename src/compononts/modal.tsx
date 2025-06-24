@@ -10,7 +10,7 @@ if(elemnt===null)
     return;
 else{
   return createPortal(
-    <Dialog open='contact'></Dialog>
+    <Dialog open=''></Dialog>
 
 
     ,elemnt

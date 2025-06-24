@@ -1,15 +1,35 @@
 
+
+import { RouterProvider } from "react-router-dom"
+import { createBrowserRouter } from "react-router-dom"
+import { Root } from "./pages/root"
+import { Eroor } from "./pages/errorpg"
+import { Mainpg } from "./pages/mainpaige"
+import { Locationspg } from "./pages/locatinpg"
+import { Categoriespg } from "./pages/categoriespg"
+import { Shoppg } from "./pages/shoppg"
 import { Productpg } from "./pages/productpg"
+
+const router=createBrowserRouter([
+  {path:'/',element:<Root></Root>,errorElement:<Eroor></Eroor>,
+    children:[
+      {index:true,element:<Mainpg></Mainpg>},
+      {path:'/locations',element:<Locationspg></Locationspg>},
+      {path:'/catagories',element:<Categoriespg></Categoriespg>},
+      {path:'/catagories/:catagory'},
+      {path:'/products',element:<Shoppg></Shoppg>},
+      
+      {path:'/products/:productid',element:<Productpg></Productpg>}
+    ]
+  }
+])
 
 
 function App() {
 
 
   return (
-    <>
-        <Productpg></Productpg>
-
-    </>
+   <RouterProvider router={router}></RouterProvider>
   )
 }
 
