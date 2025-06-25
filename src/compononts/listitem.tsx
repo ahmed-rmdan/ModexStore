@@ -1,10 +1,18 @@
 import React from "react"
 import { NavLink} from "react-router-dom"
-
+import { useAppDispatch } from "../store/hook";
+import { cartactions } from "../store/store";
 export const Listitem:React.FC<{imgeurl:string,name:string,quantity:number,price:number,type:string,id:string}>=(props)=>{
-  
+    const dispatch=useAppDispatch()
+  function handleAddcart(){
+dispatch(cartactions.additeem({price:props.price,name:props.name,id:props.id,quantity:1}))
+  }
+  function handleremove(){
+    dispatch(cartactions.removeitem({id:props.id}))
+  }
+
 if(props.type==='cart' ){
-   
+
     return(
 
         <li className="flex flex-col w-[90%] bg-white h-[7em] justify-around" >
@@ -24,7 +32,7 @@ if(props.type==='cart' ){
              <div className="itembuttons h-[30%] w-full flex flex-row justify-around items-center">
                 <button className=" text-[0.9em] cursor-pointer  " >+</button>
                 <button className=" text-[0.9em] cursor-pointer  " >-</button>
-                <button className="buttonstyle text-[0.7em] w-[35%]  " >remove</button>
+                <button className="buttonstyle text-[0.7em] w-[35%]  " onClick={handleremove} >remove</button>
                 
 
              </div>
@@ -52,7 +60,7 @@ if(props.type==='slider' ){
              </div>
              <div className="itembuttons h-[25%] w-full flex flex-row justify-around items-center">
            
-                <button className="buttonstyle text-[0.7em] w-[35%] h-[50%]  " >Add to cart</button>
+                <button className="buttonstyle text-[0.7em] w-[35%] h-[50%]  " onClick={handleAddcart} >Add to cart</button>
                <NavLink className="buttonstyle text-[0.6em] w-[35%] h-[50%] flex items-center justify-center  " to={`/products/${props.id}`}>Go to Product</NavLink> 
                 
 

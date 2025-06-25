@@ -2,12 +2,14 @@
 import React, { useState } from "react";
 
 import { Listitem } from "./listitem";
-
+import { useAppSelector,useAppDispatch } from "../store/hook";
 
 
 
 export const Cart:React.FC= ()=> {
+ const crtitems=useAppSelector((state)=>state)
   
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -38,11 +40,13 @@ export const Cart:React.FC= ()=> {
        
         gap:5
       }}>
+       {crtitems.map(elm=>{
+        return  <Listitem type="cart" price={elm.price} id={elm.id} imgeurl="" name={elm.name} quantity={elm.quantity}></Listitem>
+       })}
+
         
-         <Listitem type="cart" price={100} id="151515" imgeurl="" name="blue shirt wit v cut " quantity={1}></Listitem>
-                  <Listitem type="cart" price={100} id="151515" imgeurl="" name="blue shirt wit v cut " quantity={1}></Listitem>
-                           <Listitem type="cart" price={100} id="151515" imgeurl="" name="blue shirt wit v cut " quantity={1}></Listitem>
-                                    <Listitem type="cart" price={100} id="151515" imgeurl="" name="blue shirt wit v cut " quantity={1}></Listitem>
+         
+              
            
 
            <div className="flex flex-row justify-around w-[100%] items-center h-[1.5em] ">
