@@ -2,6 +2,7 @@ import React from "react"
 import { Listitem } from "./listitem"
 import { ArrowBigLeft } from 'lucide-react';
 import {ArrowBigRight} from 'lucide-react';
+
 const items:{price:number,id:string,imgurl:string,name:string}[]=[{price:80,id:'asda8848',imgurl:'',name:'tshirt black with v'},
       {price:200,id:'awreqr87',imgurl:'',name:'tshirt polo'},
       {price:150,id:'aagerw6',imgurl:'',name:'tshirt sada'}

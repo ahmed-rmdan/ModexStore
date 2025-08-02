@@ -11,7 +11,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 } */
-
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ 
+} */
 @layer{
   .buttonstyle{
     @apply bg-purple-800 rounded-[13px] text-white transition-all duration-200 cursor-pointer hover:bg-purple-400 
