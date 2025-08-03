@@ -7,7 +7,7 @@ import { Modal } from "../compononts/modal";
 
 export const Root:React.FC<{}>=()=>{
     return(
-           <>
+           <body className="relative">
        <Header></Header>
          <Modal></Modal>             
            <Outlet></Outlet>   
@@ -15,6 +15,6 @@ export const Root:React.FC<{}>=()=>{
              <End></End>
              
 
-           </>
+           </body>
     )
 }
