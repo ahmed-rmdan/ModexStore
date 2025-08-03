@@ -12,6 +12,7 @@ import { Productpg } from "./pages/productpg"
 import { Catogry } from "./compononts/catogry"
 import { Aboutus } from "./pages/aboutus"
 import { Terms } from "./pages/terms"
+import { Contact } from "./pages/contact"
 const router=createBrowserRouter([
   {path:'/',element:<Root></Root>,errorElement:<Eroor></Eroor>,
     children:[
@@ -23,7 +24,8 @@ const router=createBrowserRouter([
       
       {path:'/products/:productid',element:<Productpg></Productpg>},
       {path:'/aboutus' ,element:<Aboutus></Aboutus>},
-      {path:'/terms',element:<Terms></Terms>}
+      {path:'/terms',element:<Terms></Terms>},
+      {path:'/contact',element:<Contact></Contact>}
 
     ]
   }

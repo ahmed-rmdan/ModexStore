@@ -26,16 +26,26 @@ return(
              <div className="flex flex-row items-center justify-evenly w-[60%] sm:w-[70%] text-[5em] text-black font-semibold md:w-[55%] md:text-[4em] lg:w-[55%] lg:text-[4em]  xl:w-[50%] xl:text-[5em] 2xl:w-[50%] ">
                 <NavLink to={'/products'} className={({isActive})=>isActive?"cursor-pointer text-purple-800 ":"cursor-pointer hover:text-purple-800"}> Shop</NavLink>
                 <NavLink to={'/categories'} className={({isActive})=>isActive?"cursor-pointer text-purple-800 ":"cursor-pointer hover:text-purple-800"}> categories</NavLink>
-                <button className="cursor-pointer hover:text-purple-800  transition-all duration-200" > contact</button>
+                <NavLink to={'contact'} className="cursor-pointer hover:text-purple-800  transition-all duration-200" > contact</NavLink>
                <NavLink className={({isActive})=>isActive?"cursor-pointer text-purple-800 ":"cursor-pointer hover:text-purple-800"} to={'/locations'}> LOCATIONS</NavLink> 
-               <Cart></Cart>
+                   <div className=" flex flex-row items-center text-[1em]  gap-[5px] hover:text-purple-800">
+                <ShoppingCart size={'0.9em'}></ShoppingCart>
+              <Cart ></Cart>
+            </div>
              </div>
              
 
             
-            <div className="flex justify-around w-[20%] lg:w-[20%] xl:w-[15%] ">
+            <div className="flex items-center justify-around w-[22%] lg:w-[22%] xl:w-[20%]  ">
+{/* 
                 <button className=" border-2 buttonstyle w-[5em] cursor-pointer text-[4em]  lg:text-[4em] xl:text-[4.5em] ">log in</button>
-             <button className=" border-2 buttonstyle w-[5em] cursor-pointer text-[4em] lg:text-[4em] xl:text-[4.5em]">sign up</button>
+             <button className=" border-2 buttonstyle w-[5em] cursor-pointer text-[4em] lg:text-[4em] xl:text-[4.5em]">sign up</button> */}
+                       
+                       <button className=" text-purple-800 w-[5em] cursor-pointer text-[3em]  lg:text-[3.5em] xl:text-[4.5em] hover:underline  hover:text-purple-900 ">Wishlist</button>
+             <button className="  text-purple-800  w-[5em] cursor-pointer text-[3em] lg:text-[3.5em] xl:text-[4.5em] hover:underline  hover:text-purple-900">My Orders</button> 
+             <button className="  text-red-500  w-[5em] cursor-pointer text-[3em] lg:text-[3.5em] xl:text-[4.5em] hover:underline">LogOut</button>      
+           
+
             </div>
             
 
@@ -48,36 +58,41 @@ return(
 else {
   return(
 <nav className="flex flex-row sticky top-0 bg-white z-[10000]  w-full  p-6  justify-between   items-center text-black text-[2.5px] sm:text-[3.5px]   lg:text-[4px] xl:flex-row xl:text-[4px] 2xl:text-[4.5px] h-[15px]   ">
-             <div className="flex flex-row w-[40%] items-center gap-[7%]">
+             <div className="flex flex-row w-[60%] items-center gap-[7%]">
                <AlignJustify color="#59168b" onClick={handleclick}></AlignJustify>
-             <NavLink className=" text-center  text-purple-900 font-bold text-[5em]    " to={'/'}><h1  > Modex Store</h1></NavLink>
+             <NavLink className=" text-center  text-purple-900 font-bold text-[5.5em]    " to={'/'}><h1  > Modex Store</h1></NavLink>
              </div>
              
-            {menu?<div className="flex flex-col absolute left-0 top-10 h-[900px] w-[25%] items-center justify-start bg-white z-[10000]  ">
+            {menu?<div className="flex flex-col absolute left-0 top-10 gap-[30px] h-[900px] w-[25%] items-center justify-start bg-white z-[10000]  ">
                   <div className="flex flex-col items-center justify-end h-[300px] gap-[50px] text-[4.5em] ">
                         <NavLink to={'/products'} className={({isActive})=>isActive?"cursor-pointer text-purple-800 underline ":"cursor-pointer hover:text-purple-800 "}> Shop</NavLink>
                 <NavLink to={'/categories'} className={({isActive})=>isActive?"cursor-pointer text-purple-800 underline ":"cursor-pointer hover:text-purple-800 "}> categories</NavLink>
-                <button className="cursor-pointer hover:text-purple-800  transition-all duration-200 " > contact</button>
+                <NavLink className="cursor-pointer hover:text-purple-800  transition-all duration-200 " to={'/contact'}> contact</NavLink>
                <NavLink className={({isActive})=>isActive?"cursor-pointer underline  text-purple-800":"cursor-pointer hover:text-purple-800 "} to={'/locations'}> LOCATIONS</NavLink> 
-          
+                  </div>
+                  <div className="flex flex-col h-[150px] w-[80%] border-t-1 gap-[20px] items-center justify-center ">
+                           {/* <button className=" border-2 buttonstyle w-[5.5em] cursor-pointer text-[4.5em]  ">log in</button>
+             <button className=" border-2 buttonstyle w-[5.5em] cursor-pointer text-[4.5em] ">sign up</button> */}
+
+                                <button className="  w-[5em] cursor-pointer text-[4.5em]  hover:underline  hover:text-purple-900 ">Wishlist</button>
+             <button className="    w-[5em] cursor-pointer text-[4.5em]  hover:underline  hover:text-purple-900">My Orders</button> 
+             <button className="  text-red-500  w-[5em] cursor-pointer text-[4.5em]  hover:underline">LogOut</button>  
+                         
 
                   </div>
+
+
+
                 
             </div>: ''}
-             {/* <div className="flex flex-row items-center justify-evenly w-[60%] sm:w-[70%] text-[5em] text-black font-semibold md:w-[55%] md:text-[4em] lg:w-[55%] lg:text-[4em]  xl:w-[50%] xl:text-[5em] 2xl:w-[50%] ">
-              
-             </div> */}
+     
              
-            <div className=" flex flex-row items-center text-[4.2em] w-[15%] gap-[5px] text-purple-800">
+            <div className=" flex flex-row justify-end items-center text-[6.9em]  w-[35%] gap-[5px] text-purple-800">
                 <ShoppingCart size={'0.9em'}></ShoppingCart>
               <Cart ></Cart>
             </div>
             
-            <div className="flex flex-row justify-around w-[35%]  ">
-              
-                <button className=" border-2 buttonstyle w-[5.5em] cursor-pointer text-[4.5em]  ">log in</button>
-             <button className=" border-2 buttonstyle w-[5.5em] cursor-pointer text-[4.5em] ">sign up</button>
-            </div>
+            
             
 
             

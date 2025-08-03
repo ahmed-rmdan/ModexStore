@@ -11,7 +11,7 @@ export const Cart:React.FC= ()=> {
   
 
   const [isOpen, setIsOpen] = useState(false);
-
+ const itemslength=crtitems.length
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
@@ -25,7 +25,7 @@ export const Cart:React.FC= ()=> {
         </button>
 
     {isOpen && (
-      <ul className='bg-gray-100 left-[-125%] w-[10em] z-[1000] '   style={{
+      <ul className='bg-gray-100 left-[-250%] sm:left-[-125%]  w-[10em] z-[1000] '   style={{
         position: "absolute",
         display: "flex",
         
@@ -40,7 +40,7 @@ export const Cart:React.FC= ()=> {
        
         gap:5
       }}>
-       {crtitems.map(elm=>{
+       {itemslength===0?<p className="text-black text-[0.8em] sm:text-[1em]">No Products </p>:crtitems.map(elm=>{
         return  <Listitem type="cart" price={elm.price} id={elm.id} imgeurl="" name={elm.name} quantity={elm.quantity}></Listitem>
        })}
 
@@ -49,11 +49,11 @@ export const Cart:React.FC= ()=> {
               
            
 
-           <div className="flex flex-row justify-around w-[100%] items-center h-[1.5em] ">
+           {itemslength==0? <button className="border-2 buttonstyle w-[5em] cursor-pointer text-[0.8em]" onClick={toggleDropdown}>Close</button>:<div className="flex flex-row justify-around w-[100%] items-center h-[1.5em] ">
                 <button className="border-2 buttonstyle w-[5em] cursor-pointer text-[0.8em]">Purchase</button>
                 <button className="border-2 buttonstyle w-[5em] cursor-pointer text-[0.8em]" onClick={toggleDropdown}>Close</button>
 
-          </div>
+          </div>}
            
       </ul>
     )}

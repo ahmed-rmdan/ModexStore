@@ -10,6 +10,13 @@ dispatch(cartactions.additeem({price:props.price,name:props.name,id:props.id,qua
   function handleremove(){
     dispatch(cartactions.removeitem({id:props.id}))
   }
+  function handleincrease(){
+    dispatch(cartactions.increase({id:props.id}))
+  }
+    function handledecrease(){
+    dispatch(cartactions.decrease({id:props.id}))
+  }
+
 
 if(props.type==='cart' ){
 
@@ -30,8 +37,8 @@ if(props.type==='cart' ){
 
              </div>
              <div className="itembuttons h-[30%] w-full flex flex-row justify-around items-center">
-                <button className=" text-[0.9em] cursor-pointer  " >+</button>
-                <button className=" text-[0.9em] cursor-pointer  " >-</button>
+                <button className=" text-[0.9em] cursor-pointer  " onClick={handleincrease} >+</button>
+                <button className=" text-[0.9em] cursor-pointer  " onClick={handledecrease} >-</button>
                 <button className="buttonstyle text-[0.7em] w-[35%]  " onClick={handleremove} >remove</button>
                 
 

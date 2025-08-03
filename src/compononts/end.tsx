@@ -6,7 +6,7 @@ export const End:React.FC<{}>=()=>{
     <section className="flex flex-row items-center justify-around w-full h-[55px] md:h-[80px] bg-purple-800 text-white text-[0.65em] md:text-[1em] xl:text-[1.2em]  ">
          <NavLink to='/aboutus'>About Us</NavLink>
          <NavLink to='/terms'>Term&Conditions</NavLink>
-         <p className=" cursor-pointer">Contact Us</p>
+         <NavLink to={'/contact'} className=" cursor-pointer">Contact Us</NavLink>
    
     </section>
 
