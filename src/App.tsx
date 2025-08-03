@@ -10,6 +10,8 @@ import { Categoriespg } from "./pages/categoriespg"
 import { Shoppg } from "./pages/shoppg"
 import { Productpg } from "./pages/productpg"
 import { Catogry } from "./compononts/catogry"
+import { Aboutus } from "./pages/aboutus"
+import { Terms } from "./pages/terms"
 const router=createBrowserRouter([
   {path:'/',element:<Root></Root>,errorElement:<Eroor></Eroor>,
     children:[
@@ -19,7 +21,10 @@ const router=createBrowserRouter([
       {path:'/categories/:catogry',element:<Catogry></Catogry>},
       {path:'/products',element:<Shoppg></Shoppg>},
       
-      {path:'/products/:productid',element:<Productpg></Productpg>}
+      {path:'/products/:productid',element:<Productpg></Productpg>},
+      {path:'/aboutus' ,element:<Aboutus></Aboutus>},
+      {path:'/terms',element:<Terms></Terms>}
+
     ]
   }
 ])
