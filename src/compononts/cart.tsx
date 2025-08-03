@@ -25,15 +25,14 @@ export const Cart:React.FC= ()=> {
         </button>
 
     {isOpen && (
-      <ul className='bg-gray-100 left-[-250%] sm:left-[-125%]  w-[10em] z-[1000] '   style={{
+      <ul className='bg-gray-100 overflow-auto max-h-[600px] left-[-250%] sm:left-[-125%]  w-[10em] z-[1000] '   style={{
         position: "absolute",
         display: "flex",
         
         flexDirection: "column",
         alignItems: "center",
         top: "130%",
-    
-     
+       
         listStyle: "none",
         margin: 0,
         padding: 0,

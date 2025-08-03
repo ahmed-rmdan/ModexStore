@@ -22,7 +22,7 @@ if(props.type==='cart' ){
 
     return(
 
-        <li className="flex flex-col w-[90%] bg-white h-[7em] justify-around" >
+        <li className="flex flex-col w-[90%] bg-white min-h-[7em] justify-around" >
             <div className="flex flex-row w-full h-[65%] justify-around">
                    <img src={props.imgeurl} className="w-[40%] h-full" >
                 

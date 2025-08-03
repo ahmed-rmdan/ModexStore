@@ -5,11 +5,11 @@ import {ArrowBigRight} from 'lucide-react';
 import { useEffect,useState,useRef } from "react";
 
 const items:{price:number,id:string,imgurl:string,name:string}[]=[{price:80,id:'asda8848',imgurl:'',name:'1'},
-      {price:200,id:'awreqr87',imgurl:'',name:'2'},
-      {price:150,id:'aagerw6',imgurl:'',name:'3'},
-      {price:200,id:'awreqr87',imgurl:'',name:'4'},
-      {price:200,id:'awreqr87',imgurl:'',name:'5'},
-      {price:200,id:'awreqr87',imgurl:'',name:'6'}
+      {price:200,id:'awrezv57',imgurl:'',name:'2'},
+      {price:150,id:'aagefasw86',imgurl:'',name:'3'},
+      {price:200,id:'awread787',imgurl:'',name:'4'},
+      {price:200,id:'awreqjkm89',imgurl:'',name:'5'},
+      {price:200,id:'awreqr627',imgurl:'',name:'6'}
 ]
 export const Offers:React.FC<{}>=()=>{
       const widthslider=useRef<HTMLDivElement>(null)
