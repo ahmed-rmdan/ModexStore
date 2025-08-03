@@ -54,11 +54,11 @@ else {
              </div>
              
             {menu?<div className="flex flex-col absolute left-0 top-10 h-[900px] w-[25%] items-center justify-start bg-white z-[10000]  ">
-                  <div className="flex flex-col items-center justify-end h-[300px] gap-[50px] text-purple-800 text-[4.5em] ">
+                  <div className="flex flex-col items-center justify-end h-[300px] gap-[50px] text-[4.5em] ">
                         <NavLink to={'/products'} className={({isActive})=>isActive?"cursor-pointer text-purple-800 underline ":"cursor-pointer hover:text-purple-800 "}> Shop</NavLink>
                 <NavLink to={'/categories'} className={({isActive})=>isActive?"cursor-pointer text-purple-800 underline ":"cursor-pointer hover:text-purple-800 "}> categories</NavLink>
                 <button className="cursor-pointer hover:text-purple-800  transition-all duration-200 " > contact</button>
-               <NavLink className={({isActive})=>isActive?"cursor-pointer underline":"cursor-pointer hover:text-purple-800 "} to={'/locations'}> LOCATIONS</NavLink> 
+               <NavLink className={({isActive})=>isActive?"cursor-pointer underline  text-purple-800":"cursor-pointer hover:text-purple-800 "} to={'/locations'}> LOCATIONS</NavLink> 
           
 
                   </div>

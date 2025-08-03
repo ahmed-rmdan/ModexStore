@@ -43,7 +43,7 @@ if(props.type==='slider' ){
    
     return(
 
-        <li className="flex flex-col min-w-[300px] max-w-[300px] bg-gray-100 h-[100%] text-2xl rounded-2xl  items-center justify-around" >
+        <li className="flex flex-col min-w-[250px] max-w-[250px] bg-gray-100 h-[100%] text-2xl rounded-2xl  items-center justify-around" >
             <div className="flex flex-row w-[95%] h-[60%] justify-around">
                    <img src={props.imgeurl} className="w-[40%] h-full" >
                 
@@ -60,8 +60,8 @@ if(props.type==='slider' ){
              </div>
              <div className="itembuttons h-[25%] w-full flex flex-row justify-around items-center">
            
-                <button className="buttonstyle text-[0.7em] w-[35%] h-[50%]  " onClick={handleAddcart} >Add to cart</button>
-               <NavLink className="buttonstyle text-[0.6em] w-[35%] h-[50%] flex items-center justify-center  " to={`/products/${props.id}`}>Go to Product</NavLink> 
+                <button className="buttonstyle text-[0.6em] w-[35%] h-[50%]  " onClick={handleAddcart} >Add to cart</button>
+               <NavLink className="buttonstyle text-[0.5em] w-[40%] h-[50%] flex items-center justify-center  " to={`/products/${props.id}`}>Go to Product</NavLink> 
                 
 
              </div>
