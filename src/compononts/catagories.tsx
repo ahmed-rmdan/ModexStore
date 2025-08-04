@@ -14,7 +14,7 @@ const catagories:{name:string,img:string}[]=[{name:'T-shirts',img:tshirts},{name
 export const Catagories:React.FC<{}>=()=>{
     return(
           <section className="container h-[760px] items-center mx-auto flex flex-col justify-start gap-[50px] ">
-                     <h1 className="color text-center text-purple-800 font-bold text-[2em] sm:text-[3em] underline">Catagories</h1>
+                     <h1 className="color text-center text-purple-800 font-bold text-[2em] sm:text-[3em] underline">Categories</h1>
                       
                       <div className=" grid  sm:w-[90%] items-center self-center gap-y-[20px] mb-[20px] grid-cols-1 md:grid-cols-2 xl:grid-cols-3 ">
 
