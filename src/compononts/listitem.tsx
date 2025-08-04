@@ -2,6 +2,7 @@ import React from "react"
 import { NavLink} from "react-router-dom"
 import { useAppDispatch } from "../store/hook";
 import { cartactions } from "../store/store";
+import { Heart } from 'lucide-react';
 export const Listitem:React.FC<{imgeurl:string,name:string,quantity:number,price:number,type:string,id:string}>=(props)=>{
     const dispatch=useAppDispatch()
   function handleAddcart(){
@@ -78,7 +79,7 @@ if(props.type==='slider' ){
 if(props.type==='products')
     return(
 
- <li className="flex flex-col w-[90%] bg-gray-100 h-[150px]  rounded-2xl  items-center justify-around text-[12px] md:text-[15px] lg:text-[20px] xl:text-2xl" >
+ <li className="flex flex-col w-[90%] bg-gray-100 h-[150px]  rounded-2xl  items-center justify-around text-[10.2px] sm:text-[15px] lg:text-[20px] xl:text-2xl" >
             <div className="flex flex-row w-[95%] h-[60%] justify-around">
                    <img src={props.imgeurl} className="w-[40%] h-full" >
                 
@@ -93,11 +94,11 @@ if(props.type==='products')
              
 
              </div>
-             <div className="itembuttons h-[25%] w-full flex flex-row justify-around items-center">
+             <div className="itembuttons h-[25%] w-full flex flex-row justify-center gap-[10%] items-center">
            
-                <button className="buttonstyle text-[0.8em] w-[25%] h-[80%]  " >Add to cart</button>
-                <NavLink to={`/products/${props.id}`} className="buttonstyle text-[0.8em] w-[25%] h-[80%] flex items-center justify-center  " >go to product</NavLink>
-                
+                <button className="buttonstyle text-[0.8em] w-[26%] sm:w-[23%] 2xl:w-[20%] h-[77%]  " onClick={handleAddcart} >Add to cart</button>
+                <NavLink to={`/product/${props.id}`} className="buttonstyle text-[0.8em] w-[31%] sm:w-[24%] 2xl:w-[20%] h-[77%] flex items-center justify-center  " >go to product</NavLink>
+                <Heart className="fill-red-500 cursor-pointer w-[10%] sm:w-[8%]" size={'1.5em'} width={'8%'} color="red" ></Heart>
 
              </div>
         </li>

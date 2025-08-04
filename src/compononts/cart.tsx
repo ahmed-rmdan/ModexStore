@@ -21,7 +21,7 @@ export const Cart:React.FC= ()=> {
   return (
   <div  className="relative">
         <button className="cursor-pointer hover:text-purple-800  transition-all duration-200 " onClick={toggleDropdown}>
-                 cart 0
+                 cart {itemslength}
         </button>
 
     {isOpen && (

@@ -9,20 +9,23 @@ import { Locationspg } from "./pages/locatinpg"
 import { Categoriespg } from "./pages/categoriespg"
 import { Shoppg } from "./pages/shoppg"
 import { Productpg } from "./pages/productpg"
-import { Catogry } from "./compononts/catogry"
+import { Cateogry } from "./compononts/cateogry"
 import { Aboutus } from "./pages/aboutus"
 import { Terms } from "./pages/terms"
 import { Contact } from "./pages/contact"
+import { Allproducts } from "./compononts/allproducts"
 const router=createBrowserRouter([
   {path:'/',element:<Root></Root>,errorElement:<Eroor></Eroor>,
     children:[
       {index:true,element:<Mainpg></Mainpg>},
       {path:'/locations',element:<Locationspg></Locationspg>},
-      {path:'/categories',element:<Categoriespg></Categoriespg>},
-      {path:'/categories/:catogry',element:<Catogry></Catogry>},
-      {path:'/products',element:<Shoppg></Shoppg>},
+      {path:'/categories',element:<Categoriespg></Categoriespg>},  
+      {path:'/products',element:<Shoppg></Shoppg>,children:[
+        {index:true,element:<Allproducts></Allproducts>},
+        {path:'/products/:category',element:<Cateogry></Cateogry>}
+      ]},
       
-      {path:'/products/:productid',element:<Productpg></Productpg>},
+      {path:'/product/:productid',element:<Productpg></Productpg>},
       {path:'/aboutus' ,element:<Aboutus></Aboutus>},
       {path:'/terms',element:<Terms></Terms>},
       {path:'/contact',element:<Contact></Contact>}

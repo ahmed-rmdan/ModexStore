@@ -1,11 +1,32 @@
 import React from "react";
 
-import { Producs } from "../compononts/products";
-
+import { NavLink } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+const Catagories=['T-shirts','Shirts','Jeans' ,'Jackets','Shoes','Socks']
 
 export const Shoppg:React.FC<{}>=()=>{
     return(
+            <section className="w-[100%] flex flex-row h-[1050px] items-center  bg-gray-200 text-[8px] md:text-[10px] lg:text-[13px] xl:text-[16px] ">
                       
-               <Producs></Producs>          
+                      <div className="flex flex-col ml-[20px] sm:ml-[50px] rounded-2xl w-[27%] sm:w-[20%] h-[85%] bg-white  items-center gap-[60px]">
+                                <h1 className="text-purple-800 text-[2em] underline font-bold mt-[30px]"> Categories</h1>
+                                <div className="flex flex-col items-center gap-[60px]">
+                                    {Catagories.map(elm=>{
+                                          return  <NavLink to={`/products/${elm}`} className={({isActive})=>isActive?" text-purple-800 text-[1.5em] cursor-pointer underline":" text-purple-800 text-[1.5em] cursor-pointer hover:underline"}>{elm}</NavLink>
+                                    })}                                                     
+                                       
+                                </div>  
+                      </div>
+                       <div className="flex flex-col w-[70%] items-center gap-[30px]">
+                       
+                              <Outlet></Outlet>
+                       </div>
+
+
+            </section>
+
+
+
+
     )
 }
