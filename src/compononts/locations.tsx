@@ -5,8 +5,8 @@ import {Location} from "./location";
 export const Locations:React.FC<{}>=()=>{
    
     return(
-         <section className="container flex flex-col h-[1750px] text-[5px] mx-auto justify-around">
-                <p className="text-[8em] font-bold text-purple-800 underline h-[100px]">Locations</p>
+         <section className="container text-center flex flex-col h-[1750px] text-[4.3px] sm:text-[5px] mx-auto justify-around">
+                <p className="text-[9em] font-bold text-purple-800 underline h-[100px]">Branch Locations</p>
                 <div className="locations">
                      <div className="flex flex-col w-[50%] h-[400px]  text-purple-800 ">
                            <p className="text-[7em] font-bold h-[50px] self-center">Cairo</p>
