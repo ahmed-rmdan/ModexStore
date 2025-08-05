@@ -36,14 +36,14 @@ return(
              
 
             
-            <div className="flex items-center justify-around w-[22%] lg:w-[22%] xl:w-[20%]  ">
-{/* 
-                <button className=" border-2 buttonstyle w-[5em] cursor-pointer text-[4em]  lg:text-[4em] xl:text-[4.5em] ">log in</button>
-             <button className=" border-2 buttonstyle w-[5em] cursor-pointer text-[4em] lg:text-[4em] xl:text-[4.5em]">sign up</button> */}
+            <div className="flex items-center justify-evenly w-[22%] lg:w-[22%] xl:w-[20%]  ">
+
+                <NavLink to='/signin' className=" border-2 buttonstyle w-[5em] cursor-pointer text-[4em] text-center  lg:text-[4em] xl:text-[4.5em] ">log in</NavLink>
+             <button className=" border-2 buttonstyle w-[5em] cursor-pointer text-[4em] lg:text-[4em] xl:text-[4.5em]">sign up</button>
                        
-                       <button className=" text-purple-800 w-[5em] cursor-pointer text-[3em]  lg:text-[3.5em] xl:text-[4.5em] hover:underline  hover:text-purple-900 ">Wishlist</button>
+                       {/* <button className=" text-purple-800 w-[5em] cursor-pointer text-[3em]  lg:text-[3.5em] xl:text-[4.5em] hover:underline  hover:text-purple-900 ">Wishlist</button>
              <button className="  text-purple-800  w-[5em] cursor-pointer text-[3em] lg:text-[3.5em] xl:text-[4.5em] hover:underline  hover:text-purple-900">My Orders</button> 
-             <button className="  text-red-500  w-[5em] cursor-pointer text-[3em] lg:text-[3.5em] xl:text-[4.5em] hover:underline">LogOut</button>      
+             <button className="  text-red-500  w-[5em] cursor-pointer text-[3em] lg:text-[3.5em] xl:text-[4.5em] hover:underline">LogOut</button>       */}
            
 
             </div>
@@ -71,12 +71,12 @@ else {
                <NavLink className={({isActive})=>isActive?"cursor-pointer underline  text-purple-800":"cursor-pointer hover:text-purple-800 "} to={'/locations'}> Locations</NavLink> 
                   </div>
                   <div className="flex flex-col h-[150px] w-[80%] border-t-1 gap-[20px] items-center justify-center ">
-                           {/* <button className=" border-2 buttonstyle w-[5.5em] cursor-pointer text-[4.5em]  ">log in</button>
-             <button className=" border-2 buttonstyle w-[5.5em] cursor-pointer text-[4.5em] ">sign up</button> */}
+                           <button className=" border-2 buttonstyle w-[5.5em] cursor-pointer text-[4.5em]  ">log in</button>
+             <button className=" border-2 buttonstyle w-[5.5em] cursor-pointer text-[4.5em] ">sign up</button>
 
-                                <button className="  w-[5em] cursor-pointer text-[4.5em]  hover:underline  hover:text-purple-900 ">Wishlist</button>
+                                {/* <button className="  w-[5em] cursor-pointer text-[4.5em]  hover:underline  hover:text-purple-900 ">Wishlist</button>
              <button className="    w-[5em] cursor-pointer text-[4.5em]  hover:underline  hover:text-purple-900">My Orders</button> 
-             <button className="  text-red-500  w-[5em] cursor-pointer text-[4.5em]  hover:underline">LogOut</button>  
+             <button className="  text-red-500  w-[5em] cursor-pointer text-[4.5em]  hover:underline">LogOut</button>   */}
                          
 
                   </div>

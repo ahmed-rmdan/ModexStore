@@ -14,6 +14,7 @@ import { Aboutus } from "./pages/aboutus"
 import { Terms } from "./pages/terms"
 import { Contact } from "./pages/contact"
 import { Allproducts } from "./compononts/allproducts"
+import { Login } from "./pages/login"
 const router=createBrowserRouter([
   {path:'/',element:<Root></Root>,errorElement:<Eroor></Eroor>,
     children:[
@@ -28,7 +29,8 @@ const router=createBrowserRouter([
       {path:'/product/:productid',element:<Productpg></Productpg>},
       {path:'/aboutus' ,element:<Aboutus></Aboutus>},
       {path:'/terms',element:<Terms></Terms>},
-      {path:'/contact',element:<Contact></Contact>}
+      {path:'/contact',element:<Contact></Contact>},
+      {path:'/signin',element:<Login></Login>}
 
     ]
   }
