@@ -1,85 +1,30 @@
 import React from "react";
-
-export const Dialog:React.FC<{open:string}>=(props)=>{
-
-if(props.open==='cartdialoge'){
+import { ArrowRightFromLine } from 'lucide-react';
+import { ArrowLeftFromLine } from 'lucide-react';
+import { useAppDispatch } from "../store/hook";
+import { dialogactions } from "../store/store";
+export const Dialog:React.FC<{open:string,imges:string[]}>=(props)=>{
+    const dispatch=useAppDispatch()
+console.log(props.open)
+function handleclose(){
+dispatch(dialogactions.hidedialog())
+}
+if(props.open==='imges'){
  return(
-       <dialog open={props.open==='cartdialoge'} >
-       <div className="overlay">
-               <div className="dialog">
-                    <p className="totalprice"> your totalprice :  </p>
-                    <div className="button-container">
-                        <button > proceed</button>
-                        <button > close</button>
-                    </div>
-
-               </div>
+       <dialog open={props.open==='imges'} >
+       <div className="fixed w-full  items-center flex flex-col h-full z-[20000] bg-[#00000080]">
+              <button className="fixed flex items-center self-end top-[0%] h-[10%] w-[7%] sm:w-[5%]  text-[2.2em] cursor-pointer " onClick={handleclose}> X</button>
+              <div className="fixed flex flex-row justify-between items-center top-[10%] h-[90%] w-[95%] ">
+               <ArrowLeftFromLine size={'3em'} className="w-[10%] cursor-pointer"></ArrowLeftFromLine>
+               <img className=" w-[77%] h-[50%] sm:w-[60%] sm:h-[80%]"></img>
+               <ArrowRightFromLine size={'3em'} className="w-[10%] cursor-pointer"></ArrowRightFromLine>
+              </div>
        </div>
        
        </dialog>
     )
 
 }
-if(props.open==='formdialog'){
 
-
- return(
-       <dialog open={props.open==='formdialog'} >
-       <div className="overlay">
-               <div className="dialog">
-                    <form className="formdialog">
-                        <p>your name</p>
-                        <input type="text"></input>
-                        <p>your address</p>
-                        <input type="text"></input>
-                    </form>
-                    <div className="button-container">
-                        <button > confirm </button>
-                        <button > close</button>
-                    </div>
-
-               </div>
-       </div>
-       
-       </dialog>
-    )
-
-
-}
-if(props.open==='thankyoudialog'){
-return(
-       <dialog open={props.open==='thankyoudialog'} >
-       <div className="overlay">
-               <div className="dialog">
-                              <p className="thankyou">thank for your purchasing</p>
-                    <div className="button-container">
-                        
-                        <button > close</button>
-                    </div>
-
-               </div>
-       </div>
-       
-       </dialog>
-    )
-}
-if(props.open==='contact'){
-    return(
-    <dialog open={props.open==='contact'} >
-       <div className="fixed w-full h-full bg-gray-600 opacity-90 z-[2000]">
-               <div className="fixed w-[50%] h-[50%] top-[25%] left-[25%] bg-white z-3000 opacity-100 flex flex-col items-center justify-around">
-                            <div className="flex flex-col items-center justify-around text-[13px]  sm:text-xl gap-12 text-purple-800 lg:text-2xl 2xl:text-3xl">
-                                  <p> E-MAIL : FOOD-ORDER@gmail.com</p>
-                              <p> TELPHONE : 021111000000</p>
-                              <p>HOTLINE : 19088</p>
-                               <button className="buttonstyle w-[120px] h-[40px]" > close</button>
-                            </div>                                                                                                                          
-               </div>
-       </div>
-       
-       </dialog>
-
-    )
-}
    
 }

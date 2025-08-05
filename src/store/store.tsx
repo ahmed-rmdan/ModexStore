@@ -33,14 +33,14 @@ const cartslice=createSlice({name:'cartslice',initialState:intialstate,reducers:
    
  })
 
- const initialdialo:string=''
+ const initialdialo:{dialog:string,imges:string[]}={dialog:'',imges:[]}
 
 
 const dialogslice=createSlice({name:'dialog',initialState:initialdialo,reducers:dialogreducers})
 
 
 
-export const store=configureStore({reducer:cartslice.reducer})
+export const store=configureStore({reducer:{cart:cartslice.reducer,dialog:dialogslice.reducer}})
 
 
 export type RootState = ReturnType<typeof store.getState>
@@ -48,3 +48,5 @@ export type AppDispatch = typeof store.dispatch
 
 
 export const cartactions=cartslice.actions
+
+export const dialogactions=dialogslice.actions

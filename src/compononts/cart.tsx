@@ -7,7 +7,7 @@ import { useAppSelector} from "../store/hook";
 
 
 export const Cart:React.FC= ()=> {
- const crtitems=useAppSelector((state)=>state)
+ const crtitems=useAppSelector((state)=>state.cart)
   
 
   const [isOpen, setIsOpen] = useState(false);
