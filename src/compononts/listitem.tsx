@@ -2,7 +2,7 @@ import React from "react"
 import { NavLink} from "react-router-dom"
 import { useAppDispatch } from "../store/hook";
 import { cartactions } from "../store/store";
-import { Heart } from 'lucide-react';
+
 export const Listitem:React.FC<{imgeurl:string,name:string,quantity:number,price:number,type:string,id:string}>=(props)=>{
     const dispatch=useAppDispatch()
   function handleAddcart(){

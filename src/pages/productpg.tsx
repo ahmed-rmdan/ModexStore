@@ -6,15 +6,31 @@ import { ArrowBigRight } from "lucide-react";
 import { useAppDispatch } from "../store/hook";
 import { cartactions } from "../store/store";
 import { dialogactions } from "../store/store";
+import { useRef } from "react";
+
 export const Productpg:React.FC<{}>=()=>{
 const dispatch=useAppDispatch()
 
+const inputvalue=useRef<HTMLInputElement|null>(null)
+
 function handleaddproduct(){
-    dispatch(cartactions.additeem({id:'544847',price:200,name:'product',quantity:1}))
+  let quantity:number=1
+  if(!inputvalue.current||inputvalue.current==null||inputvalue.current.value=='0'){
+   quantity=1
+  }
+  else{
+    let numbervalue=Number(inputvalue.current.value)
+     if(numbervalue===0) numbervalue++;
+    quantity=numbervalue
+  }
+    dispatch(cartactions.additeem({id:'544847',price:200,name:'product',quantity:quantity}))
 }
 function handleimges(){
     console.log('aaaaaaaaaaaaaaa')
 dispatch(dialogactions.showdialog({dialog:'imges',imges:[]}))
+}
+function handleincrease(){
+
 }
 
 
@@ -33,9 +49,15 @@ dispatch(dialogactions.showdialog({dialog:'imges',imges:[]}))
                          <p className="text-[1.2em] text-purple-800">price : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(100)} </p>
 
                        <Heart size={'2.5em'} className="cursor-pointer"></Heart>
-                         <div className="flex flex-row  w-full items-center justify-center">
-                            <button className="buttonstyle text-[1.1em] w-[57%] sm:w-[35%] lg:w-[25%]" onClick={handleaddproduct}> Add Product</button>
-                            
+                         <div className="flex flex-row  w-full items-center gap-[3%] justify-center">
+                           <div className="flex flex-row items-center w-[60%] sm:w-[45%] gap-[5%] justify-center">
+                                       <button className="  cursor-pointer text-[1.5em]   font-bold " onClick={handleincrease} >-</button>
+                                       <input placeholder="1" className="h-[3.3em] w-[35%] border-4 border-purple-800 text-center" ref={inputvalue} type="number"/>
+                                         <button className="  cursor-pointer text-[1.5em] text-purple-800 font-bold  " onClick={handleincrease} >+</button>
+
+                                </div>
+                            <button className="buttonstyle text-[1.1em] h-[3.3em] w-[35%]  sm:w-[35%] lg:w-[25%]  " onClick={handleaddproduct}> Add Product</button>
+                               
 
                          </div>
                    </div>
