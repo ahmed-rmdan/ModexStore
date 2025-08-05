@@ -94,11 +94,11 @@ if(props.type==='products')
              
 
              </div>
-             <div className="itembuttons h-[25%] w-full flex flex-row justify-center gap-[10%] items-center">
+             <div className="itembuttons h-[25%] w-full flex flex-row justify-center gap-[20%] items-center">
            
                 <button className="buttonstyle text-[0.8em] w-[26%] sm:w-[23%] 2xl:w-[20%] h-[77%]  " onClick={handleAddcart} >Add to cart</button>
                 <NavLink to={`/product/${props.id}`} className="buttonstyle text-[0.8em] w-[31%] sm:w-[24%] 2xl:w-[20%] h-[77%] flex items-center justify-center  " >go to product</NavLink>
-                <Heart className="fill-red-500 cursor-pointer w-[10%] sm:w-[8%]" size={'1.5em'} width={'8%'} color="red" ></Heart>
+                {/* <Heart className="fill-red-500 cursor-pointer w-[10%] sm:w-[8%]" size={'1.5em'} width={'8%'} color="red" ></Heart> */}
 
              </div>
         </li>

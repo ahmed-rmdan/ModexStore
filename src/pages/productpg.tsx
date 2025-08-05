@@ -24,7 +24,7 @@ dispatch(dialogactions.showdialog({dialog:'imges',imges:[]}))
      
 
              <div className=" flex flex-row items-center justify-around w-[100%] text-black h-[400px]  mx-auto ">
-                    <img className="w-[40%] h-[75%]">
+                    <img className="w-[40%] h-[70%] sm:h-[75%]">
 
                     </img>
                 
