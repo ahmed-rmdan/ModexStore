@@ -6,7 +6,7 @@ const Catagories=['T-shirts','Shirts','Jeans' ,'Jackets','Shoes','Socks']
 
 export const Shoppg:React.FC<{}>=()=>{
     return(
-            <section className="w-[100%] flex flex-row h-[1050px] items-center  bg-gray-200 text-[8px] md:text-[10px] lg:text-[13px] xl:text-[16px] ">
+            <section className="w-[100%] flex flex-row h-[1030px] sm:h-[1100px] items-center  bg-gray-200 text-[8px] md:text-[10px] lg:text-[13px] xl:text-[16px] ">
                       
                       <div className="flex flex-col ml-[20px] sm:ml-[50px] rounded-2xl w-[27%] sm:w-[20%] h-[85%] bg-white  items-center gap-[60px]">
                                 <h1 className="text-purple-800 text-[2em] underline font-bold mt-[30px]"> Categories</h1>
@@ -17,7 +17,7 @@ export const Shoppg:React.FC<{}>=()=>{
                                        
                                 </div>  
                       </div>
-                       <div className="flex flex-col w-[70%] items-center gap-[30px]">
+                       <div className="flex flex-col w-[70%] items-center gap-[20px] sm:gap-[30px]">
                        
                               <Outlet></Outlet>
                        </div>
