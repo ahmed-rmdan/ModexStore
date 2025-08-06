@@ -16,7 +16,7 @@ import { Contact } from "./pages/contact"
 import { Allproducts } from "./compononts/allproducts"
 import { Login } from "./pages/login"
 import { Signup } from "./pages/signup"
-
+import { Wishlist } from "./pages/wishlistpg"
 
 const router=createBrowserRouter([
   {path:'/',element:<Root></Root>,errorElement:<Eroor></Eroor>,
@@ -34,7 +34,8 @@ const router=createBrowserRouter([
       {path:'/terms',element:<Terms></Terms>},
       {path:'/contact',element:<Contact></Contact>},
       {path:'/signin',element:<Login></Login>},
-     {path:'/signup',element:<Signup></Signup>}
+     {path:'/signup',element:<Signup></Signup>},
+     {path:'/wishlist',element:<Wishlist></Wishlist>}
 
     ]
   }
