@@ -16,7 +16,7 @@ function handlestripechecout(){
                   
                
                   <div className="bg-white flex flex-col items-center w-[95%] sm:w-[85%] xl:w-[65%] h-[90%] justify-center gap-[13%] rounded-2xl">
-                                             <progress value={70} max={100} className="custom-progress border-4  border-purple-800 rounded-[8px] w-[55%] sm:w-[45%] h-[2.5%] "></progress>
+                                             <progress value={70} max={100} className="custom-progress border-4  border-purple-800 rounded-[8px] w-[55%] sm:w-[45%] h-[2.5%]  2xl:h-[3%] "></progress>
                               
                                          <button className="flex flex-row items-center justify-center gap-[5%] w-[68%] lg:w-[50%] h-[15%]   sm:h-[18%] border-4  text-[1.5em]  border-blue-600 cursor-pointer text-blue-600 font-bold rounded-2xl hover:border-blue-800  " onClick={handlestripechecout}>
                                      <img src={stripelogo}   className="w-[40%] " ></img>

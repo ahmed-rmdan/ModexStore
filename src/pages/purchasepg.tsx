@@ -37,7 +37,7 @@ function handleclick(){
                
                   <div className="bg-white flex flex-col items-center w-[95%] sm:w-[65%] h-[90%] justify-center gap-[7%] rounded-2xl">
                     
-                      <progress value={30} max={100} className="custom-progress border-4  border-purple-800 rounded-[8px] w-[45%] sm:w-[40%] h-[2%] xl:h-[2.5%] "></progress>
+                      <progress value={30} max={100} className="custom-progress border-4  border-purple-800 rounded-[8px] w-[45%] sm:w-[40%] h-[2%] xl:h-[2.5%] 2xl:h-[3%] "></progress>
                  
                      
 
