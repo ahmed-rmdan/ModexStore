@@ -8,10 +8,12 @@ import { Listitem } from "../compononts/listitem";
 import { useAppSelector } from "../store/hook";
 import { useRef } from "react";
 
-
+import { useNavigate } from "react-router-dom";
 
 
 export const Puchasepg:React.FC<{}>=()=>{
+const navigate=useNavigate()
+
 const cart=useAppSelector((state)=>state.cart)
 
    const totalprice=cart.reduce((curr,elm)=>{
@@ -21,6 +23,9 @@ const cart=useAppSelector((state)=>state.cart)
 
 const address=useRef(null)
 
+function handleclick(){
+    navigate('/payment')
+}
 
     return(       
 
@@ -32,7 +37,7 @@ const address=useRef(null)
                
                   <div className="bg-white flex flex-col items-center w-[95%] sm:w-[65%] h-[90%] justify-center gap-[7%] rounded-2xl">
                     
-                      <progress value={30} max={100} className="custom-progress border-2  border-purple-800 rounded-[8px] w-[45%] sm:w-[30%] h-[1.4em] "></progress>
+                      <progress value={30} max={100} className="custom-progress border-4  border-purple-800 rounded-[8px] w-[45%] sm:w-[40%] h-[2%] xl:h-[2.5%] "></progress>
                  
                      
 
@@ -49,11 +54,11 @@ const address=useRef(null)
 
                                    <input className="w-[55%] rounded-[8px] text-[1.2em] border-2 border-purple-800  h-[25%]" type='text' required ref={address} placeholder="Delivery Address" />
                                         <p className="text-purple-800 text-[1.5em]">&</p>
-                                      <button className="buttonstyle w-[45%] 2xl:w-[27%] text-center text-[1.1em] h-[17%] sm:h-[20%]">Click here to Add Location</button>
+                                      <button className="buttonstyle w-[45%] 2xl:w-[27%] text-center text-[1.1em] h-[17%] sm:h-[20%] font-semibold">Click here to Add Location</button>
 
                              </div>
 
-                    <button className="buttonstyle w-[32%] xl:w-[20%] h-[5%] text-[1.5em]">Go To Payment</button>
+                    <button onClick={handleclick} className="buttonstyle text-center item-center  w-[40%] xl:w-[20%] h-[5%] text-[1.5em] font-bold ">Go To Payment</button>
 
 
                   </div>

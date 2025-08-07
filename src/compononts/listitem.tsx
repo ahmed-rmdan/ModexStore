@@ -141,7 +141,7 @@ if(props.type==='products')
         if(props.type==='purchase')
     return(
 
- <li className="flex flex-col  w-[90%]  sm:w-[90%] bg-white h-[30%] sm:min-h-[45%]  rounded-2xl  items-center justify-around text-[9px]  sm:text-[12.5px] lg:-text-[17px] xl:text-[19px]  2xl:text-[23px] " >
+ <li className="flex flex-col  w-[90%]  sm:w-[90%] bg-white min-h-[45%]  rounded-2xl  items-center justify-around text-[9px]  sm:text-[12.5px] lg:-text-[17px] xl:text-[19px]  2xl:text-[23px] " >
             <div className="flex flex-row w-[95%] h-[60%] justify-around">
                    <img src={props.imgeurl} className="w-[40%] h-full" >
                 
@@ -150,7 +150,7 @@ if(props.type==='products')
                    <div className="maininfo w-[45%] flex flex-col items-center justify-around ">
                          <p className="text-[0.8em] text-purple-800 font-bold text-center">{props.name}</p>
                        
-                          <p className="text-[0.7em] text-purple-800">quantity: {props.quantity}</p>
+                          <p className="text-[0.9em] text-purple-800">quantity: {props.quantity}</p>
                          <p className="text-[0.9em] text-purple-800">price : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.price)} </p>
                    </div>
              

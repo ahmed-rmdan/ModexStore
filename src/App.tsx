@@ -18,6 +18,7 @@ import { Login } from "./pages/login"
 import { Signup } from "./pages/signup"
 import { Wishlist } from "./pages/wishlistpg"
 import { Puchasepg } from "./pages/purchasepg"
+import { Paymentpg } from "./pages/paymentpg"
 const router=createBrowserRouter([
   {path:'/',element:<Root></Root>,errorElement:<Eroor></Eroor>,
     children:[
@@ -36,7 +37,8 @@ const router=createBrowserRouter([
       {path:'/signin',element:<Login></Login>},
      {path:'/signup',element:<Signup></Signup>},
      {path:'/wishlist',element:<Wishlist></Wishlist>},
-     {path:'/purchase',element:<Puchasepg></Puchasepg>}
+     {path:'/purchase',element:<Puchasepg></Puchasepg>},
+      {path:'/payment',element:<Paymentpg></Paymentpg>}
 
 
     ]
