@@ -17,6 +17,14 @@
   box-sizing: border-box;
  
 } */
+
+.custom-progress::-webkit-progress-bar {
+  background-color: white;
+
+}
+.custom-progress::-webkit-progress-value{
+  background-color: #6e11b0;
+}
 @layer{
   .buttonstyle{
     @apply bg-purple-800 rounded-[13px] text-white transition-all duration-200 cursor-pointer hover:bg-purple-400 

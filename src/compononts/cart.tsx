@@ -3,6 +3,7 @@ import React, { useState } from "react";
 
 import { Listitem } from "./listitem";
 import { useAppSelector} from "../store/hook";
+import { NavLink } from "react-router-dom";
 
 
 
@@ -49,7 +50,7 @@ export const Cart:React.FC= ()=> {
            
 
            {itemslength==0? <button className="border-2 buttonstyle w-[5em] cursor-pointer text-[0.8em]" onClick={toggleDropdown}>Close</button>:<div className="flex flex-row justify-around w-[100%] items-center h-[1.5em] ">
-                <button className="border-2 buttonstyle w-[5em] cursor-pointer text-[0.8em]">Purchase</button>
+                <NavLink to={'/purchase'} className="border-2 buttonstyle w-[5em] cursor-pointer text-[0.8em] text-center">Purchase</NavLink>
                 <button className="border-2 buttonstyle w-[5em] cursor-pointer text-[0.8em]" onClick={toggleDropdown}>Close</button>
 
           </div>}
