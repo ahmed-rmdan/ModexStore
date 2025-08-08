@@ -41,8 +41,10 @@ return(
                 {/* <NavLink to='/signin' className=" border-2 buttonstyle w-[5em] xl:w-[5.5em] cursor-pointer text-[4em] text-center  lg:text-[4em] xl:text-[4.5em] ">log in</NavLink>
              <NavLink to='/signup' className=" border-2 buttonstyle w-[5em] xl:w-[5.5em] cursor-pointer text-[4em] lg:text-[4em] xl:text-[4.5em] text-center">sign up</NavLink> */}
                        
-                       <NavLink to={'/wishlist'} className=" text-purple-800 w-[5em] cursor-pointer text-[3em]  lg:text-[3.5em] xl:text-[4.5em] hover:underline  hover:text-purple-900 ">Wishlist</NavLink>
-             <button className="  text-purple-800  w-[5em] cursor-pointer text-[3em] lg:text-[3.5em] xl:text-[4.5em] hover:underline  hover:text-purple-900">My Orders</button> 
+                       <NavLink to={'/wishlist'} className={({isActive})=>isActive?"text-purple-800 w-[5em] cursor-pointer text-[3em]  lg:text-[3.5em] xl:text-[4.5em] hover:underline  hover:text-purple-900 underline ":"text-purple-800 w-[5em] cursor-pointer text-[3em]  lg:text-[3.5em] xl:text-[4.5em] hover:underline  hover:text-purple-900 "} 
+                       >Wishlist</NavLink>
+             <NavLink to={'/myorders'} className={({isActive})=>isActive?"text-purple-800 w-[5em] cursor-pointer text-[3em]  lg:text-[3.5em] xl:text-[4.5em] hover:underline  hover:text-purple-900 underline ":"text-purple-800 w-[5em] cursor-pointer text-[3em]  lg:text-[3.5em] xl:text-[4.5em] hover:underline  hover:text-purple-900 "}>
+             My Orders</NavLink> 
              <button className="  text-red-500  w-[5em] cursor-pointer text-[3em] lg:text-[3.5em] xl:text-[4.5em] hover:underline">LogOut</button>      
            
 
@@ -74,8 +76,10 @@ else {
                            {/* <NavLink to='/signin' className=" border-2  buttonstyle  text-center w-[5.5em] cursor-pointer text-[4.5em]  ">log in</NavLink>
              <NavLink to='/signup' className=" border-2 buttonstyle w-[5.5em] cursor-pointer text-[4.5em] text-center ">sign up</NavLink> */}
 
-                                <NavLink to={'/wishlist'} className="  w-[5em] cursor-pointer text-[4.5em]  hover:underline  hover:text-purple-900 ">Wishlist</NavLink>
-             <button className="    w-[5em] cursor-pointer text-[4.5em]  hover:underline  hover:text-purple-900">My Orders</button> 
+                                <NavLink className={({isActive})=>isActive?" w-[5em] cursor-pointer text-[4.5em]  underline text-center hover:text-purple-900 ":" w-[5em] cursor-pointer text-[4.5em] text-center hover:underline  hover:text-purple-900 "} to={'/wishlist'} >
+                                  Wishlist</NavLink>
+             <NavLink to={'/myorders'}  className={({isActive})=>isActive?" w-[5em] cursor-pointer text-[4.5em]  underline text-center hover:text-purple-900 ":" w-[5em] cursor-pointer text-[4.5em] text-center hover:underline  hover:text-purple-900 "}>
+              My Orders</NavLink> 
              <button className="  text-red-500  w-[5em] cursor-pointer text-[4.5em]  hover:underline">LogOut</button>  
                          
 

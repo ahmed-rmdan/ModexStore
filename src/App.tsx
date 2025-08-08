@@ -20,7 +20,7 @@ import { Wishlist } from "./pages/wishlistpg"
 import { Puchasepg } from "./pages/purchasepg"
 import { Paymentpg } from "./pages/paymentpg"
 import { Thankyoupg } from "./pages/thankyoupg"
-
+import { Myorders } from "./pages/myorders"
 
 const router=createBrowserRouter([
   {path:'/',element:<Root></Root>,errorElement:<Eroor></Eroor>,
@@ -42,7 +42,8 @@ const router=createBrowserRouter([
      {path:'/wishlist',element:<Wishlist></Wishlist>},
      {path:'/purchase',element:<Puchasepg></Puchasepg>},
       {path:'/payment',element:<Paymentpg></Paymentpg>},
-      {path:'/thankyou',element:<Thankyoupg></Thankyoupg>}
+      {path:'/thankyou',element:<Thankyoupg></Thankyoupg>},
+      {path:'/myorders',element:<Myorders></Myorders>}
 
 
     ]
