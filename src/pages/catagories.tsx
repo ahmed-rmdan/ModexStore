@@ -16,7 +16,7 @@ export const Catagories:React.FC<{}>=()=>{
           <section className="container h-[760px] items-center mx-auto flex flex-col justify-start gap-[50px] ">
                      <h1 className="color text-center text-purple-800 font-bold text-[2em] sm:text-[3em] underline">Categories</h1>
                       
-                      <div className=" grid  sm:w-[90%] items-center self-center gap-y-[20px] mb-[20px] grid-cols-1 md:grid-cols-2 xl:grid-cols-3 ">
+                      <div className=" grid  sm:w-[90%] items-center self-center gap-y-[20px] xl:gap-y-[90px] mb-[20px] grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 ">
 
                                {catagories.map(elm=>{
                                 return <NavLink to={`/products/${elm.name}`}><button className=" h-[70px] sm:h-[100px] bg-gray-100 w-[250px] sm:w-[340px]  xl:w-[350px] hover:bg-gray-300 cursor-pointer" ><div className="flex flex-row w-full h-full">

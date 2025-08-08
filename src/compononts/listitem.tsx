@@ -29,9 +29,9 @@ if(props.type==='cart' ){
                 
                   
                    </img>   
-                   <div className="maininfo w-[55%] flex flex-col items-center justify-around ">
-                         <p className="text-[0.7em] text-center">{props.name}</p>
-                         <p className="text-[0.6em]">quantity: {props.quantity}</p>
+                   <div className="maininfo w-[55%] h-full flex flex-col items-center gap-[3%] justify-around ">
+                         <p className="text-[0.7em] text-center text-purple-800 font-bold">{props.name}</p>
+                         <p className="text-[0.6em] text-purple-800">quantity: {props.quantity}</p>
                          <p className="text-[0.6em] text-purple-800"> {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.price*props.quantity)} </p>
                    </div>
              

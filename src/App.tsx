@@ -21,6 +21,8 @@ import { Puchasepg } from "./pages/purchasepg"
 import { Paymentpg } from "./pages/paymentpg"
 import { Thankyoupg } from "./pages/thankyoupg"
 import { Myorders } from "./pages/myorders"
+import { Adminpg } from "./pages/admin/adminpg"
+import { Loginadmin } from "./pages/admin/loginadminpg"
 
 const router=createBrowserRouter([
   {path:'/',element:<Root></Root>,errorElement:<Eroor></Eroor>,
@@ -43,11 +45,13 @@ const router=createBrowserRouter([
      {path:'/purchase',element:<Puchasepg></Puchasepg>},
       {path:'/payment',element:<Paymentpg></Paymentpg>},
       {path:'/thankyou',element:<Thankyoupg></Thankyoupg>},
-      {path:'/myorders',element:<Myorders></Myorders>}
-
-
+      {path:'/myorders',element:<Myorders></Myorders>},
+      
     ]
   }
+  , {path:'/admin',element:<Adminpg></Adminpg>,children:[
+           {path:'/admin/login',element:<Loginadmin></Loginadmin>}
+          ]}
 ])
 
 

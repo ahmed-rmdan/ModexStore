@@ -40,7 +40,7 @@ export const Cart:React.FC= ()=> {
        
         gap:5
       }}>
-       {itemslength===0?<p className="text-black text-[0.8em] sm:text-[1em]">No Products </p>:crtitems.map(elm=>{
+       {itemslength===0?<p className="text-purple-700 text-[0.8em] sm:text-[1em]">No Products </p>:crtitems.map(elm=>{
         return  <Listitem type="cart" price={elm.price} id={elm.id} imgeurl="" name={elm.name} quantity={elm.quantity}></Listitem>
        })}
 

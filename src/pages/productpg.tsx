@@ -45,12 +45,12 @@ function handleincrease(){
                     </img>
                 
                    <div className="maininfo w-[55%] h-[90%] flex flex-col items-center justify-around ">
-                         <p className="text-[1.1em] text-center font-bold"> jeans with blue </p>
-                         <p className="text-[1.2em] text-purple-800">price : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(100)} </p>
+                         <p className="text-[1.1em] text-center font-extrabold text-purple-800"> jeans with blue </p>
+                         <p className="text-[1.2em] text-purple-800 font-bold">price : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(100)} </p>
 
                        <Heart size={'2.5em'} className="cursor-pointer"></Heart>
-                         <div className="flex flex-row  w-full items-center gap-[3%] justify-center">
-                           <div className="flex flex-row items-center w-[60%] sm:w-[45%] gap-[5%] justify-center">
+                         <div className="flex flex-row  w-full items-center  justify-center">
+                           <div className="flex flex-row items-center w-[55%] sm:w-[45%] gap-[5%] justify-center">
                                        <button className="  cursor-pointer text-[1.5em]   font-bold " onClick={handleincrease} >-</button>
                                        <input placeholder="1" className="h-[3.3em] w-[35%] border-4 border-purple-800 text-center" ref={inputvalue} type="number"/>
                                          <button className="  cursor-pointer text-[1.5em] text-purple-800 font-bold  " onClick={handleincrease} >+</button>

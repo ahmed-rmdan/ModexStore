@@ -2,6 +2,7 @@
 import React from "react";
 
 import stripelogo from '../assets/stripeLogo.svg'
+import { NavLink } from "react-router-dom";
 
 
 
@@ -23,18 +24,9 @@ function handlestripechecout(){
                                                       Pay by using stripe
                                             </button>
                                                <p className="text-[2em] font-bold text-purple-700">OR</p>
-                                         <button className="text-[2em] font-extrabold text-purple-800  hover:text-purple-800 hover:underline cursor-pointer " > Pay on Delivery</button>
-                             
-                              
-               
-                                
-
+                                         <NavLink to={'/thankyou'} className="text-[2em] font-extrabold text-purple-800  hover:text-purple-800 hover:underline cursor-pointer text-center " > Pay on Delivery</NavLink>                             
 
                   </div>
-
-
-
-
 
         </div>
 
