@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+
 function handlesignin(){
 
 }
@@ -7,7 +7,7 @@ function handlesignin(){
 
 export const Loginadmin:React.FC<{}>=()=>{
     return(
-            <div className=" flex items-center justify-center h-[670px] sm:h-[870px] w-full text-[1.3em] sm:text-[1em]  bg-gray-200">
+            <div className=" flex items-center justify-center h-[670px] sm:h-[870px] w-full text-[1.3em] sm:text-[1.1em]  bg-gray-200">
 
                   <div className="bg-white flex flex-col items-center justify-around h-[50%] sm:h-[70%] rounded-4xl w-[90%] sm:w-[85%]  xl:w-[70%] ">
                       <h1 className=" flex  underline text-purple-800 text-[7em] font-bold justify-center items-center ">Sign In</h1>
