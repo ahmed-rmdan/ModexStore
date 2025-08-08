@@ -19,13 +19,13 @@ function handleclick(){
                         Products      
                                      </button>
                                     { click? <div className=" flex flex-col lg:min-h-[200px] items-center justify-center xl:mt-[-30px] gap-[10px] text-[0.75em] sm:text-[0.6em] w-[70%] ">
-                                            <NavLink to={'/admin/addproduct'} className={({isActive})=>isActive?"cursor-pointer text-purple-800 underline ":"cursor-pointer hover:text-purple-800 "}> All Product</NavLink>
-                                            <NavLink to={'/admin/addproduct'} className={({isActive})=>isActive?"cursor-pointer text-purple-800 underline ":"cursor-pointer hover:text-purple-800 "}> T-shirts</NavLink>
-                                            <NavLink to={'/admin/addproduct'} className={({isActive})=>isActive?"cursor-pointer text-purple-800 underline ":"cursor-pointer hover:text-purple-800 "}> Pants</NavLink>
-                                            <NavLink to={'/admin/addproduct'} className={({isActive})=>isActive?"cursor-pointer text-purple-800 underline ":"cursor-pointer hover:text-purple-800 "}> Jeans</NavLink>
-                                            <NavLink to={'/admin/addproduct'} className={({isActive})=>isActive?"cursor-pointer text-purple-800 underline ":"cursor-pointer hover:text-purple-800 "}> Socks</NavLink>
-                                            <NavLink to={'/admin/addproduct'} className={({isActive})=>isActive?"cursor-pointer text-purple-800 underline ":"cursor-pointer hover:text-purple-800 "}> Jackets</NavLink>
-                                            <NavLink to={'/admin/addproduct'} className={({isActive})=>isActive?"cursor-pointer text-purple-800 underline ":"cursor-pointer hover:text-purple-800 "}> Shoes</NavLink>
+                                            <NavLink to={'/admin/products/allproducts'} className={({isActive})=>isActive?"cursor-pointer text-purple-800 underline ":"cursor-pointer hover:text-purple-800 "}> All Product</NavLink>
+                                            <NavLink to={'/admin/products/t-shirts'} className={({isActive})=>isActive?"cursor-pointer text-purple-800 underline ":"cursor-pointer hover:text-purple-800 "}> T-shirts</NavLink>
+                                            <NavLink to={'/admin/products/pants'} className={({isActive})=>isActive?"cursor-pointer text-purple-800 underline ":"cursor-pointer hover:text-purple-800 "}> Pants</NavLink>
+                                            <NavLink to={'/admin/products/jeans'} className={({isActive})=>isActive?"cursor-pointer text-purple-800 underline ":"cursor-pointer hover:text-purple-800 "}> Jeans</NavLink>
+                                            <NavLink to={'/admin/products/socks'} className={({isActive})=>isActive?"cursor-pointer text-purple-800 underline ":"cursor-pointer hover:text-purple-800 "}> Socks</NavLink>
+                                            <NavLink to={'/admin/products/jackets'} className={({isActive})=>isActive?"cursor-pointer text-purple-800 underline ":"cursor-pointer hover:text-purple-800 "}> Jackets</NavLink>
+                                            <NavLink to={'/admin/products/shoes'} className={({isActive})=>isActive?"cursor-pointer text-purple-800 underline ":"cursor-pointer hover:text-purple-800 "}> Shoes</NavLink>
 
                                      </div>:''}
                 <NavLink to={'/admin/addproduct'} className={({isActive})=>isActive?"cursor-pointer text-purple-800 underline ":"cursor-pointer hover:text-purple-800 "}> Add Product</NavLink>

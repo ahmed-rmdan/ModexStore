@@ -159,7 +159,27 @@ if(props.type==='products')
         
         </li>
     )
+if(props.type==='admin'){
+    return(
+        <li className="flex flex-col  w-[90%]   bg-white  min-h-[23%]  rounded-2xl text-purple-800  items-center justify-around  text-[9px]  sm:text-[12.5px] lg:-text-[17px] xl:text-[19px]  2xl:text-[18px]" key={props.id}>
+            <div className="flex flex-row h-[60%] w-full justify-around">
+                   <img src={props.imgeurl} className="w-[40%] h-full" >
+                   </img>
+                   <div className="flex flex-col justify-around items-start w-[55%]">
+                         <p className="font-bold">{props.name}</p>
+                         <p className="type">Type : {props.type}</p>
+                         <p className="  text-[0.8em] w-full   whitespace-normal break-words overflow-y-auto  h-[20%] ">info:saffasfasfasfasfasfasfasfasfadasffasسشبسشبشسببشسبشسبشسبشسبشسبشبسfasfasfasfasfafasfasfsfg </p>
+                         <p className="text-purple-900 font-semibold">price : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.price)}  </p>
+                   </div>
+             </div>
+              <div className=" flex flex-row items-center text-[1.2em] font-semibold gap-[15%] justify-center w-full h-[25%]">
+                         <button className=" buttonstyle text-center w-[22%]  sm:w-[16%] h-[75%]" >Delete</button>
+                        <button className=" buttonstyle text-center w-[22%] sm:w-[16%] h-[75%]" > Edit  </button>
 
+                    </div>
+        </li>
+    )
+}
 
 
 

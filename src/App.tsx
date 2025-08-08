@@ -23,7 +23,7 @@ import { Thankyoupg } from "./pages/thankyoupg"
 import { Myorders } from "./pages/myorders"
 import { Adminpg } from "./pages/admin/adminpg"
 import { Loginadmin } from "./pages/admin/loginadminpg"
-
+import { Productsadmin } from "./pages/admin/productsadmin"
 const router=createBrowserRouter([
   {path:'/',element:<Root></Root>,errorElement:<Eroor></Eroor>,
     children:[
@@ -50,7 +50,9 @@ const router=createBrowserRouter([
     ]
   }
   , {path:'/admin',element:<Adminpg></Adminpg>,children:[
-           {path:'/admin/login',element:<Loginadmin></Loginadmin>}
+           {path:'login',element:<Loginadmin></Loginadmin>},
+           {path:'products/:category',element:<Productsadmin></Productsadmin>}
+
           ]}
 ])
 
