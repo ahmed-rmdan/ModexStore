@@ -174,7 +174,7 @@ if(props.type==='admin'){
              </div>
               <div className=" flex flex-row items-center text-[1.2em] font-semibold gap-[15%] justify-center w-full h-[25%]">
                          <button className=" buttonstyle text-center w-[22%]  sm:w-[16%] h-[75%]" >Delete</button>
-                        <button className=" buttonstyle text-center w-[22%] sm:w-[16%] h-[75%]" > Edit  </button>
+                        <NavLink to={`/admin/editproduct/${props.id}`} className=" buttonstyle text-center w-[22%] sm:w-[16%] h-[75%]" > Edit  </NavLink>
 
                     </div>
         </li>
@@ -202,7 +202,7 @@ if(props.type==='offer'){
              </div>
               <div className=" flex flex-row items-center text-[1.2em] font-semibold gap-[15%] justify-center w-full h-[25%]">
                          <button className=" buttonstyle text-center w-[22%]  sm:w-[16%] h-[75%]" >Delete</button>
-                        <button className=" buttonstyle text-center w-[22%] sm:w-[16%] h-[75%]" > Edit  </button>
+                        <NavLink to={`/admin/editproduct/${props.id}`} className=" buttonstyle text-center w-[22%] sm:w-[16%] h-[75%]" > Edit  </NavLink>
 
                     </div>
         </li>
