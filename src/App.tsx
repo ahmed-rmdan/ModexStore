@@ -24,6 +24,7 @@ import { Myorders } from "./pages/myorders"
 import { Adminpg } from "./pages/admin/adminpg"
 import { Loginadmin } from "./pages/admin/loginadminpg"
 import { Productsadmin } from "./pages/admin/productsadmin"
+import { Offersadminpg } from "./pages/admin/offersadminpage"
 const router=createBrowserRouter([
   {path:'/',element:<Root></Root>,errorElement:<Eroor></Eroor>,
     children:[
@@ -51,7 +52,9 @@ const router=createBrowserRouter([
   }
   , {path:'/admin',element:<Adminpg></Adminpg>,children:[
            {path:'login',element:<Loginadmin></Loginadmin>},
-           {path:'products/:category',element:<Productsadmin></Productsadmin>}
+           {path:'products/:category',element:<Productsadmin></Productsadmin>},
+           {path:'offers',element:<Offersadminpg></Offersadminpg>}
+
 
           ]}
 ])
