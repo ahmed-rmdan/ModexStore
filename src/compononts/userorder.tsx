@@ -2,7 +2,7 @@ import React from "react";
 
 
 
-export const Orderuser:React.FC<{details:string,address:string,id:string,state:string,totalprice:number,date:string}>=(props)=>{
+export const Orderuser:React.FC<{details:string,address:string,id:string,state:string,totalprice:number,date:string,payment:string}>=(props)=>{
     
     return(
                                               
@@ -10,7 +10,8 @@ export const Orderuser:React.FC<{details:string,address:string,id:string,state:s
             <p> {props.details}</p>
             <p> At : {props.date}</p>
             <p> To : {props.address}</p>
-               <p > State : {props.state}</p>
+               <p className="font-semibold"> State : {props.state}</p>
+               <p > Payment: {props.payment}</p>
                <p className="font-bold"> TotalPrice: {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.totalprice)}</p>
   
         </li>

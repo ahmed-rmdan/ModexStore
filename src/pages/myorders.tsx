@@ -14,10 +14,10 @@ export const Myorders:React.FC<{}>=()=>{
 
                     
                        <ul className="flex flex-row flex-wrap justify-around h-[80%] sm:h-[70%] xl:h-[80%] md:w-[95%] lg:w-[85%] xl:w-[80%]  items-center  ">
-                            <Orderuser details="1x shoes + 2 tshirts" totalprice={700} address="ALHARM - GIZA - MAROYOTYA" state="preparing" id='sriqr8' date="8/7/2025" ></Orderuser>
-                            <Orderuser details="1x shoes + 2 tshirts" totalprice={700} address="ALHARM - GIZA - MAROYOTYA" state="preparing" id='sabbc8' date="8/7/2025" ></Orderuser>
-                            <Orderuser details="1x shoes + 2 tshirts" totalprice={700} address="ALHARM - GIZA - MAROYOTYA" state="preparing" id='safeq8' date="8/7/2025"></Orderuser>
-                            <Orderuser details="1x shoes + 2 tshirts" totalprice={700} address="ALHARM - GIZA - MAROYOTYA" state="preparing" id='szqerdlf88' date="8/7/2025"></Orderuser>
+                            <Orderuser payment="OnDelivery" details="1x shoes + 2 tshirts" totalprice={700} address="ALHARM - GIZA - MAROYOTYA" state="preparing" id='sriqr8' date="8/7/2025" ></Orderuser>
+                            <Orderuser  payment="OnDelivery" details="1x shoes + 2 tshirts" totalprice={700} address="ALHARM - GIZA - MAROYOTYA" state="preparing" id='sabbc8' date="8/7/2025" ></Orderuser>
+                            <Orderuser  payment="OnDelivery" details="1x shoes + 2 tshirts" totalprice={700} address="ALHARM - GIZA - MAROYOTYA" state="preparing" id='safeq8' date="8/7/2025"></Orderuser>
+                            <Orderuser  payment="OnDelivery" details="1x shoes + 2 tshirts" totalprice={700} address="ALHARM - GIZA - MAROYOTYA" state="preparing" id='szqerdlf88' date="8/7/2025"></Orderuser>
                        
                        </ul>
 

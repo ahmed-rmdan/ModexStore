@@ -68,8 +68,8 @@ if(props.type==='slider' ){
              </div>
              <div className="itembuttons h-[25%] w-full flex flex-row justify-around items-center">
            
-                <button className="buttonstyle text-[0.6em] w-[35%] h-[50%]  " onClick={handleAddcart} >Add to cart</button>
-               <NavLink className="buttonstyle text-[0.5em] w-[40%] h-[50%] flex items-center justify-center  " to={`/product/${props.id}`}>Go to Product</NavLink> 
+                <button className="buttonstyle text-[0.6em] w-[35%] h-[50%] font-bold  " onClick={handleAddcart} >Add to cart</button>
+               <NavLink className="buttonstyle text-[0.5em] w-[40%] h-[50%] flex items-center justify-center font-bold   " to={`/product/${props.id}`}>Go to Product</NavLink> 
                 
 
              </div>
@@ -193,16 +193,16 @@ if(props.type==='offer'){
                          <p className="type">Type : {props.type}</p>
                         
                          <p className="  text-[0.75em] w-full   whitespace-normal break-words overflow-y-auto  min-h-[25%] "> <span className="text-[1em]"> Info : </span>saffasfasfasfasfasfasfasfasfadasffasسشبسشبشسببشسبشسبشسبشسبشسبشبسfasfasfasfasfafasfasfsfg </p>
-                         <div className="flex flex-row w-[100%] text-[0.75em] items-center justify-around h-[25%]">
-                                   <p className="text-purple-900 font-semibold w-[45%]">newprice : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.price)}</p>
-                                   <p className="text-red-600 font-semibold w-[45%]">oldprice : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.price)}</p>
+                         <div className="flex flex-row w-[100%] text-[0.9em] items-center justify-around h-[25%]">
+                                   <p className="text-purple-900 font-semibold  w-[47%]">newprice : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.price)}</p>
+                                   <p className="text-red-600 font-semibold w-[47%]">oldprice : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.price)}</p>
                          </div>
                         
                    </div>
              </div>
               <div className=" flex flex-row items-center text-[1.2em] font-semibold gap-[15%] justify-center w-full h-[25%]">
-                         <button className=" buttonstyle text-center w-[22%]  sm:w-[16%] h-[75%]" >Delete</button>
-                        <NavLink to={`/admin/editproduct/${props.id}`} className=" buttonstyle text-center w-[22%] sm:w-[16%] h-[75%]" > Edit  </NavLink>
+                         <button className=" buttonstyle text-center w-[22%]  sm:w-[16%] h-[65%] 2xl:h-[80%]" >Delete</button>
+                        <NavLink to={`/admin/editproduct/${props.id}`} className=" buttonstyle text-center text-[1.1em] self-center w-[22%] sm:w-[16%] h-[65%] 2xl:h-[80%]" > Edit  </NavLink>
 
                     </div>
         </li>

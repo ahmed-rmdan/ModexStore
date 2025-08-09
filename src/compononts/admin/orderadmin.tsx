@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { Location } from "../location";
 
 
-export const Orderadmin:React.FC<{details:string,address:string,id:string,state:string,totalprice:number,date:string,username:string,location:[number,number]}>=(props)=>{
+export const Orderadmin:React.FC<{details:string,address:string,id:string,state:string,totalprice:number,date:string,username:string,location:[number,number],payment:string}>=(props)=>{
     
     return(
                                               
@@ -18,14 +18,19 @@ export const Orderadmin:React.FC<{details:string,address:string,id:string,state:
                             <p> {props.details}</p>
                              <p> At : {props.date}</p>
                             <p> To : {props.address}</p>
+                            <p className="font-semibold"> Payment : {props.payment}</p>
                              <p > State : {props.state}</p>
                           <p className="font-bold"> TotalPrice: {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.totalprice)}</p> 
                       </div>
                    
                 
             </div>
-           
-            <NavLink className='buttonstyle font-bold text-center h-[10%] xl:h-[13%] w-[15%] xl:w-[12%] ' to={`admin/orders/${props.id}`}> Open </NavLink>
+
+           <div className="flex flex-row h-[12%] xl:h-[15%] items-center  w-full text-[1.1em] justify-center gap-[15%]"> 
+            <NavLink className='buttonstyle font-bold text-center self-center h-[75%] xl:h-[75%] w-[20%] xl:w-[12%] ' to={`/admin/orders/delete/${props.id}`}> Delete </NavLink>
+            <NavLink className='buttonstyle font-bold self-center text-center h-[75%] xl:h-[75%] w-[20%] xl:w-[12%] ' to={`/admin/orders/edit/${props.id}`}> Edit </NavLink>
+           </div>
+            
  </li>
 
     )

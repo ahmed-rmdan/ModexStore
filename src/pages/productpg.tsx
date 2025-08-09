@@ -52,11 +52,11 @@ function handleincrease(){
                          <div className="flex flex-row  w-full items-center  justify-center">
                            <div className="flex flex-row items-center w-[55%] sm:w-[45%] gap-[5%] justify-center">
                                        <button className="  cursor-pointer text-[1.5em]   font-bold " onClick={handleincrease} >-</button>
-                                       <input placeholder="1" className="h-[3.3em] w-[35%] border-4 border-purple-800 text-center" ref={inputvalue} type="number"/>
+                                       <input placeholder="1" className="h-[3.3em] w-[40%] lg:w-[35%] border-4 border-purple-800 text-center" ref={inputvalue} type="number"/>
                                          <button className="  cursor-pointer text-[1.5em] text-purple-800 font-bold  " onClick={handleincrease} >+</button>
 
                                 </div>
-                            <button className="buttonstyle text-[1.1em] h-[3.3em] w-[35%]  sm:w-[35%] lg:w-[25%]  " onClick={handleaddproduct}> Add Product</button>
+                            <button className="buttonstyle text-[1.1em] h-[3.3em] w-[35%]  sm:w-[25%] lg:w-[20%]  " onClick={handleaddproduct}> Add Product</button>
                                
 
                          </div>

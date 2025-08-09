@@ -21,7 +21,7 @@ export const Offersadminpg:React.FC<{}>=()=>{
                                                 </ul>
                                                 <div className=" flex items-center justify-center text-[3.5em] h-[5%]">
                                                     <PAGES ></PAGES>
-                                                </div>
+                             </div>
                                                 
                      
             </div>

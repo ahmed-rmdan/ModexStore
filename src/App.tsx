@@ -28,6 +28,10 @@ import { Offersadminpg } from "./pages/admin/offersadminpage"
 import { Addproduct } from "./pages/admin/addproduct"
 import { Editproduct } from "./pages/admin/editproduct"
 import { Ordersadminpg } from "./pages/admin/ordersadminpg"
+import { Ordereditpg } from "./pages/admin/editorderpg"
+
+
+
 const router=createBrowserRouter([
   {path:'/',element:<Root></Root>,errorElement:<Eroor></Eroor>,
     children:[
@@ -59,8 +63,8 @@ const router=createBrowserRouter([
            {path:'offers',element:<Offersadminpg></Offersadminpg>},
            {path:'addproduct',element:<Addproduct></Addproduct>},
            {path:'editproduct/:productid',element:<Editproduct></Editproduct>},
-           {path:'orders',element:<Ordersadminpg></Ordersadminpg>}
-
+           {path:'orders',element:<Ordersadminpg></Ordersadminpg>},
+          {path:'orders/edit/:orderid',element:<Ordereditpg></Ordereditpg>}
 
    
 

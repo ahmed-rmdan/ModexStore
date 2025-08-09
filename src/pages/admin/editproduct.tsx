@@ -1,6 +1,6 @@
 
 import React from "react"
-import { Addoredit } from "../../compononts/admin/addproductpg"
+import { Addoredit } from "../../compononts/admin/addoredit"
 
 
 export const Editproduct:React.FC<{}>=()=>{

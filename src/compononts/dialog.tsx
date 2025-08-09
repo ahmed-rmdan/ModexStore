@@ -13,7 +13,7 @@ if(props.open==='imges'){
  return(
        <dialog open={props.open==='imges'} >
        <div className="fixed w-full  items-center flex flex-col h-full z-[20000] bg-[#00000080]">
-              <button className="fixed flex items-center self-end top-[0%] h-[10%] w-[7%] sm:w-[5%]  text-[2.2em] cursor-pointer " onClick={handleclose}> X</button>
+              <button className="fixed flex items-center self-end top-[0%] h-[10%] w-[7%] sm:w-[5%]  text-[2.2em] cursor-pointer hover:text-white " onClick={handleclose}> X</button>
               <div className="fixed flex flex-row justify-between items-center top-[10%] h-[90%] w-[95%] ">
                <ArrowLeftFromLine size={'3em'} className="w-[10%] cursor-pointer"></ArrowLeftFromLine>
                <img className=" w-[77%] h-[50%] sm:w-[60%] sm:h-[80%]"></img>
