@@ -9,7 +9,7 @@ export const Addoredit:React.FC<{type:string}>=(props)=>{
 
     return(
 
-                <div className="flex w-[80%] sm:w-[75%] flex-col items-center justify-center gap-[5%] bg-gray-200 h-[800px] sm:h-[1000px] ">
+                <div className="flex w-full flex-col items-center justify-center gap-[5%] bg-gray-200 h-[700px] sm:h-[1000px] ">
                           <h1 className=" flex  underline text-purple-800 ] text-[8em] font-bold justify-center items-center ">{props.type==='add'? 'Add Product ': 'Edit Product'}</h1>
                       <form className=" flex flex-col text-[5em] sm:text-[4.2em] 2xl:text-[5em] justify-center gap-[5%] text-purple-800  bg-white items-center h-[80%] w-[92%] sm:w-[85%] lg:w-[80%] xl:w-[75%] 2xl:w-[70%] rounded-2xl"  >
                      
@@ -19,7 +19,7 @@ export const Addoredit:React.FC<{type:string}>=(props)=>{
                    
                         <div className="h-[7%] flex w-[65%] sm:w-[50%]  flex-row items-center gap-[5%]">
                               <p className="w-[40%]">Type product :</p>
-                             <select className="w-[40%]  border-2 border-purple-900" name="type" required={props.type==='add'}>
+                             <select className="w-[40%] text-center  border-2 border-purple-900" name="type" required={props.type==='add'}>
                             <option>jeans</option>
                             <option>t-shirts</option>
                             <option>socks</option>

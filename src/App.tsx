@@ -27,6 +27,7 @@ import { Productsadmin } from "./pages/admin/productsadmin"
 import { Offersadminpg } from "./pages/admin/offersadminpage"
 import { Addproduct } from "./pages/admin/addproduct"
 import { Editproduct } from "./pages/admin/editproduct"
+import { Ordersadminpg } from "./pages/admin/ordersadminpg"
 const router=createBrowserRouter([
   {path:'/',element:<Root></Root>,errorElement:<Eroor></Eroor>,
     children:[
@@ -57,7 +58,9 @@ const router=createBrowserRouter([
            {path:'products/:category',element:<Productsadmin></Productsadmin>},
            {path:'offers',element:<Offersadminpg></Offersadminpg>},
            {path:'addproduct',element:<Addproduct></Addproduct>},
-           {path:'editproduct/:productid',element:<Editproduct></Editproduct>}
+           {path:'editproduct/:productid',element:<Editproduct></Editproduct>},
+           {path:'orders',element:<Ordersadminpg></Ordersadminpg>}
+
 
    
 
