@@ -27,7 +27,7 @@ export const Login:React.FC<{}>=()=>{
                            </div>
                            
                     </form>
-                    <button className="h-[7%] text-[1.1em] text-red-500 cursor-pointer hover:underline">reset yout password</button>
+                    <NavLink to={'/resetpass'} className="h-[7%] text-[1.1em] text-red-500 cursor-pointer hover:underline">reset yout password</NavLink>
 
                   <NavLink to='/signup' className="buttonstyle item-center text-center  w-[25%] sm:w-[15%]  h-[6%] sm:h-[6%] xl:h-[7%]  text-[1.5em]">SignUp</NavLink>
                   </div>

@@ -29,6 +29,7 @@ import { Addproduct } from "./pages/admin/addproduct"
 import { Editproduct } from "./pages/admin/editproduct"
 import { Ordersadminpg } from "./pages/admin/ordersadminpg"
 import { Ordereditpg } from "./pages/admin/editorderpg"
+import { Resetpass } from "./pages/resetpass"
 
 
 
@@ -54,6 +55,7 @@ const router=createBrowserRouter([
       {path:'/payment',element:<Paymentpg></Paymentpg>},
       {path:'/thankyou',element:<Thankyoupg></Thankyoupg>},
       {path:'/myorders',element:<Myorders></Myorders>},
+      {path:'/resetpass',element:<Resetpass></Resetpass>}
       
     ]
   }
