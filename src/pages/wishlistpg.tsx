@@ -2,6 +2,11 @@ import React from "react";
 
 import { Listitem } from "../compononts/listitem";
 import { PAGES } from "../compononts/pages";
+import {motion} from 'framer-motion'
+const wishlists= [{type:'wishlist',id:'sadsafa',price:48,imgeurl:'',name:'tshirt',quantity:1},{type:'wishlist',id:'suiilk',price:48,imgeurl:'',name:'tshirt',quantity:1},
+    {type:'wishlist',id:'suiilertk',price:48,imgeurl:'',name:'tshirt',quantity:1}
+]
+
 
 
 export const Wishlist:React.FC<{}>=()=>{
@@ -13,15 +18,14 @@ export const Wishlist:React.FC<{}>=()=>{
                               
 
                     
-                       <div className="flex flex-row flex-wrap justify-around h-[80%] sm:h-[70%] xl:h-[80%] md:w-[95%] lg:w-[85%] xl:w-[80%]  items-center  ">
-                                    <Listitem type="wishlist" price={100} id="151515" imgeurl="" name="blue shirt wit v cut " quantity={1}></Listitem>
-                                    <Listitem type="wishlist" price={100} id="151515" imgeurl="" name="blue shirt wit v cut " quantity={1}></Listitem>
-                                    <Listitem type="wishlist" price={100} id="151515" imgeurl="" name="blue shirt wit v cut " quantity={1}></Listitem>
-                                    <Listitem type="wishlist" price={100} id="151515" imgeurl="" name="blue shirt wit v cut " quantity={1}></Listitem>
-                                     <Listitem type="wishlist" price={100} id="151515" imgeurl="" name="blue shirt wit v cut " quantity={1}></Listitem>
-                                      <Listitem type="wishlist" price={100} id="151515" imgeurl="" name="blue shirt wit v cut " quantity={1}></Listitem>
+                       <motion.ul variants={{invisible:{opacity:0,scale:0.5},visible:{opacity:1,scale:1,transition:{staggerChildren: 0.3}}}} initial='invisible' animate='visible'  className="flex flex-row flex-wrap justify-around h-[80%] sm:h-[70%] xl:h-[80%] md:w-[95%] lg:w-[85%] xl:w-[80%]  items-center  ">
+
+                                {wishlists.map(elm=>{
+                                        return <Listitem type={elm.type} price={elm.price} id={elm.id} imgeurl="" name={elm.name} quantity={1}></Listitem>
+                                })}
+                               
                        
-                       </div>
+                       </motion.ul>
 
                        <PAGES></PAGES>                        
 

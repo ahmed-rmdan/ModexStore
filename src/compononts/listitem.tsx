@@ -3,6 +3,8 @@ import { NavLink} from "react-router-dom"
 import { useAppDispatch } from "../store/hook";
 import { cartactions } from "../store/store";
 import { Heart } from "lucide-react";
+import {motion} from 'framer-motion'
+import { AnimatePresence } from "framer-motion";
 export const Listitem:React.FC<{imgeurl:string,name:string,quantity:number,price:number,type:string,id:string}>=(props)=>{
     const dispatch=useAppDispatch()
   function handleAddcart(){
@@ -22,8 +24,10 @@ dispatch(cartactions.additeem({price:props.price,name:props.name,id:props.id,qua
 if(props.type==='cart' ){
 
     return(
-
-        <li className="flex flex-col w-[90%] bg-white min-h-[7em] justify-around" >
+      
+                 <motion.li key={props.id} layout   initial={{ y: -30, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: -30, opacity: 0 }} transition={{bounce:0}}  className="flex flex-col min-w-[90%] max-w-[90%] bg-white min-h-[7em] justify-around" >
             <div className="flex flex-row w-full h-[65%] justify-around">
                    <img src={props.imgeurl} className="w-[40%] h-full" >
                 
@@ -44,7 +48,13 @@ if(props.type==='cart' ){
                 
 
              </div>
-        </li>
+        </motion.li>
+
+     
+     
+
+
+   
     )
 }
 if(props.type==='slider' ){
@@ -111,16 +121,13 @@ if(props.type==='products')
     if(props.type==='wishlist')
     return(
 
- <li className="flex flex-col  w-[47%]  sm:w-[30%] bg-white h-[30%] sm:h-[45%]  rounded-2xl  items-center justify-around text-[9px]  sm:text-[12.5px] lg:-text-[17px] xl:text-[19px]  2xl:text-[23px] " >
+ <motion.li  variants={{visible:{opacity:100,scale:1},invisible:{opacity:0,scale:0.5}}}  transition={{type:'spring',bounce:0.3}}
+ key={props.id} className="flex flex-col  w-[47%]  sm:w-[30%] bg-white h-[30%] sm:h-[45%]  rounded-2xl  items-center justify-around text-[9px]  sm:text-[12.5px] lg:-text-[17px] xl:text-[19px]  2xl:text-[23px] " >
             <div className="flex flex-row w-[95%] h-[60%] justify-around">
                    <img src={props.imgeurl} className="w-[50%] h-full" >
-                
-                  
                    </img>   
                    <div className="maininfo w-[45%] flex flex-col items-center justify-around ">
                          <p className="text-[0.8em] text-purple-800 font-bold text-center">{props.name}</p>
-                       
-                          
                          <p className="text-[0.9em] text-purple-800">price : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.price)} </p>
                    </div>
              
@@ -129,11 +136,11 @@ if(props.type==='products')
              <div className="itembuttons h-[30%] w-full flex flex-row justify-center gap-[5%] items-center">
            
                 <button className="buttonstyle text-[0.8em]  h-[50%] w-[35%] sm:w-[23%] md:w-[25%]  " onClick={handleAddcart} >Add to cart</button>
-                <NavLink to={`/product/${props.id}`} className="buttonstyle text-[0.8em] h-[50%] w-[30%] sm:w-[24%] md:w-[30%]  flex items-center justify-center  " >go to product</NavLink>
-                <Heart className="fill-red-500 cursor-pointer h-[50%] w-[20%] sm:w-[15%]" size={'1.5em'} width={'8%'} color="red" ></Heart>
+                <NavLink to={`/product/${props.id}`} className="buttonstyle text-[0.8em] h-[50%] w-[35%] sm:w-[24%] md:w-[30%]  flex items-center justify-center  " >go to product</NavLink>
+                <Heart className="fill-red-500 cursor-pointer h-[50%] w-[20%] sm:w-[15%]" size={'1.5em'} width={'7%'} color="red" ></Heart>
 
              </div>
-        </li>
+        </motion.li>
     )
 
 
@@ -184,7 +191,8 @@ if(props.type==='admin'){
 
 if(props.type==='offer'){
     return(
-        <li className="flex flex-col  w-[90%]   bg-white  min-h-[23%] max-h-[23%]  rounded-2xl text-purple-800  items-center justify-around  text-[9px]  sm:text-[12.5px] lg:-text-[17px]   2xl:text-[18px]" key={props.id}>
+        <motion.li 
+         className="flex flex-col  w-[90%]   bg-white  min-h-[23%] max-h-[23%]  rounded-2xl text-purple-800  items-center justify-around  text-[9px]  sm:text-[12.5px] lg:-text-[17px]   2xl:text-[18px]" key={props.id}>
             <div className="flex flex-row h-[60%] w-full justify-around">
                    <img src={props.imgeurl} className="w-[40%] h-full" >
                    </img>
@@ -205,7 +213,7 @@ if(props.type==='offer'){
                         <NavLink to={`/admin/editproduct/${props.id}`} className=" buttonstyle text-center text-[1.1em] self-center w-[22%] sm:w-[16%] h-[65%] 2xl:h-[80%]" > Edit  </NavLink>
 
                     </div>
-        </li>
+        </motion.li>
     )
 }
 

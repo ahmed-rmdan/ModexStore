@@ -12,8 +12,11 @@ const cartslice=createSlice({name:'cartslice',initialState:intialstate,reducers:
     },
      removeitem(state:item[],action:{type:string,payload:{id:string}}){
           const id=action.payload.id
-          const index=state.findIndex(elm=>elm.id===id)
-          state.splice(index,index+1)
+          const index=state.findIndex(elm=>{return elm.id===id})
+          console.log(index)
+       
+          state.splice(index,1)
+        
          
      },
       increase(state:item[],action:{type:string,payload:{id:string}}){

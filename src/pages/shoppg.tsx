@@ -8,7 +8,7 @@ export const Shoppg:React.FC<{}>=()=>{
     return(
             <section className="w-[100%] flex flex-row h-[1030px] sm:h-[1100px] items-center  bg-gray-200 text-[8px] md:text-[10px] lg:text-[13px] xl:text-[16px] ">
                       
-                      <div className="flex flex-col ml-[20px] sm:ml-[50px] rounded-2xl w-[27%] sm:w-[20%] h-[85%] bg-white  items-center gap-[60px]">
+                      <div className="flex flex-col ml-[20px] sm:ml-[50px] rounded-4xl w-[27%] sm:w-[20%] h-[85%] bg-white  items-center gap-[60px]">
                                 <h1 className="text-purple-800 text-[2em] underline font-bold mt-[30px]"> Categories</h1>
                                 <div className="flex flex-col items-center gap-[60px]">
                                     {Catagories.map(elm=>{

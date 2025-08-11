@@ -7,12 +7,21 @@ import React from "react";
 import { Listitem } from "../compononts/listitem";
 import { useAppSelector } from "../store/hook";
 import { useRef } from "react";
-
+import {motion} from 'framer-motion'
 import { useNavigate } from "react-router-dom";
-
-
+import { useState ,useEffect} from "react";
+import { animate } from "framer-motion";
 export const Puchasepg:React.FC<{}>=()=>{
 const navigate=useNavigate()
+const [progressvalue,setprogressvalue]=useState(0)
+
+  useEffect(() => {
+    
+    animate(0, 30, {
+      duration: 2,
+      onUpdate: latest => setprogressvalue(latest),
+    });
+  }, []);
 
 const cart=useAppSelector((state)=>state.cart)
 
@@ -37,7 +46,7 @@ function handleclick(){
                
                   <div className="bg-white flex flex-col items-center w-[95%] sm:w-[65%] h-[90%] justify-center gap-[7%] rounded-2xl">
                     
-                      <progress value={30} max={100} className="custom-progress border-4  border-purple-800 rounded-[8px] w-[45%] sm:w-[40%] h-[2%] xl:h-[2.5%] 2xl:h-[3%] "></progress>
+                      <motion.progress  max={100} value={progressvalue}  className="custom-progress border-4  border-purple-800 rounded-[6px] w-[45%] sm:w-[40%] h-[2%] xl:h-[2.5%] 2xl:h-[3%] "></motion.progress>
                  
                      
 

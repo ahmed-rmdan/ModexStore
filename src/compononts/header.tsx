@@ -4,6 +4,8 @@ import { NavLink } from "react-router-dom";
 import { AlignJustify } from 'lucide-react';
 import { useState,useEffect } from "react";
 import { ShoppingCart } from 'lucide-react';
+import {motion} from 'framer-motion'
+import { AnimatePresence } from "framer-motion";
 export const Header:React.FC<{}>=()=>{
 const [width,setwidth]=useState<number>(window.screen.width)
 const [menu,setmenu]=useState<boolean>(false)
@@ -64,8 +66,8 @@ else {
                <AlignJustify color="#59168b" onClick={handleclick}></AlignJustify>
              <NavLink className=" text-center  text-purple-900 font-bold text-[5.5em]    " to={'/'}><h1  > Modex Store</h1></NavLink>
              </div>
-             
-            {menu?<div className="flex flex-col absolute left-0 top-10 gap-[30px] h-[900px] w-[25%] items-center justify-start bg-white z-[10000]  ">
+             <AnimatePresence>
+             {menu?<motion.div initial={{width:0,opacity:0}} animate={{width:100,opacity:100}} transition={{duration:0.5}} exit={{width:0,opacity:0}} className="flex flex-col absolute left-0 top-10 gap-[30px] h-[900px] w-[25%] items-center justify-start bg-white z-[10000]  ">
                   <div className="flex flex-col items-center justify-end h-[300px] gap-[50px] text-[4.5em] ">
                         <NavLink to={'/products'} className={({isActive})=>isActive?"cursor-pointer text-purple-800 underline ":"cursor-pointer hover:text-purple-800 "}> Shop</NavLink>
                 <NavLink to={'/categories'} className={({isActive})=>isActive?"cursor-pointer text-purple-800 underline ":"cursor-pointer hover:text-purple-800 "}> Categories</NavLink>
@@ -84,11 +86,12 @@ else {
                          
 
                   </div>
-
-
-
                 
-            </div>: ''}
+            </motion.div>: ''}
+
+
+             </AnimatePresence>
+          
      
              
             <div className=" flex flex-row justify-end items-center text-[6.9em]  w-[35%] gap-[5px] text-purple-800">
