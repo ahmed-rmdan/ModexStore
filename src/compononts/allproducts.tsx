@@ -17,7 +17,7 @@ export const Allproducts:React.FC<{}>=()=>{
                                    <Listitem type="products" price={100} id="151515" imgeurl="" name="blue shirt wit v cut " quantity={1}></Listitem>
                                    
                              </ul>
-                             <PAGES></PAGES>
+                             <PAGES legth={25} noproducts={4}></PAGES>
                        
                        </>
                       

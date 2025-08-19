@@ -3,32 +3,53 @@ import React from "react";
 import { useState } from "react";
 import { ArrowRight } from 'lucide-react';
 import { ArrowLeft } from 'lucide-react';
-export const PAGES:React.FC<{}>=(props)=>{
+import { motion } from "framer-motion";
+import { paginationactions } from "../store/store";
+import { useAppDispatch } from "../store/hook";
+import { useAppSelector } from "../store/hook";
+export const PAGES:React.FC<{legth:number,noproducts:number}>=(props)=>{
    const[pagenum,setpagenum]=useState<number>(0)
-
+       const dispatch=useAppDispatch()
+       const activepage=useAppSelector((state)=>state.pagination)
 function handlenext(){
 setpagenum(prev=>prev+1)  
 }
 function handleprev(){
+   if(pagenum===0)
+      return
    setpagenum(prev=>prev-1)  
+}
+function handleclick(page:number){
+  
+   dispatch(paginationactions.handlepage({page}))
+}
+
+let pagesarr:number[]=[]
+for(let i=0;i<Math.ceil(props.legth/props.noproducts);i++){
+   pagesarr.push(i+1)
 }
 
 return(
                          <div className="flex flex-row ">
 
-                               <button className="cursor-pointer" onClick={handleprev}><ArrowLeft/></button>
-                             
+                               { pagenum>0&&<button className="cursor-pointer" onClick={handleprev}><ArrowLeft size={'1.3em'} className="hover:text-purple-800"/></button>}
+                                 
                            
-                               <div className="flex flex-row w-[100px] overflow-hidden "  >
-                                    <button className="w-[20px] cursor-pointer hover:text-purple-800 hover:underline">1</button>
-                                    <button className="w-[20px] cursor-pointer  hover:text-purple-800 hover:underline" >2</button>
-                                    <button className="w-[20px] cursor-pointer hover:text-purple-800 hover:underline">3</button>
-                                    <button className="w-[20px] cursor-pointer hover:text-purple-800 hover:underline">4</button>
-                                    <button className="w-[20px] cursor-pointer hover:text-purple-800 hover:underline">5</button>
+                               <div className="flex flex-row  min-w-[100px]  max-w-[100px]     overflow-hidden "  >
+                                 <motion.ul animate={{x:-pagenum*20}} className="flex flex-row h-full min-w-[100px]  ">
+                                     {
+                                       pagesarr.map(elm=>{
+                                          return <button onClick={()=>handleclick(elm)} className={elm===activepage?"min-w-[20px]  cursor-pointer text-purple-800 underline ":" min-w-[20px]  cursor-pointer hover:text-purple-800 hover:underline"}>{elm}</button>
+                                       })
+                                     }
+                             
+                                     
+                                 </motion.ul>
+                         
 
                                </div>
                               
-                              <button className="cursor-pointer" onClick={handlenext}><ArrowRight /></button>
+                             { pagenum<Math.ceil(props.legth/props.noproducts)-5&&<button className="cursor-pointer" onClick={handlenext}><ArrowRight size={'1.3em'} className="hover:text-purple-800"/></button>}
                             
                                
                         </div>

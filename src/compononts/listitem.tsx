@@ -5,7 +5,7 @@ import { cartactions } from "../store/store";
 import { Heart } from "lucide-react";
 import {motion} from 'framer-motion'
 
-export const Listitem:React.FC<{imgeurl:string,name:string,quantity:number,price:number,type:string,id:string}>=(props)=>{
+export const Listitem:React.FC<{imgeurl:string,name:string,quantity:number,oldprice:number,price:number,type:string,listtype:string,id:string,moreinfo:string}>=(props)=>{
     const dispatch=useAppDispatch()
   function handleAddcart(){
 dispatch(cartactions.additeem({price:props.price,name:props.name,id:props.id,quantity:1}))
@@ -21,7 +21,7 @@ dispatch(cartactions.additeem({price:props.price,name:props.name,id:props.id,qua
   }
 
 
-if(props.type==='cart' ){
+if(props.listtype==='cart' ){
 
     return(
       
@@ -57,7 +57,7 @@ if(props.type==='cart' ){
    
     )
 }
-if(props.type==='slider' ){
+if(props.listtype==='slider' ){
    
     return(
 
@@ -86,7 +86,7 @@ if(props.type==='slider' ){
         </li>
     )
 }
-if(props.type==='products')
+if(props.listtype==='products')
     return(
 
  <li className="flex flex-col w-[90%] bg-gray-100 h-[150px]  rounded-2xl  items-center justify-around text-[10.2px] sm:text-[15px] lg:text-[20px] xl:text-2xl" >
@@ -118,7 +118,7 @@ if(props.type==='products')
 
 
     )
-    if(props.type==='wishlist')
+    if(props.listtype==='wishlist')
     return(
 
  <motion.li  variants={{visible:{opacity:100,scale:1},invisible:{opacity:0,scale:0.5}}}  transition={{type:'spring',bounce:0.3}}
@@ -145,7 +145,7 @@ if(props.type==='products')
 
 
 
-        if(props.type==='purchase')
+        if(props.listtype==='purchase')
     return(
 
  <li className="flex flex-col  w-[90%]  sm:w-[90%] bg-white min-h-[45%]  rounded-2xl  items-center justify-around text-[9px]  sm:text-[12.5px] lg:-text-[17px] xl:text-[19px]  2xl:text-[23px] " >
@@ -166,22 +166,23 @@ if(props.type==='products')
         
         </li>
     )
-if(props.type==='admin'){
+if(props.listtype==='admin'){
     return(
-        <li className="flex flex-col  w-[90%]   bg-white  min-h-[23%]  rounded-2xl text-purple-800  items-center justify-around  text-[9px]  sm:text-[12.5px] lg:-text-[17px] xl:text-[16px]  2xl:text-[17px]" key={props.id}>
+        <li className="flex flex-col  w-[90%]   bg-white  min-h-[23%] max-h-[23%]   rounded-2xl text-purple-800  items-center justify-around  text-[9px]  sm:text-[12.5px] lg:-text-[17px] xl:text-[16px]  2xl:text-[17px]" key={props.id}>
             <div className="flex flex-row h-[60%] w-full justify-around">
                    <img src={props.imgeurl} className="w-[40%] h-full" >
                    </img>
                    <div className="flex flex-col justify-around items-start w-[55%]">
                          <p className="font-bold">{props.name}</p>
                          <p className="type">Type : {props.type}</p>
-                         <p className="  text-[0.75em] w-full   whitespace-normal break-words overflow-y-auto  h-[25%] "> <span className="text-[1em]"> Info : </span>saffasfasfasfasfasfasfasfasfadasffasسشبسشبشسببشسبشسبشسبشسبشسبشبسfasfasfasfasfafasfasfsfg </p>
+                         <p className="  text-[0.75em] w-full flex flex-row items-center  h-[30%] "> <span className=" flex items-center text-[1em] text-center min-w-[25%]   md:min-w-[20%] h-full font-semibold "> more Info : </span>
+                         <span className="w-[85%] text-[0.9em] overflow-y-scroll items-start h-full">{props.moreinfo}</span> </p>
                          <p className="text-purple-900 font-semibold">price : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.price)}  </p>
                    </div>
              </div>
               <div className=" flex flex-row items-center text-[1.2em] font-semibold gap-[15%] justify-center w-full h-[25%]">
                          <button className=" buttonstyle text-center w-[22%]  sm:w-[16%] h-[75%]" >Delete</button>
-                        <NavLink to={`/admin/editproduct/${props.id}`} className=" buttonstyle text-center w-[22%] sm:w-[16%] h-[75%]" > Edit  </NavLink>
+                        <NavLink to={`/admin/editproduct/${props.id}`} className=" buttonstyle text-center flex items-center justify-center w-[22%] sm:w-[16%] h-[75%]" > Edit  </NavLink>
 
                     </div>
         </li>
@@ -189,7 +190,7 @@ if(props.type==='admin'){
 }
 
 
-if(props.type==='offer'){
+if(props.listtype==='offer'){
     return(
         <motion.li 
          className="flex flex-col  w-[90%]   bg-white  min-h-[23%] max-h-[23%]  rounded-2xl text-purple-800  items-center justify-around  text-[9px]  sm:text-[12.5px] lg:-text-[17px]   2xl:text-[18px]" key={props.id}>
@@ -203,7 +204,7 @@ if(props.type==='offer'){
                          <p className="  text-[0.75em] w-full   whitespace-normal break-words overflow-y-auto  min-h-[25%] "> <span className="text-[1em]"> Info : </span>saffasfasfasfasfasfasfasfasfadasffasسشبسشبشسببشسبشسبشسبشسبشسبشبسfasfasfasfasfafasfasfsfg </p>
                          <div className="flex flex-row w-[100%] text-[0.9em] items-center justify-around h-[25%]">
                                    <p className="text-purple-900 font-semibold  w-[47%]">newprice : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.price)}</p>
-                                   <p className="text-red-600 font-semibold w-[47%]">oldprice : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.price)}</p>
+                                   <p className="text-red-600 font-semibold w-[47%]">oldprice : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.oldprice)}</p>
                          </div>
                         
                    </div>

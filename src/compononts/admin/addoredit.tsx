@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom"
 export const Addoredit:React.FC<{type:string}>=(props)=>{
 const navigate=useNavigate()
 const {mutate}=useMutation({
-mutationKey:['slideimge'],
+mutationKey:['products'],
 mutationFn:addproduct,
 onSuccess:()=>navigate('/admin/products/allproducts')
 

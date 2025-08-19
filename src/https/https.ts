@@ -1,4 +1,4 @@
-import React from "react"
+import type { typeadminproducts } from "../types/types";
 
 export async function addproduct(data:FormData){
 //   ev.preventDefault()
@@ -56,5 +56,45 @@ const RES=await fetch(`http://localhost:3000/uploadimge/${id}`,{
 }catch(err){
   console.log(err)
 }
+
+}
+
+export async function getadminproducts(signal:any,type:string,activepage:number){
+    console.log(type)
+const res=await fetch('http://localhost:3000/graphql',{
+  method:'POST',
+  headers:{'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  },
+  body:JSON.stringify({
+    query:`
+     query($input: TypeInput!) {
+        getproducts(input: $input){
+    products {
+      id
+      name
+      moreinfo
+      mainimg
+      newprice
+      oldprice
+      slideimg
+      type
+      offer
+    },
+    length
+  }
+      }
+    `,
+       variables: {
+      input:{type,activepage}
+    }
+    
+  })
+})
+const data=await res.json()
+console.log(data)
+return {products:data.data.getproducts.products as [typeadminproducts],length:data.data.getproducts.length}
+
+
 
 }

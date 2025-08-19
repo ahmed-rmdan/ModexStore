@@ -1,5 +1,6 @@
 import { createSlice ,configureStore} from "@reduxjs/toolkit";
 import { dialogreducers } from "./reducers/dialog";
+import { paginationreducers } from "./reducers/pagination";
 export type item={price:number,name:string,id:string,quantity:number}
 const intialstate:item[]=[]
 const cartslice=createSlice({name:'cartslice',initialState:intialstate,reducers:{
@@ -40,10 +41,10 @@ const cartslice=createSlice({name:'cartslice',initialState:intialstate,reducers:
 
 
 const dialogslice=createSlice({name:'dialog',initialState:initialdialo,reducers:dialogreducers})
+const inistialpagination:number=1
+const paginationslice=createSlice({name:'pagination',initialState:inistialpagination,reducers:paginationreducers})
 
-
-
-export const store=configureStore({reducer:{cart:cartslice.reducer,dialog:dialogslice.reducer}})
+export const store=configureStore({reducer:{cart:cartslice.reducer,dialog:dialogslice.reducer,pagination:paginationslice.reducer}})
 
 
 export type RootState = ReturnType<typeof store.getState>
@@ -53,3 +54,4 @@ export type AppDispatch = typeof store.dispatch
 export const cartactions=cartslice.actions
 
 export const dialogactions=dialogslice.actions
+export const paginationactions=paginationslice.actions
