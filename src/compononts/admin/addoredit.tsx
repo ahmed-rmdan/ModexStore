@@ -55,21 +55,7 @@ await mutate(data)
 
 
                               <Sliderimge></Sliderimge>
-
-                         {/* <div className=" flex flex-row w-[98%] sm:w-[75%] justify-start items-start gap-[5%] h-[15%]">
-                    <p className="w-[30%] h-[50%] text-end text-[0.8em] sm:text-[0.9em]">Slider_Imges-url:</p>
-                    <div className=" flex flex-row h-full w-[70%] items-start justify-between bg-gray-200 ">
-                         <div className=" flex flex-col justify-between overflow-y-auto h-full gap-[5%] w-[80%]">
-                              <input type="text" name="imgeurl" className="w-full text-[0.8em] max-h-[23%]  sm:max-h-[35%]   min-h-[23%]       sm:min-h-[35%] bg-white     border-2 text-center border-purple-900 rounded-2xl" placeholder="SliderImge-url" ></input>
-                                <input type="text" name="imgeurl" className="w-full text-[0.8em] max-h-[23%]  sm:max-h-[35%]   min-h-[23%]       sm:min-h-[35%] bg-white    border-2 text-center border-purple-900 rounded-2xl" placeholder="SliderImge-url" ></input>
-                                 <input type="text" name="imgeurl" className="w-full text-[0.8em] max-h-[23%]  sm:max-h-[35%]   min-h-[23%]       sm:min-h-[35%] bg-white  border-2 text-center border-purple-900 rounded-2xl" placeholder="SliderImge-url" ></input>
-                         </div>
-                            <button className="buttonstyle text-center w-[15%] text-[0.9em] h-[20%] sm:h-[30%]">+</button>
-                    </div>
-                    
-                  </div> */}
-                    
-                              
+                   
                               <button className="buttonstyle font-bold w-[25%] sm:w-[12%] h-[5%]" >{props.type==='add'?'Add':'Edit'}</button>
                                  
                     </form>

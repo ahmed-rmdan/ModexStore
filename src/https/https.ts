@@ -98,3 +98,42 @@ return {products:data.data.getproducts.products as [typeadminproducts],length:da
 
 
 }
+
+
+export async function getalloffers(){
+   
+const res=await fetch('http://localhost:3000/graphql',{
+  method:'POST',
+  headers:{'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  },
+  body:JSON.stringify({
+    query:`
+       query{
+       getalloffers{
+    products {
+      id
+      name
+      moreinfo
+      mainimg
+      newprice
+      oldprice
+      slideimg
+      type
+      offer
+    }
+    
+  } 
+  }   
+    `
+   
+    
+  })
+})
+const data=await res.json()
+console.log(data)
+return {products:data.data.getalloffers.products as [typeadminproducts]}
+
+
+
+}

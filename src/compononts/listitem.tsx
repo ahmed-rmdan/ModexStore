@@ -89,14 +89,14 @@ if(props.listtype==='slider' ){
 if(props.listtype==='products')
     return(
 
- <li className="flex flex-col w-[90%] bg-gray-100 h-[150px]  rounded-2xl  items-center justify-around text-[10.2px] sm:text-[15px] lg:text-[20px] xl:text-2xl" >
+ <li className="flex flex-col w-[90%] bg-gray-100 min-h-[23%] max-h-[23%] rounded-2xl  items-center justify-around text-[10.2px] sm:text-[15px] lg:text-[20px] xl:text-2xl" >
             <div className="flex flex-row w-[95%] h-[60%] justify-around">
                    <img src={props.imgeurl} className="w-[40%] h-full" >
                 
                   
                    </img>   
                    <div className="maininfo w-[55%] flex flex-col items-center justify-around ">
-                         <p className="text-[0.8em] text-center">{props.name}</p>
+                         <p className="text-[0.95em] text-center font-bold text-purple-800 ">{props.name}</p>
                        
                           
                          <p className="text-[0.9em] text-purple-800">price : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.price)} </p>
@@ -106,8 +106,8 @@ if(props.listtype==='products')
              </div>
              <div className="itembuttons h-[25%] w-full flex flex-row justify-center gap-[20%] items-center">
            
-                <button className="buttonstyle text-[0.8em] w-[26%] sm:w-[23%] 2xl:w-[20%] h-[77%]  " onClick={handleAddcart} >Add to cart</button>
-                <NavLink to={`/product/${props.id}`} className="buttonstyle text-[0.8em] w-[31%] sm:w-[24%] 2xl:w-[20%] h-[77%] flex items-center justify-center  " >go to product</NavLink>
+                <button className="buttonstyle text-[0.8em] w-[26%] sm:w-[23%] 2xl:w-[20%] h-[77%] font-semibold  " onClick={handleAddcart} >Add to cart</button>
+                <NavLink to={`/product/${props.id}`} className="buttonstyle text-[0.8em] w-[31%] sm:w-[24%] 2xl:w-[20%] h-[77%] flex items-center justify-center font-semibold " >go to product</NavLink>
                 {/* <Heart className="fill-red-500 cursor-pointer w-[10%] sm:w-[8%]" size={'1.5em'} width={'8%'} color="red" ></Heart> */}
 
              </div>
@@ -169,10 +169,10 @@ if(props.listtype==='products')
 if(props.listtype==='admin'){
     return(
         <li className="flex flex-col  w-[90%]   bg-white  min-h-[23%] max-h-[23%]   rounded-2xl text-purple-800  items-center justify-around  text-[9px]  sm:text-[12.5px] lg:-text-[17px] xl:text-[16px]  2xl:text-[17px]" key={props.id}>
-            <div className="flex flex-row h-[60%] w-full justify-around">
-                   <img src={props.imgeurl} className="w-[40%] h-full" >
+            <div className="flex flex-row max-h-[60%] min-h-[60%] w-full justify-around">
+                   <img src={props.imgeurl} className="min-w-[40%] max-w-{40%} min-h-full max-h-full" >
                    </img>
-                   <div className="flex flex-col justify-around items-start w-[55%]">
+                   <div className="flex flex-col justify-around items-start w-[55%] min-h-full max-h-full">
                          <p className="font-bold">{props.name}</p>
                          <p className="type">Type : {props.type}</p>
                          <p className="  text-[0.75em] w-full flex flex-row items-center  h-[30%] "> <span className=" flex items-center text-[1em] text-center min-w-[25%]   md:min-w-[20%] h-full font-semibold "> more Info : </span>
@@ -180,7 +180,7 @@ if(props.listtype==='admin'){
                          <p className="text-purple-900 font-semibold">price : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.price)}  </p>
                    </div>
              </div>
-              <div className=" flex flex-row items-center text-[1.2em] font-semibold gap-[15%] justify-center w-full h-[25%]">
+              <div className=" flex flex-row items-center text-[1.2em] font-semibold gap-[15%] justify-center w-full max-h-[25%] min-h-[25%]">
                          <button className=" buttonstyle text-center w-[22%]  sm:w-[16%] h-[75%]" >Delete</button>
                         <NavLink to={`/admin/editproduct/${props.id}`} className=" buttonstyle text-center flex items-center justify-center w-[22%] sm:w-[16%] h-[75%]" > Edit  </NavLink>
 
@@ -193,11 +193,11 @@ if(props.listtype==='admin'){
 if(props.listtype==='offer'){
     return(
         <motion.li 
-         className="flex flex-col  w-[90%]   bg-white  min-h-[23%] max-h-[23%]  rounded-2xl text-purple-800  items-center justify-around  text-[9px]  sm:text-[12.5px] lg:-text-[17px]   2xl:text-[18px]" key={props.id}>
+         className="flex flex-col  max-w-[90%] min-w-[90%]  bg-white  min-h-[23%] max-h-[23%]  rounded-2xl text-purple-800  items-center justify-around  text-[9px]  sm:text-[12.5px] lg:-text-[17px]   2xl:text-[18px]" key={props.id}>
             <div className="flex flex-row h-[60%] w-full justify-around">
-                   <img src={props.imgeurl} className="w-[40%] h-full" >
+                   <img src={props.imgeurl} className="min-w-[40%] max-w-[40%] max-h-full min-h-full" >
                    </img>
-                   <div className="flex flex-col justify-around items-start w-[55%]">
+                   <div className="flex flex-col justify-around items-start w-[55%] max-h-full min-h-full">
                          <p className="font-bold">{props.name}</p>
                          <p className="type">Type : {props.type}</p>
                         
@@ -209,7 +209,7 @@ if(props.listtype==='offer'){
                         
                    </div>
              </div>
-              <div className=" flex flex-row items-center text-[1.2em] font-semibold gap-[15%] justify-center w-full h-[25%]">
+              <div className=" flex flex-row items-center text-[1.2em] font-semibold gap-[15%] justify-center w-full max-h-[25%] min-h-[25%]">
                          <button className=" buttonstyle text-center w-[22%]  sm:w-[16%] h-[65%] 2xl:h-[80%]" >Delete</button>
                         <NavLink to={`/admin/editproduct/${props.id}`} className=" buttonstyle text-center text-[1.1em] self-center w-[22%] sm:w-[16%] h-[65%] 2xl:h-[80%]" > Edit  </NavLink>
 

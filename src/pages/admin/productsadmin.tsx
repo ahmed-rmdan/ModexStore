@@ -30,11 +30,11 @@ console.log(parms.category as string)
 let length:number=data===undefined?0:data.length
 
     return(
-         <div className=" flex flex-col items-center justify-around h-[670px] sm:h-[1050px] w-full  bg-gray-200">
+         <div className=" flex flex-col items-center justify-around min-h-[670px] max-h-[670px]  sm:max-h-[1050px] sm:min-h-[1050px] w-full  bg-gray-200">
 
                 <h1 className=" flex underline text-purple-800 text-[12em] h-[5%] justify-center items-center font-bold ">{parms.category}</h1>
                                                  
-                    <ul className="flex flex-col min-h-[75%] w-[85%] sm:w-[70%] justify-between  items-center">  
+                    <ul className="flex flex-col min-h-[80%] max-h-[80%] w-[85%] sm:w-[70%]  justify-between  items-center">  
                                                      
                             {data?.products?.map(elm=>{
                                                         

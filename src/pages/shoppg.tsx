@@ -2,7 +2,7 @@ import React from "react";
 
 import { NavLink } from "react-router-dom";
 import { Outlet } from "react-router-dom";
-const Catagories=['T-shirts','Shirts','Jeans' ,'Jackets','Shoes','Socks']
+const Catagories=['t-shirts','shirts','jeans' ,'jackets','shoes','socks']
 
 export const Shoppg:React.FC<{}>=()=>{
     return(
@@ -17,7 +17,7 @@ export const Shoppg:React.FC<{}>=()=>{
                                        
                                 </div>  
                       </div>
-                       <div className="flex flex-col w-[70%] items-center gap-[20px] sm:gap-[30px]">
+                       <div className="flex flex-col w-[70%] h-full items-center gap-[1%] sm:gap-[30px]">
                        
                               <Outlet></Outlet>
                        </div>

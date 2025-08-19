@@ -7,10 +7,18 @@ import { motion } from "framer-motion";
 import { paginationactions } from "../store/store";
 import { useAppDispatch } from "../store/hook";
 import { useAppSelector } from "../store/hook";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+
 export const PAGES:React.FC<{legth:number,noproducts:number}>=(props)=>{
    const[pagenum,setpagenum]=useState<number>(0)
        const dispatch=useAppDispatch()
        const activepage=useAppSelector((state)=>state.pagination)
+            const parms=useParams()
+useEffect(()=>{
+setpagenum(0)
+},[parms.category])
+
 function handlenext(){
 setpagenum(prev=>prev+1)  
 }
