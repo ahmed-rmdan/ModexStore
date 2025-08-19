@@ -1,17 +1,30 @@
 import React from "react"
-
-
+import { Sliderimge } from "./sliderimages"
+import { useMutation } from "@tanstack/react-query"
+import { addproduct } from "../../https/https"
+import { useNavigate } from "react-router-dom"
 export const Addoredit:React.FC<{type:string}>=(props)=>{
+const navigate=useNavigate()
+const {mutate}=useMutation({
+mutationKey:['slideimge'],
+mutationFn:addproduct,
+onSuccess:()=>navigate('/admin/products/allproducts')
 
+})
 
-    
+async function handlesubmit(ev:React.FormEvent<HTMLFormElement>){
+  ev.preventDefault()
+      const data = new FormData(ev.currentTarget);
+await mutate(data)
+
+}  
 
 
     return(
 
                 <div className="flex w-full flex-col items-center justify-center gap-[3%] bg-gray-200 h-[700px] sm:h-[1000px] ">
                           <h1 className=" flex  underline text-purple-800  text-[9em] font-bold justify-center items-center ">{props.type==='add'? 'Add Product ': 'Edit Product'}</h1>
-                      <form className=" flex flex-col text-[5em] sm:text-[4.2em] 2xl:text-[5em] justify-center gap-[5%] text-purple-800  bg-white items-center h-[80%] w-[92%] sm:w-[85%] lg:w-[80%] xl:w-[75%] 2xl:w-[70%] rounded-2xl"  >
+                      <form className=" flex flex-col text-[5em] sm:text-[4.2em] 2xl:text-[5em] justify-center gap-[5%] text-purple-800  bg-white items-center h-[80%] w-[92%] sm:w-[85%] lg:w-[80%] xl:w-[75%] 2xl:w-[70%] rounded-2xl" onSubmit={handlesubmit} >
                      
                                 
                         <input className='h-[5%] w-[65%] sm:w-[50%] rounded-2xl border-2 border-purple-900 text-center ' type="text" name="name" placeholder='Product name' required={props.type==='add'}></input>
@@ -31,19 +44,19 @@ export const Addoredit:React.FC<{type:string}>=(props)=>{
                          
                              
                         <input className="h-[5%] w-[65%] sm:w-[50%] rounded-2xl border-2 border-purple-900 text-center " placeholder="More Info" type='text' name="moreinfo" required={props.type==='add'}></input>           
-                        <input placeholder="old-price" className="h-[5%] w-[65%] sm:w-[50%] rounded-2xl border-2 border-purple-900 text-center " type="number" name="oldprice" required={props.type==='add'}></input>
+                        <input placeholder="old-price" className="h-[5%] w-[65%] sm:w-[50%] rounded-2xl border-2 border-purple-900 text-center " type='number' name="oldprice" required={props.type==='add'}></input>
                         <input placeholder="NEW-Price" className="h-[5%] w-[65%] sm:w-[50%] rounded-2xl border-2 border-purple-900 text-center " type="number" name="newprice" required={props.type==='add'}></input>
                         
                      
-                  <div className=" flex flex-row w-[75%]  sm:w-[60%] items-center gap-[5%] h-[5%]">
+                  <div className=" flex flex-row w-[90%]  sm:w-[65%] items-center gap-[5%] h-[5%]">
                     <p className="w-[35%] text-[0.9em] text-end">Main_Imge-file:</p>
-                    <input type="file" name="imgeurl" className="w-[50%] text-[0.9em]  border-2 text-center border-purple-900" placeholder="mainImge-url" ></input>
+                    <input type="file" name="mainimge" className="w-[50%] text-[0.9em] border-2 text-center border-purple-900" placeholder="mainImge-url" ></input>
                   </div>
 
 
+                              <Sliderimge></Sliderimge>
 
-
-                         <div className=" flex flex-row w-[98%] sm:w-[75%] justify-start items-start gap-[5%] h-[15%]">
+                         {/* <div className=" flex flex-row w-[98%] sm:w-[75%] justify-start items-start gap-[5%] h-[15%]">
                     <p className="w-[30%] h-[50%] text-end text-[0.8em] sm:text-[0.9em]">Slider_Imges-url:</p>
                     <div className=" flex flex-row h-full w-[70%] items-start justify-between bg-gray-200 ">
                          <div className=" flex flex-col justify-between overflow-y-auto h-full gap-[5%] w-[80%]">
@@ -54,7 +67,7 @@ export const Addoredit:React.FC<{type:string}>=(props)=>{
                             <button className="buttonstyle text-center w-[15%] text-[0.9em] h-[20%] sm:h-[30%]">+</button>
                     </div>
                     
-                  </div>
+                  </div> */}
                     
                               
                               <button className="buttonstyle font-bold w-[25%] sm:w-[12%] h-[5%]" >{props.type==='add'?'Add':'Edit'}</button>

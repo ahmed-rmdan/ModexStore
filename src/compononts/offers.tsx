@@ -1,6 +1,6 @@
 import React from "react"
 import { Listitem } from "./listitem"
-import { ArrowBigLeft, X } from 'lucide-react';
+import { ArrowBigLeft } from 'lucide-react';
 import {ArrowBigRight} from 'lucide-react';
 import { useEffect,useState,useRef } from "react";
 import { motion } from "framer-motion";

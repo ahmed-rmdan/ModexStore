@@ -30,7 +30,7 @@ import { Editproduct } from "./pages/admin/editproduct"
 import { Ordersadminpg } from "./pages/admin/ordersadminpg"
 import { Ordereditpg } from "./pages/admin/editorderpg"
 import { Resetpass } from "./pages/resetpass"
-
+import { QueryClientProvider,QueryClient } from "@tanstack/react-query"
 
 
 const router=createBrowserRouter([
@@ -75,10 +75,17 @@ const router=createBrowserRouter([
 
 
 function App() {
+const client=new QueryClient()
+
+
 
 
   return (
-   <RouterProvider router={router}></RouterProvider>
+    <QueryClientProvider client={client}>
+
+ <RouterProvider router={router}></RouterProvider>
+    </QueryClientProvider>
+  
   )
 }
 
