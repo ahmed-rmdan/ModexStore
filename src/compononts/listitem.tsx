@@ -79,7 +79,7 @@ if(props.listtype==='slider' ){
              <div className="itembuttons h-[25%] w-full flex flex-row justify-around items-center">
            
                 <button className="buttonstyle text-[0.6em] w-[35%] h-[50%] font-bold  " onClick={handleAddcart} >Add to cart</button>
-               <NavLink className="buttonstyle text-[0.5em] w-[40%] h-[50%] flex items-center justify-center font-bold   " to={`/product/${props.id}`}>Go to Product</NavLink> 
+               <NavLink className="buttonstyle text-[0.5em] w-[40%] h-[50%] flex items-center justify-center font-bold " to={`/product/${props.id}`}>Go to Product</NavLink> 
                 
 
              </div>
