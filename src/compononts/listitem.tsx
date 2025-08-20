@@ -4,9 +4,13 @@ import { useAppDispatch } from "../store/hook";
 import { cartactions } from "../store/store";
 import { Heart } from "lucide-react";
 import {motion} from 'framer-motion'
+import {  useMutation } from "@tanstack/react-query";
+import { deleteproduct } from "../https/https";
+import { useQueryClient } from "@tanstack/react-query";
 
 export const Listitem:React.FC<{imgeurl:string,name:string,quantity:number,oldprice:number,price:number,type:string,listtype:string,id:string,moreinfo:string}>=(props)=>{
     const dispatch=useAppDispatch()
+    const queryclient=useQueryClient()
   function handleAddcart(){
 dispatch(cartactions.additeem({price:props.price,name:props.name,id:props.id,quantity:1,imgeurl:props.imgeurl}))
   }
@@ -19,6 +23,7 @@ dispatch(cartactions.additeem({price:props.price,name:props.name,id:props.id,qua
     function handledecrease(){
     dispatch(cartactions.decrease({id:props.id}))
   }
+
 
 
 if(props.listtype==='cart' ){
@@ -49,11 +54,6 @@ if(props.listtype==='cart' ){
 
              </div>
         </motion.li>
-
-     
-     
-
-
    
     )
 }
@@ -167,6 +167,17 @@ if(props.listtype==='products')
         </li>
     )
 if(props.listtype==='admin'){
+  const {mutate}=useMutation({
+         mutationKey:['products'],
+         mutationFn:deleteproduct,
+         onSuccess:()=>{queryclient.invalidateQueries({queryKey:['products']})}
+          })
+
+          function handledeleteproduct(){
+            mutate(props.id)
+          }
+
+
     return(
         <li className="flex flex-col  w-[90%]   bg-white  min-h-[23%] max-h-[23%]   rounded-2xl text-purple-800  items-center justify-around  text-[9px]  sm:text-[12.5px] lg:-text-[17px] xl:text-[16px]  2xl:text-[17px]" key={props.id}>
             <div className="flex flex-row max-h-[60%] min-h-[60%] w-full justify-around">
@@ -181,7 +192,7 @@ if(props.listtype==='admin'){
                    </div>
              </div>
               <div className=" flex flex-row items-center text-[1.2em] font-semibold gap-[15%] justify-center w-full max-h-[25%] min-h-[25%]">
-                         <button className=" buttonstyle text-center w-[22%]  sm:w-[16%] h-[75%]" >Delete</button>
+                         <button className=" buttonstyle text-center w-[22%]  sm:w-[16%] h-[75%]" onClick={handledeleteproduct}>Delete</button>
                         <NavLink to={`/admin/editproduct/${props.id}`} className=" buttonstyle text-center flex items-center justify-center w-[22%] sm:w-[16%] h-[75%]" > Edit  </NavLink>
 
                     </div>

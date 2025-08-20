@@ -176,6 +176,31 @@ const data=await res.json()
 console.log(data)
 return {product:data.data.getproduct.product as typeadminproducts}
 
+}
+
+export async function deleteproduct(input:string){
+console.log(input)
+const res=await fetch('http://localhost:3000/graphql',{
+  method:'POST',
+  headers:{'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  },
+  body:JSON.stringify({
+    query:`
+     mutation($input: DeleteProductInput!) {
+        deleteproduct(input: $input) {
+          message
+        }
+      }
+    `,
+       variables: {
+      input:{id:input}
+    }
+    
+  })
+})
+const data=await res.json() 
+console.log(data.data.deleteproduct.message);
 
 
 }

@@ -11,7 +11,7 @@ if(elemnt===null)
     return;
 else{
   return createPortal(
-    <Dialog imges={dialogselector.imges} open={dialogselector.dialog}></Dialog>
+    <Dialog imges={dialogselector.imges} open={dialogselector.dialog} noimge={dialogselector.noimge}></Dialog>
 
 
     ,elemnt

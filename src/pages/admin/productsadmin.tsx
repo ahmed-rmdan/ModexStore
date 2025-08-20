@@ -9,6 +9,8 @@ import { useAppSelector } from "../../store/hook";
 import { useEffect } from "react";
 import { useAppDispatch } from "../../store/hook";
 import { paginationactions } from "../../store/store";
+import { useMutation } from "@tanstack/react-query";
+import { deleteproduct } from "../../https/https";
 export const Productsadmin:React.FC<{}>=()=>{
        const parms=useParams()
        const activepage=useAppSelector((state)=>state.pagination)
@@ -20,6 +22,12 @@ console.log(parms.category as string)
         queryFn:({signal})=>getadminproducts(signal,parms.category as string,activepage),
         staleTime:600000            
     })
+ 
+ const {}=useMutation({
+         mutationKey:['products'],
+         mutationFn:deleteproduct
+          })
+
 
     useEffect(()=>{
      dispatch(paginationactions.handlepage({page:1}))
