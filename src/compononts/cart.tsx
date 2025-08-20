@@ -45,7 +45,7 @@ export const Cart:React.FC= ()=> {
                                                                     
                             <AnimatePresence>
                                             { crtitems.map(elm=>{
-                                             return <Listitem key={elm.id} type="cart" price={elm.price} id={elm.id} imgeurl="" name={elm.name} quantity={elm.quantity}></Listitem>
+                                             return <Listitem moreinfo="" listtype='cart' oldprice={elm.price}  key={elm.id} type="cart" price={elm.price} id={elm.id} imgeurl={elm.imgeurl} name={elm.name} quantity={elm.quantity}></Listitem>
                                               
                                                   }
                                                   

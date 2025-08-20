@@ -1,7 +1,8 @@
 import { createSlice ,configureStore} from "@reduxjs/toolkit";
 import { dialogreducers } from "./reducers/dialog";
 import { paginationreducers } from "./reducers/pagination";
-export type item={price:number,name:string,id:string,quantity:number}
+
+export type item={price:number,name:string,id:string,quantity:number,imgeurl:string}
 const intialstate:item[]=[]
 const cartslice=createSlice({name:'cartslice',initialState:intialstate,reducers:{
       additeem(state:item[]=[],action:{type:string,payload:item}){

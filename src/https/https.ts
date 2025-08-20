@@ -1,8 +1,7 @@
 import type { typeadminproducts } from "../types/types";
 
 export async function addproduct(data:FormData){
-//   ev.preventDefault()
-//       const data = new FormData(ev.currentTarget);
+
     
       let arrslide=data.getAll('sliderimge').join(',')
        data.set('sliderimge',arrslide)
@@ -133,6 +132,49 @@ const res=await fetch('http://localhost:3000/graphql',{
 const data=await res.json()
 console.log(data)
 return {products:data.data.getalloffers.products as [typeadminproducts]}
+
+
+
+}
+
+
+export async function getproduct(signal:any,id:string){
+   
+const res=await fetch('http://localhost:3000/graphql',{
+  method:'POST',
+  headers:{'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  },
+  body:JSON.stringify({
+    query:`
+       query($input:GetProductInput){
+       getproduct(input:$input){
+    product{
+      id
+      name
+      moreinfo
+      mainimg
+      newprice
+      oldprice
+      slideimg
+      type
+      offer
+      } 
+      }
+  
+  
+  }   
+    `,
+       variables: {
+      input:{id}
+    }
+    
+    
+  })
+})
+const data=await res.json()
+console.log(data)
+return {product:data.data.getproduct.product as typeadminproducts}
 
 
 

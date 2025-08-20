@@ -8,7 +8,7 @@ import {motion} from 'framer-motion'
 export const Listitem:React.FC<{imgeurl:string,name:string,quantity:number,oldprice:number,price:number,type:string,listtype:string,id:string,moreinfo:string}>=(props)=>{
     const dispatch=useAppDispatch()
   function handleAddcart(){
-dispatch(cartactions.additeem({price:props.price,name:props.name,id:props.id,quantity:1}))
+dispatch(cartactions.additeem({price:props.price,name:props.name,id:props.id,quantity:1,imgeurl:props.imgeurl}))
   }
   function handleremove(){
     dispatch(cartactions.removeitem({id:props.id}))
@@ -68,7 +68,7 @@ if(props.listtype==='slider' ){
                   
                    </img>   
                    <div className="maininfo w-[55%] flex flex-col items-center justify-around ">
-                         <p className="text-[0.7em] text-center">{props.name}</p>
+                         <p className="text-[0.7em] text-center text-purple-800 font-bold">{props.name}</p>
                        
                           <p className="text-[0.6em] text-red-600 line-through"> {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(200)}</p>
                          <p className="text-[0.6em] text-purple-800">price : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.price)} </p>
