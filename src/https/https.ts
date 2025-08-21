@@ -1,7 +1,7 @@
 import type { typeadminproducts } from "../types/types";
 
 export async function addproduct(data:FormData){
-
+ console.log('addddd')
     
       let arrslide=data.getAll('sliderimge').join(',')
        data.set('sliderimge',arrslide)
@@ -202,5 +202,62 @@ const res=await fetch('http://localhost:3000/graphql',{
 const data=await res.json() 
 console.log(data.data.deleteproduct.message);
 
+
+}
+
+
+export async function editproduct(data:{data:FormData,id:string}){
+
+  
+      let arrslide=data.data.getAll('sliderimge').join(',')
+       data.data.set('sliderimge',arrslide)
+      console.log(arrslide)
+const formdata=Object.fromEntries(data.data.entries())
+
+const input = {
+  ...formdata,
+  mainimge:''
+  ,
+  newprice: Number(formdata.newprice),
+  oldprice: Number(formdata.oldprice),
+  id:data.id
+};
+
+console.log(input)
+const res=await fetch('http://localhost:3000/graphql',{
+  method:'POST',
+  headers:{'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  },
+  body:JSON.stringify({
+    query:`
+     mutation($input: EditProductInput!) {
+        editproduct(input: $input) {
+          message
+        }
+      }
+    `,
+       variables: {
+      input:input
+    }
+    
+  })
+})
+const datars=await res.json() 
+console.log(datars.data.editproduct.message);
+
+
+const file=data.data.get('mainimge') as File
+if(!file) return
+
+if(file.name==='' && file.size===0) return;
+try{
+const RES=await fetch(`http://localhost:3000/uploadimge/${data.id}`,{
+           method:'POST',
+             body:data.data
+})
+}catch(err){
+  console.log(err)
+}
 
 }

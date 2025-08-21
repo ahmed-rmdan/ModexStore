@@ -5,5 +5,12 @@ export const dialogreducers={
     },
     hidedialog(state:{dialog:string,imges:string[],noimge:number}){
      return state={dialog:'',imges:[],noimge:0}
+    },
+       increasepage(state:{dialog:string,imges:string[],noimge:number}){
+     return state={...state,noimge:state.noimge+1}
+    },
+        decreasepage(state:{dialog:string,imges:string[],noimge:number}){
+     return state={...state,noimge:state.noimge-1}
     }
+
 }

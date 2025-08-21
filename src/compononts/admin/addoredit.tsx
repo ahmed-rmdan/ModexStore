@@ -3,19 +3,43 @@ import { Sliderimge } from "./sliderimages"
 import { useMutation } from "@tanstack/react-query"
 import { addproduct } from "../../https/https"
 import { useNavigate } from "react-router-dom"
+import { editproduct } from "../../https/https"
+import { useParams } from "react-router-dom"
+import { useQueryClient } from "@tanstack/react-query"
 export const Addoredit:React.FC<{type:string}>=(props)=>{
 const navigate=useNavigate()
-const {mutate}=useMutation({
+const parms=useParams()
+const queryClient=useQueryClient()
+const {mutate:mutateaddproduct}=useMutation({
 mutationKey:['products'],
 mutationFn:addproduct,
 onSuccess:()=>navigate('/admin/products/allproducts')
 
 })
 
+const {mutate:mutateditproduct}=useMutation({
+mutationKey:['products'],
+mutationFn:editproduct,
+onSuccess:()=>{   
+   queryClient.invalidateQueries({ queryKey: ['products'] })
+  return navigate('/admin/products/allproducts')
+}
+
+})
+console.log(props.type)
 async function handlesubmit(ev:React.FormEvent<HTMLFormElement>){
   ev.preventDefault()
-      const data = new FormData(ev.currentTarget);
-await mutate(data)
+  const data = new FormData(ev.currentTarget);
+  console.log(props.type)
+  if(props.type==='add'){
+          
+        mutateaddproduct(data)
+  }
+  if(props.type==='edit'){
+    const editdata={data,id:parms.productid as string}
+      mutateditproduct(editdata)
+  }
+
 
 }  
 

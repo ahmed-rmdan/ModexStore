@@ -13,7 +13,6 @@ import { Cateogry } from "./compononts/cateogry"
 import { Aboutus } from "./pages/aboutus"
 import { Terms } from "./pages/terms"
 import { Contact } from "./pages/contact"
-import { Allproducts } from "./compononts/allproducts"
 import { Login } from "./pages/login"
 import { Signup } from "./pages/signup"
 import { Wishlist } from "./pages/wishlistpg"
@@ -40,8 +39,8 @@ const router=createBrowserRouter([
       {path:'/locations',element:<Locations></Locations>},
       {path:'/categories',element:<Catagories></Catagories>},  
       {path:'/products',element:<Shoppg></Shoppg>,children:[
-        {index:true,element:<Allproducts></Allproducts>},
-        {path:'/products/:category',element:<Cateogry></Cateogry>}
+        {path:'/products/:category',element:<Cateogry></Cateogry>},
+        {path:'/products/search/:search',element:<Cateogry></Cateogry>}
       ]},
       
       {path:'/product/:productid',element:<Productpg></Productpg>},

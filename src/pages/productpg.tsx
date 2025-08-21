@@ -46,6 +46,7 @@ function handleaddproduct(){
 
 function handleimges(noimge:number){
         const imges=data?.product.slideimg.split(',')
+        console.log(imges)
        dispatch(dialogactions.showdialog({dialog:'imges',imges:imges as string[],noimge}))
       }
 

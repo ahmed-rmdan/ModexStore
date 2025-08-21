@@ -7,18 +7,24 @@ import { useAppSelector } from "../../store/hook";
 import { useEffect } from "react";
 import { useAppDispatch } from "../../store/hook";
 import { paginationactions } from "../../store/store";
+
+
 export const Offersadminpg:React.FC<{}>=()=>{
     const activepage=useAppSelector((state)=>state.pagination)
     const dispatch=useAppDispatch()
-        const {data}=useQuery({
+   
+    const {data}=useQuery({
         queryKey:['products', 'offers',activepage],
         queryFn:({signal})=>getadminproducts(signal,'offers',activepage),
         staleTime:600000            
     })
 
+
     useEffect(()=>{
      dispatch(paginationactions.handlepage({page:1}))
     },[])
+
+
 
    let length:number=data===undefined?0:data.length
     return(
