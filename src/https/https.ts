@@ -261,3 +261,44 @@ const RES=await fetch(`http://localhost:3000/uploadimge/${data.id}`,{
 }
 
 }
+
+
+export async function getsearchproducts(signal:any,search:string,activepage:number){
+    console.log(search)
+const res=await fetch('http://localhost:3000/graphql',{
+  method:'POST',
+  headers:{'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  },
+  body:JSON.stringify({
+    query:`
+     query($input: TypeSearchInput!) {
+        getsearchproducts(input: $input){
+    products {
+      id
+      name
+      moreinfo
+      mainimg
+      newprice
+      oldprice
+      slideimg
+      type
+      offer
+    },
+    length
+  }
+      }
+    `,
+       variables: {
+      input:{search,activepage}
+    }
+    
+  })
+})
+const data=await res.json()
+console.log(data)
+return {products:data.data.getsearchproducts.products as [typeadminproducts],length:data.data.getsearchproducts.length}
+
+
+
+}

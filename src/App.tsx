@@ -29,6 +29,7 @@ import { Editproduct } from "./pages/admin/editproduct"
 import { Ordersadminpg } from "./pages/admin/ordersadminpg"
 import { Ordereditpg } from "./pages/admin/editorderpg"
 import { Resetpass } from "./pages/resetpass"
+import { Searchproductspg } from "./pages/searchproductspg"
 import { QueryClientProvider,QueryClient } from "@tanstack/react-query"
 
 
@@ -40,7 +41,7 @@ const router=createBrowserRouter([
       {path:'/categories',element:<Catagories></Catagories>},  
       {path:'/products',element:<Shoppg></Shoppg>,children:[
         {path:'/products/:category',element:<Cateogry></Cateogry>},
-        {path:'/products/search/:search',element:<Cateogry></Cateogry>}
+        {path:'/products/search/:search',element:<Searchproductspg></Searchproductspg>}
       ]},
       
       {path:'/product/:productid',element:<Productpg></Productpg>},

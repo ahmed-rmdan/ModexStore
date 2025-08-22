@@ -38,7 +38,7 @@ const cartslice=createSlice({name:'cartslice',initialState:intialstate,reducers:
    
  })
 
- const initialdialo:{dialog:string,imges:string[]}={dialog:'',imges:[]}
+ const initialdialo:{dialog:string,imges:string[],noimge:number}={dialog:'',imges:[],noimge:0}
 
 
 const dialogslice=createSlice({name:'dialog',initialState:initialdialo,reducers:dialogreducers})
