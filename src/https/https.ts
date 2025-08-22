@@ -1,3 +1,4 @@
+import { number } from "framer-motion";
 import type { typeadminproducts } from "../types/types";
 
 export async function addproduct(data:FormData){
@@ -298,6 +299,50 @@ const res=await fetch('http://localhost:3000/graphql',{
 const data=await res.json()
 console.log(data)
 return {products:data.data.getsearchproducts.products as [typeadminproducts],length:data.data.getsearchproducts.length}
+
+
+
+}
+
+export async function createuser(data:FormData){
+
+               
+const formdata=Object.fromEntries(data.entries())
+
+
+console.log(formdata)
+
+
+const res=await fetch('http://localhost:3000/graphql',{
+  method:'POST',
+  headers:{'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  },
+  body:JSON.stringify({
+    query:`
+     mutation($input:CreateUserInput!) {
+        createuser(input: $input) {
+          message,id
+        }
+      }
+    `,
+       variables: {
+      input:formdata
+    }
+    
+  })
+})
+ const datares=await res.json()
+
+ if(datares.errors){
+  throw new Error(datares.errors[0].message)
+ }
+console.log(datares.data)
+
+
+
+
+
 
 
 

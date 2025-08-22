@@ -38,16 +38,16 @@ return(
              
 
             
-            <div className="flex items-center justify-evenly w-[22%] lg:w-[22%] xl:w-[20%]  ">
+            <div className="flex items-center justify-evenly w-[22%] lg:w-[22%] xl:w-[19%]  ">
 
-                {/* <NavLink to='/signin' className=" border-2 buttonstyle w-[5em] xl:w-[5.5em] cursor-pointer text-[4em] text-center  lg:text-[4em] xl:text-[4.5em] ">log in</NavLink>
-             <NavLink to='/signup' className=" border-2 buttonstyle w-[5em] xl:w-[5.5em] cursor-pointer text-[4em] lg:text-[4em] xl:text-[4.5em] text-center">sign up</NavLink> */}
-                       
+                <NavLink to='/signin' className=" border-2 buttonstyle w-[5em] xl:w-[5.5em] cursor-pointer text-[4em] text-center  lg:text-[4em] xl:text-[4.5em] ">log in</NavLink>
+             <NavLink to='/signup' className=" border-2 buttonstyle w-[5em] xl:w-[5.5em] cursor-pointer text-[4em] lg:text-[4em] xl:text-[4.5em] text-center">sign up</NavLink>
+{/*                        
                        <NavLink to={'/wishlist'} className={({isActive})=>isActive?"text-purple-800 w-[5em] cursor-pointer text-[3em]  lg:text-[3.5em] xl:text-[4.5em] hover:underline  hover:text-purple-900 underline ":"text-purple-800 w-[5em] cursor-pointer text-[3em]  lg:text-[3.5em] xl:text-[4.5em] hover:underline  hover:text-purple-900 "} 
                        >Wishlist</NavLink>
              <NavLink to={'/myorders'} className={({isActive})=>isActive?"text-purple-800 w-[5em] cursor-pointer text-[3em]  lg:text-[3.5em] xl:text-[4.5em] hover:underline  hover:text-purple-900 underline ":"text-purple-800 w-[5em] cursor-pointer text-[3em]  lg:text-[3.5em] xl:text-[4.5em] hover:underline  hover:text-purple-900 "}>
              My Orders</NavLink> 
-             <button className="  text-red-500  w-[5em] cursor-pointer text-[3em] lg:text-[3.5em] xl:text-[4.5em] hover:underline">LogOut</button>      
+             <button className="  text-red-500  w-[5em] cursor-pointer text-[3em] lg:text-[3.5em] xl:text-[4.5em] hover:underline">LogOut</button>       */}
            
 
             </div>
