@@ -322,7 +322,7 @@ const res=await fetch('http://localhost:3000/graphql',{
     query:`
      mutation($input:CreateUserInput!) {
         createuser(input: $input) {
-          message,id
+          message
         }
       }
     `,
@@ -340,10 +340,93 @@ const res=await fetch('http://localhost:3000/graphql',{
 console.log(datares.data)
 
 
+}
 
 
 
+export async function login(data:FormData){
+
+  if(data.get('username')===''){
+    throw new Error('please enter a username')
+  }
+  if(data.get('password')===''){
+    throw new Error('please enter a password')
+  }
+             
+const formdata=Object.fromEntries(data.entries())
 
 
+console.log(formdata)
+
+
+const res=await fetch('http://localhost:3000/graphql',{
+  method:'POST',
+  headers:{'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  },
+  body:JSON.stringify({
+    query:`
+     mutation($input:LoginInput!) {
+        login(input: $input) {
+          token,userid
+        }
+      }
+    `,
+       variables: {
+      input:formdata
+    }
+    
+  })
+})
+ const datares=await res.json()
+
+ if(datares.errors){
+  throw new Error(datares.errors[0].message)
+ }
+console.log(datares.data)
+
+ return {token:datares.data.login.token,userid:datares.data.login.userid}
+
+
+}
+
+export async function getwishlist(){
+  console.log('start')
+const token=localStorage.getItem('token')
+if(!token){
+  throw new Error('not authorized')
+}
+
+const res=await fetch('http://localhost:3000/graphql',{
+  method:'POST',
+  headers:{'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    Authorization: `Bearer ` + token
+  },
+  body:JSON.stringify({
+    query:`
+     query {
+        getwishlist{
+    products {
+      id
+      name
+      moreinfo
+      mainimg
+      newprice
+      oldprice
+      slideimg
+      type
+      offer
+    }
+   
+  }
+      }
+    `
+   
+    
+  })
+})  
+const data=await res.json()
+return data.data.getwishlist.products as typeadminproducts[]
 
 }

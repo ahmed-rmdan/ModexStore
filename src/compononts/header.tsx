@@ -6,9 +6,16 @@ import { useState,useEffect } from "react";
 import { ShoppingCart } from 'lucide-react';
 import {motion} from 'framer-motion'
 import { AnimatePresence } from "framer-motion";
+import { useAppDispatch } from "../store/hook";
+import { useractions } from "../store/store";
+import { useAppSelector } from "../store/hook";
+
 export const Header:React.FC<{}>=()=>{
 const [width,setwidth]=useState<number>(window.screen.width)
 const [menu,setmenu]=useState<boolean>(false)
+
+const dispatch=useAppDispatch()
+const islogin=useAppSelector((state)=>state.user.islogin)
 useEffect(()=>{
   window.addEventListener('resize',()=>{
      const size=window.screen.width
@@ -17,8 +24,22 @@ useEffect(()=>{
   })
 
 },[width])
+
+useEffect(()=>{
+dispatch(useractions.getthetoken())
+
+},[])
+
+
+
+console.log(islogin)
 function handleclick(){
   setmenu(prev=>!prev)
+}
+function handlelogout(){
+  const confirm=window.confirm('you are logging out are you sure ?')
+  if(!confirm) return;
+  dispatch(useractions.deletethetoken())
 }
 
 if(width>=768){
@@ -38,17 +59,25 @@ return(
              
 
             
-            <div className="flex items-center justify-evenly w-[22%] lg:w-[22%] xl:w-[19%]  ">
+            <div className="flex items-center justify-evenly w-[22%] lg:w-[22%] xl:w-[19%] font-semibold  ">
 
-                <NavLink to='/signin' className=" border-2 buttonstyle w-[5em] xl:w-[5.5em] cursor-pointer text-[4em] text-center  lg:text-[4em] xl:text-[4.5em] ">log in</NavLink>
-             <NavLink to='/signup' className=" border-2 buttonstyle w-[5em] xl:w-[5.5em] cursor-pointer text-[4em] lg:text-[4em] xl:text-[4.5em] text-center">sign up</NavLink>
-{/*                        
-                       <NavLink to={'/wishlist'} className={({isActive})=>isActive?"text-purple-800 w-[5em] cursor-pointer text-[3em]  lg:text-[3.5em] xl:text-[4.5em] hover:underline  hover:text-purple-900 underline ":"text-purple-800 w-[5em] cursor-pointer text-[3em]  lg:text-[3.5em] xl:text-[4.5em] hover:underline  hover:text-purple-900 "} 
-                       >Wishlist</NavLink>
-             <NavLink to={'/myorders'} className={({isActive})=>isActive?"text-purple-800 w-[5em] cursor-pointer text-[3em]  lg:text-[3.5em] xl:text-[4.5em] hover:underline  hover:text-purple-900 underline ":"text-purple-800 w-[5em] cursor-pointer text-[3em]  lg:text-[3.5em] xl:text-[4.5em] hover:underline  hover:text-purple-900 "}>
+             {!islogin? <>
+             
+             <NavLink to='/signin' className=" border-2 buttonstyle w-[5em] xl:w-[5.5em] cursor-pointer text-[4em] text-center  lg:text-[4em] xl:text-[4.6em] ">sign in</NavLink>
+             <NavLink to='/signup' className=" border-2 buttonstyle w-[5em] xl:w-[5.5em] cursor-pointer text-[4em] lg:text-[4em] xl:text-[4.6em] text-center">sign up</NavLink>
+             </>   
+                       :
+                       <>
+                       <NavLink to={'/wishlist'} className={({isActive})=>isActive?"text-purple-800 w-[5em] cursor-pointer text-[3em]  lg:text-[3.5em] xl:text-[4.5em] hover:underline  hover:text-purple-900 underline ":
+                       "text-purple-800 w-[5em] cursor-pointer text-[3em]  lg:text-[3.5em] xl:text-[4.5em] hover:underline  hover:text-purple-900 "} 
+                       >Wishlist</NavLink> 
+             <NavLink to={'/myorders'} className={({isActive})=>isActive?"text-purple-800 w-[5em] cursor-pointer text-[3em]  lg:text-[3.5em] xl:text-[4.5em] hover:underline  hover:text-purple-900 underline "
+             :"text-purple-800 w-[5em] cursor-pointer text-[3em]  lg:text-[3.5em] xl:text-[4.5em] hover:underline  hover:text-purple-900 "}>
              My Orders</NavLink> 
-             <button className="  text-red-500  w-[5em] cursor-pointer text-[3em] lg:text-[3.5em] xl:text-[4.5em] hover:underline">LogOut</button>       */}
-           
+             <button className="  text-red-500  w-[5em] cursor-pointer text-[3em] lg:text-[3.5em] xl:text-[4.5em] hover:underline" onClick={handlelogout}>LogOut</button>
+                       </>
+                             
+           }
 
             </div>
             
@@ -69,21 +98,31 @@ else {
              <AnimatePresence>
              {menu?<motion.div initial={{width:0,opacity:0}} animate={{width:100,opacity:100}} transition={{duration:0.5}} exit={{width:0,opacity:0}} className="flex flex-col absolute left-0 top-10 gap-[30px] h-[900px] w-[25%] items-center justify-start bg-white z-[10000]  ">
                   <div className="flex flex-col items-center justify-end h-[300px] gap-[50px] text-[4.5em] ">
+
+
+
                         <NavLink to={'/products/allproducts'} className={({isActive})=>isActive?"cursor-pointer text-purple-800 underline ":"cursor-pointer hover:text-purple-800 "}> Shop</NavLink>
                 <NavLink to={'/categories'} className={({isActive})=>isActive?"cursor-pointer text-purple-800 underline ":"cursor-pointer hover:text-purple-800 "}> Categories</NavLink>
                 <NavLink className={({isActive})=>isActive?"cursor-pointer text-purple-800 underline ":"cursor-pointer hover:text-purple-800 "}  to={'/contact'}> Contact</NavLink>
                <NavLink className={({isActive})=>isActive?"cursor-pointer underline  text-purple-800":"cursor-pointer hover:text-purple-800 "} to={'/locations'}> Locations</NavLink> 
                   </div>
-                  <div className="flex flex-col h-[150px] w-[80%] border-t-1 gap-[20px] items-center justify-center ">
-                           {/* <NavLink to='/signin' className=" border-2  buttonstyle  text-center w-[5.5em] cursor-pointer text-[4.5em]  ">log in</NavLink>
-             <NavLink to='/signup' className=" border-2 buttonstyle w-[5.5em] cursor-pointer text-[4.5em] text-center ">sign up</NavLink> */}
+                  <div className="flex flex-col h-[150px] w-[80%] border-t-1 gap-[20px] items-center justify-center font-semibold ">
 
-                                <NavLink className={({isActive})=>isActive?" w-[5em] cursor-pointer text-[4.5em]  underline text-center hover:text-purple-900 ":" w-[5em] cursor-pointer text-[4.5em] text-center hover:underline  hover:text-purple-900 "} to={'/wishlist'} >
+                         { !islogin?  
+                         <>
+                            <NavLink to='/signin' className=" border-2  buttonstyle  text-center w-[5.5em] cursor-pointer text-[4.5em]  ">sign in</NavLink>
+             <NavLink to='/signup' className=" border-2 buttonstyle w-[5.5em] cursor-pointer text-[4.5em] text-center ">sign up</NavLink>
+                         </> 
+                         :
+                         <>
+                            <NavLink className={({isActive})=>isActive?" w-[5em] cursor-pointer text-[4.5em]  underline text-center hover:text-purple-900 ":" w-[5em] cursor-pointer text-[4.5em] text-center hover:underline  hover:text-purple-900 "} to={'/wishlist'} >
                                   Wishlist</NavLink>
              <NavLink to={'/myorders'}  className={({isActive})=>isActive?" w-[5em] cursor-pointer text-[4.5em]  underline text-center hover:text-purple-900 ":" w-[5em] cursor-pointer text-[4.5em] text-center hover:underline  hover:text-purple-900 "}>
               My Orders</NavLink> 
-             <button className="  text-red-500  w-[5em] cursor-pointer text-[4.5em]  hover:underline">LogOut</button>  
-                         
+             <button className="  text-red-500  w-[5em] cursor-pointer text-[4.5em]  hover:underline" onClick={handlelogout}>LogOut</button>
+                         </>
+          
+                         }
 
                   </div>
                 

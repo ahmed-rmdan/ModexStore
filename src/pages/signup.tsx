@@ -7,7 +7,7 @@ import { createuser } from "../https/https";
 export const Signup:React.FC<{}>=()=>{
 const queryClient=new QueryClient()
 const navigate=useNavigate()
-const {mutate,isError,error}=useMutation({
+const {mutate,isError,error,isPending}=useMutation({
 mutationKey:['user'],
 mutationFn:createuser,
 onSuccess:()=>{   
@@ -18,7 +18,7 @@ onSuccess:()=>{
 
 
 
-function handlesignin(ev:React.FormEvent<HTMLFormElement>){
+function handlesignup(ev:React.FormEvent<HTMLFormElement>){
 
      
      ev.preventDefault()
@@ -32,7 +32,7 @@ function handlesignin(ev:React.FormEvent<HTMLFormElement>){
 
                   <div className="bg-white flex flex-col items-center justify-around h-[90%] rounded-4xl w-[85%] sm:w-[70%] lg:w-[50%]">
                       <h1 className=" flex  underline text-purple-800 font-bold h-[5%] text-[2.3em] justify-center items-center ">Sign Up</h1>
-                     <form className="flex flex-col gap-[1%] h-[90%] w-[95%] sm:w-[75%] items-center  justify-start  " onSubmit={handlesignin}>
+                     <form className="flex flex-col gap-[1%] h-[90%] w-[95%] sm:w-[75%] items-center  justify-start  " onSubmit={handlesignup}>
                           <div className="flex flex-col h-[12%]  w-[70%] items-center justify-center ">
                              <p className="text-[1.6em] h-[50%] text-purple-800">name</p>
                         <input className="h-[50%] w-full border-2 border-purple-800 rounded-2xl text-[1.3em]" maxLength={20}  minLength={5} required type="text" name="name"></input>
@@ -64,7 +64,7 @@ function handlesignin(ev:React.FormEvent<HTMLFormElement>){
                                               {isError?error.message:''}
                                   </p>  
                                  
-                              <button className="buttonstyle w-[37%] sm:w-[28%] 2xl:w-[25%] h-[50%]  text-[1.4em] font-bold text-center" >SignUp</button>
+                              <button className="buttonstyle w-[37%] sm:w-[28%] 2xl:w-[25%] h-[50%]  text-[1.4em] font-bold text-center" disabled={isPending} >SignUp</button>
                                
                            </div>
                            

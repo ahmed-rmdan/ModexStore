@@ -107,23 +107,23 @@ function handledecrese(){
      
 
              <div className=" flex flex-row items-center justify-around w-[100%] text-black h-[400px]  mx-auto ">
-                    <img src={data?.product.mainimg} className="w-[40%] h-[70%] sm:h-[75%]">
+                    <img src={data?.product.mainimg} className="w-[40%] h-[70%] sm:h-[75%] 2xl:h-[90%]">
 
                     </img>
                 
-                   <div className="maininfo w-[55%] h-[90%] flex flex-col items-center justify-around ">
+                   <div className="maininfo w-[55%] h-[90%] gap-[6%] flex flex-col items-center justify-center ">
                          <p className="text-[1.1em] text-center font-extrabold text-purple-800"> {data?.product.name}</p>
                          <p className="text-[1.1em] text-purple-800 font-bold">price : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(data?.product.newprice as number)} </p>
 
-                       <Heart size={'2.5em'} className="cursor-pointer"></Heart>
-                         <div className="flex flex-row  w-full items-center  justify-center">
-                           <div className="flex flex-row items-center w-[55%] sm:w-[45%] gap-[5%] justify-center">
+                       <Heart size={'2.9em'} className="cursor-pointer"></Heart>
+                         <div className="flex flex-row  h-[25%] w-full items-center  justify-center">
+                           <div className="flex flex-row items-center w-[55%] sm:w-[35%] gap-[5%] justify-center">
                                        <button className="  cursor-pointer text-[1.5em]   font-bold " onClick={handledecrese} >-</button>
-                                       <input placeholder="1" className="h-[3.3em] w-[40%] lg:w-[35%] border-4 border-purple-800 text-center" ref={inputvalue} type="number"/>
-                                         <button className="  cursor-pointer text-[1.5em] text-purple-800 font-bold  " onClick={handleincrease} >+</button>
+                                       <input placeholder="1" className=" h-[3.3em] w-[40%] lg:w-[35%] border-4 border-purple-800 text-center " ref={inputvalue} type="number"/>
+                                         <button className="  cursor-pointer  text-[1.5em] text-purple-800 font-bold  " onClick={handleincrease} >+</button>
 
                                 </div>
-                            <button className="buttonstyle text-[1.1em] h-[3.3em] w-[35%]  sm:w-[25%] lg:w-[20%]  " onClick={handleaddproduct}> Add Product</button>
+                            <button className="buttonstyle sm:text-[1em] font-semibold  lg:text-[1.1em] h-[3.3em] w-[35%]  sm:w-[22%] lg:w-[19%]  " onClick={handleaddproduct}> Add Product</button>
                                
 
                          </div>
