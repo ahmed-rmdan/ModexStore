@@ -11,7 +11,7 @@ import { paginationactions } from "../store/store";
 import { useEffect } from "react";
 export const Searchproductspg:React.FC<{}>=()=>{
     const parms=useParams()
-      const activepage=useAppSelector((state)=>state.pagination)
+      const activepage=useAppSelector((state)=>state.pagination.page)
       const dispatch=useAppDispatch()
     console.log(parms.search as string)
     const {data}=useQuery({

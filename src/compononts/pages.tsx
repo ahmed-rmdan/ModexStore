@@ -13,10 +13,16 @@ import { useParams } from "react-router-dom";
 export const PAGES:React.FC<{legth:number,noproducts:number}>=(props)=>{
    const[pagenum,setpagenum]=useState<number>(0)
        const dispatch=useAppDispatch()
-       const activepage=useAppSelector((state)=>state.pagination)
+       const activepage=useAppSelector((state)=>state.pagination.page)
+       const category=useAppSelector((state)=>state.pagination.catogry)
             const parms=useParams()
 useEffect(()=>{
-setpagenum(0)
+   if(category===parms.category){
+   setpagenum(activepage-1)
+   }else{
+      setpagenum(0)
+   }
+
 },[parms.category])
 
 function handlenext(){
@@ -44,7 +50,7 @@ return(
                                  
                            
                                <div className="flex flex-row  min-w-[100px]  max-w-[100px]     overflow-hidden "  >
-                                 <motion.ul animate={{x:-pagenum*20}} className="flex flex-row h-full min-w-[100px]  ">
+                                 <motion.ul initial={{x:-activepage*20}} animate={{x:-pagenum*20}} className="flex flex-row h-full min-w-[100px]  ">
                                      {
                                        pagesarr.map(elm=>{
                                           return <button onClick={()=>handleclick(elm)} key={elm} className={elm===activepage?"min-w-[20px]  cursor-pointer text-purple-800 underline ":" min-w-[20px]  cursor-pointer hover:text-purple-800 hover:underline"}>{elm}</button>

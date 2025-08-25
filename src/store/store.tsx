@@ -43,7 +43,7 @@ const cartslice=createSlice({name:'cartslice',initialState:intialstate,reducers:
 
 
 const dialogslice=createSlice({name:'dialog',initialState:initialdialo,reducers:dialogreducers})
-const inistialpagination:number=1
+const inistialpagination:{page:number,catogry:string|undefined}={page:1,catogry:''}
 const paginationslice=createSlice({name:'pagination',initialState:inistialpagination,reducers:paginationreducers})
 
 const userinitial:{islogin:boolean}={islogin:false}

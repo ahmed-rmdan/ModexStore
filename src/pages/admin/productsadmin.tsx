@@ -12,7 +12,7 @@ import { paginationactions } from "../../store/store";
 
 export const Productsadmin:React.FC<{}>=()=>{
        const parms=useParams()
-       const activepage=useAppSelector((state)=>state.pagination)
+       const activepage=useAppSelector((state)=>state.pagination.page)
        const dispatch=useAppDispatch()
        console.log(activepage)
 console.log(parms.category as string)

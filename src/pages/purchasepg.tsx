@@ -1,8 +1,4 @@
 
-
-
-
-
 import React from "react";
 import { Listitem } from "../compononts/listitem";
 import { useAppSelector } from "../store/hook";

@@ -11,17 +11,22 @@ import { paginationactions } from "../store/store";
 import { useEffect } from "react";
 export const Cateogry:React.FC<{}>=()=>{
     const cateogry=useParams()
-      const activepage=useAppSelector((state)=>state.pagination)
+      const activepage=useAppSelector((state)=>state.pagination.page)
+      const category=useAppSelector((state)=>state.pagination.catogry)
       const dispatch=useAppDispatch()
     console.log(cateogry.category as string)
     const {data}=useQuery({
         queryKey:['products', cateogry.category,activepage],
         queryFn:({signal})=>getadminproducts(signal,cateogry.category as string,activepage),
-        staleTime:600000            
+        staleTime:600000 
+              
     })
-
+      
     useEffect(()=>{
-     dispatch(paginationactions.handlepage({page:1}))
+      dispatch(paginationactions.handlecatogry({catogry:cateogry.category}))  
+      if(category!==cateogry.category){
+       dispatch(paginationactions.handlepage({page:1}))
+      }  
     },[cateogry.category])
 
     let length:number=data===undefined?0:data.length
