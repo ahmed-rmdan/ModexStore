@@ -6,19 +6,27 @@ import { useAppSelector} from "../store/hook";
 import { NavLink } from "react-router-dom";
 import {motion} from 'framer-motion'
 import { AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { cartactions } from "../store/store";
+import { useAppDispatch } from "../store/hook";
 
 export const Cart:React.FC= ()=> {
- const crtitems=useAppSelector((state)=>state.cart)
-  
-
+ const crtitems=useAppSelector((state)=>state.cart.items)
+  const navigate=useNavigate()
+   const dispatch=useAppDispatch()
   const [isOpen, setIsOpen] = useState(false);
  const itemslength=crtitems.length
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
+  function handlepurchase(){
+     dispatch(cartactions.purchase())
+     navigate('/purchase')
+
+  }
   
-// const empty=<p>no products yet</p>
+
   return (
   <div  className="relative">
         <button className="cursor-pointer hover:text-purple-800  transition-all duration-200 " onClick={toggleDropdown}>
@@ -57,7 +65,7 @@ export const Cart:React.FC= ()=> {
                            
     
            {itemslength==0? <button className="border-2 buttonstyle w-[5em] cursor-pointer text-[0.8em]" onClick={toggleDropdown}>Close</button>:<div className="flex flex-row justify-around w-[100%] items-center h-[1.5em] ">
-                <NavLink to={'/purchase'} className="border-2 buttonstyle w-[5em] cursor-pointer text-[0.8em] text-center">Purchase</NavLink>
+                <button  className="border-2 buttonstyle w-[5em] cursor-pointer text-[0.8em] text-center" onClick={handlepurchase}>Purchase</button>
                 <button className="border-2 buttonstyle w-[5em] cursor-pointer text-[0.8em]" onClick={toggleDropdown}>Close</button>
 
           </div>}

@@ -13,7 +13,7 @@ const {data,isFetching}=useQuery(
         queryKey:['wishlist'],
         queryFn:getwishlist,
         staleTime:600000,
-        refetchOnMount:'always'
+        
     }
     )
     let productlength=isFetching?0:data?.length

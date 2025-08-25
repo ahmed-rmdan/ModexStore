@@ -178,7 +178,7 @@ mutate(props.id)
         if(props.listtype==='purchase')
     return(
 
- <li className="flex flex-col  w-[90%]  sm:w-[90%] bg-white min-h-[45%]  rounded-2xl  items-center justify-around text-[9px]  sm:text-[12.5px] lg:-text-[17px] xl:text-[19px]  2xl:text-[23px] " >
+ <li className="flex flex-col  w-[90%]  sm:w-[90%] bg-white min-h-[45%] max-h-[45%]  rounded-2xl  items-center justify-around text-[9px]  sm:text-[12.5px] lg:-text-[17px] xl:text-[19px]  2xl:text-[23px] " >
             <div className="flex flex-row w-[95%] h-[60%] justify-around">
                    <img src={props.imgeurl} className="w-[40%] h-full" >
                 

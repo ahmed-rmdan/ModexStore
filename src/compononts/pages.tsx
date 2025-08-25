@@ -18,7 +18,9 @@ export const PAGES:React.FC<{legth:number,noproducts:number}>=(props)=>{
             const parms=useParams()
 useEffect(()=>{
    if(category===parms.category){
+      console.log(activepage)
    setpagenum(activepage-1)
+   
    }else{
       setpagenum(0)
    }
