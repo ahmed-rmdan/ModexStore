@@ -12,19 +12,35 @@ import { motion } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { getproduct } from "../https/https";
+import { useMutation } from "@tanstack/react-query";
+import { wishlistaction } from "../https/https";
+import { useNavigate } from "react-router-dom";
+import { useQueryClient } from "@tanstack/react-query";
 export const Productpg:React.FC<{}>=()=>{
 const dispatch=useAppDispatch()
 const [imgepag,setimgepg]=useState<number>(0)
 const inputvalue=useRef<HTMLInputElement|null>(null)
 
 const parms=useParams()
-
+const navigate=useNavigate()
+const queryclient=useQueryClient()
     const {data}=useQuery({
-        queryKey:['products', parms.productid],
+        queryKey:['product', parms.productid,'wishlist'],
         queryFn:({signal})=>getproduct(signal,parms.productid as string),
-        staleTime:600000            
+        staleTime:600000,
+        refetchOnMount:'always'            
     })
-
+ const {mutate}= useMutation({
+  mutationKey:['wishlist']
+  ,mutationFn:wishlistaction,
+  onError:()=>{
+return navigate('/signin')
+  },
+  onSuccess:()=>{
+         queryclient.invalidateQueries({queryKey:['product', parms.productid,'wishlist']})
+         queryclient.invalidateQueries({ queryKey: ['wishlist'] })
+  }
+ })
 
 
 function handleaddproduct(){
@@ -100,6 +116,13 @@ function handledecrese(){
       if(imgepag===0) return ;
       setimgepg(prev=>prev-1)
     }
+
+
+    function handleaddwishlist(){
+        mutate(data?.product.id as string)
+        
+
+    }
           
     return(
         <section className="container mx-auto flex flex-col h-[800px]  justify-around text-[15px] sm:text-[18px]  md:text-[20px] xl:text-[24px]  ">
@@ -114,8 +137,10 @@ function handledecrese(){
                    <div className="maininfo w-[55%] h-[90%] gap-[6%] flex flex-col items-center justify-center ">
                          <p className="text-[1.1em] text-center font-extrabold text-purple-800"> {data?.product.name}</p>
                          <p className="text-[1.1em] text-purple-800 font-bold">price : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(data?.product.newprice as number)} </p>
-
-                       <Heart size={'2.9em'} className="cursor-pointer"></Heart>
+                             {data?.product.isfav?<Heart size={'2.9em'} onClick={handleaddwishlist} fill={'red'} color="red" className="cursor-pointer "></Heart>:
+                             <Heart size={'2.9em'} onClick={handleaddwishlist}   className="cursor-pointer "></Heart>
+                             }
+               
                          <div className="flex flex-row  h-[25%] w-full items-center  justify-center">
                            <div className="flex flex-row items-center w-[55%] sm:w-[35%] gap-[5%] justify-center">
                                        <button className="  cursor-pointer text-[1.5em]   font-bold " onClick={handledecrese} >-</button>

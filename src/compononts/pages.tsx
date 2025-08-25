@@ -47,7 +47,7 @@ return(
                                  <motion.ul animate={{x:-pagenum*20}} className="flex flex-row h-full min-w-[100px]  ">
                                      {
                                        pagesarr.map(elm=>{
-                                          return <button onClick={()=>handleclick(elm)} className={elm===activepage?"min-w-[20px]  cursor-pointer text-purple-800 underline ":" min-w-[20px]  cursor-pointer hover:text-purple-800 hover:underline"}>{elm}</button>
+                                          return <button onClick={()=>handleclick(elm)} key={elm} className={elm===activepage?"min-w-[20px]  cursor-pointer text-purple-800 underline ":" min-w-[20px]  cursor-pointer hover:text-purple-800 hover:underline"}>{elm}</button>
                                        })
                                      }
                              

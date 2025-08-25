@@ -9,11 +9,12 @@ import { AnimatePresence } from "framer-motion";
 import { useAppDispatch } from "../store/hook";
 import { useractions } from "../store/store";
 import { useAppSelector } from "../store/hook";
+import { useNavigate } from "react-router-dom";
 
 export const Header:React.FC<{}>=()=>{
 const [width,setwidth]=useState<number>(window.screen.width)
 const [menu,setmenu]=useState<boolean>(false)
-
+const navigate=useNavigate()
 const dispatch=useAppDispatch()
 const islogin=useAppSelector((state)=>state.user.islogin)
 useEffect(()=>{
@@ -40,6 +41,7 @@ function handlelogout(){
   const confirm=window.confirm('you are logging out are you sure ?')
   if(!confirm) return;
   dispatch(useractions.deletethetoken())
+  navigate('/')
 }
 
 if(width>=768){

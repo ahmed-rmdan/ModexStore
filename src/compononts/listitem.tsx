@@ -8,7 +8,10 @@ import {  useMutation } from "@tanstack/react-query";
 import { deleteproduct } from "../https/https";
 import { useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
+import { wishlistaction } from "../https/https";
+import { useParams } from "react-router-dom";
 export const Listitem:React.FC<{imgeurl:string,name:string,quantity:number,oldprice:number,price:number,type:string,listtype:string,id:string,moreinfo:string}>=(props)=>{
+   const parms=useParams()
     const dispatch=useAppDispatch()
     const queryclient=useQueryClient()
     const navigate=useNavigate()
@@ -119,8 +122,27 @@ if(props.listtype==='products')
 
 
     )
-    if(props.listtype==='wishlist')
-    return(
+    if(props.listtype==='wishlist'){
+
+        const {mutate}= useMutation({
+         mutationKey:['wishlist']
+         ,mutationFn:wishlistaction,
+         onError:()=>{
+       return navigate('/signin')
+         },
+         onSuccess:()=>{
+                
+                queryclient.invalidateQueries({ queryKey: ['wishlist'] })
+                queryclient.invalidateQueries({queryKey:['product', parms.productid,'wishlist']})
+         }
+        })
+function handleremovefav(){
+mutate(props.id)
+
+}
+
+
+     return(
 
  <motion.li  variants={{visible:{opacity:100,scale:1},invisible:{opacity:0,scale:0.5}}}  transition={{type:'spring',bounce:0.3}}
  key={props.id} className="flex flex-col  w-[47%]  sm:w-[30%] bg-white h-[30%] sm:h-[45%]  rounded-2xl  items-center justify-around text-[9px]  sm:text-[12.5px] lg:-text-[17px] xl:text-[19px]  2xl:text-[23px] " >
@@ -134,15 +156,22 @@ if(props.listtype==='products')
              
 
              </div>
-             <div className="itembuttons h-[30%] w-full flex flex-row justify-center gap-[5%] items-center">
+             <div className="itembuttons h-[30%] font-semibold w-full flex flex-row justify-center gap-[5%] items-center">
            
                 <button className="buttonstyle text-[0.8em]  h-[50%] w-[35%] sm:w-[23%] md:w-[25%]  " onClick={handleAddcart} >Add to cart</button>
                 <NavLink to={`/product/${props.id}`} className="buttonstyle text-[0.8em] h-[50%] w-[35%] sm:w-[24%] md:w-[30%]  flex items-center justify-center  " >go to product</NavLink>
-                <Heart className="fill-red-500 cursor-pointer h-[50%] w-[20%] sm:w-[15%]" size={'1.5em'} width={'7%'} color="red" ></Heart>
+                <Heart className="fill-red-500 cursor-pointer h-[50%] w-[20%] sm:w-[15%]" size={'1.5em'} width={'7%'} color="red" onClick={handleremovefav} ></Heart>
 
              </div>
         </motion.li>
     )
+
+
+    }
+
+    
+
+    
 
 
 

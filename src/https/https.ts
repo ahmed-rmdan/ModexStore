@@ -140,11 +140,16 @@ return {products:data.data.getalloffers.products as [typeadminproducts]}
 
 
 export async function getproduct(signal:any,id:string){
-   
+   let token=localStorage.getItem('token')
+   if(!token){
+  token=''
+   }
+
 const res=await fetch('http://localhost:3000/graphql',{
   method:'POST',
   headers:{'Content-Type': 'application/json',
-    'Accept': 'application/json'
+    'Accept': 'application/json',
+    Authorization: `Bearer ` + token
   },
   body:JSON.stringify({
     query:`
@@ -160,6 +165,7 @@ const res=await fetch('http://localhost:3000/graphql',{
       slideimg
       type
       offer
+      isfav
       } 
       }
   
@@ -175,7 +181,21 @@ const res=await fetch('http://localhost:3000/graphql',{
 })
 const data=await res.json()
 console.log(data)
-return {product:data.data.getproduct.product as typeadminproducts}
+type singleproduct ={
+     id: string;
+    name: string;
+    moreinfo: string;
+    mainimg: string;
+    newprice: number;
+    oldprice: number;
+    slideimg: string;
+    type: string;
+    offer: boolean;
+    isfav:boolean
+
+}
+console.log(data.data.getproduct.product)
+return {product:data.data.getproduct.product as singleproduct}
 
 }
 
@@ -396,7 +416,7 @@ const token=localStorage.getItem('token')
 if(!token){
   throw new Error('not authorized')
 }
-
+console.log(token)
 const res=await fetch('http://localhost:3000/graphql',{
   method:'POST',
   headers:{'Content-Type': 'application/json',
@@ -407,7 +427,7 @@ const res=await fetch('http://localhost:3000/graphql',{
     query:`
      query {
         getwishlist{
-    products {
+    products{
       id
       name
       moreinfo
@@ -428,5 +448,47 @@ const res=await fetch('http://localhost:3000/graphql',{
 })  
 const data=await res.json()
 return data.data.getwishlist.products as typeadminproducts[]
+
+}
+
+
+
+export async function wishlistaction(productid:string){
+
+const token=localStorage.getItem('token')
+if(!token){
+  throw new Error('not authorized')
+}
+
+const res=await fetch('http://localhost:3000/graphql',{
+  method:'POST',
+  headers:{'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    Authorization: `Bearer ` + token
+  },
+  body:JSON.stringify({
+    query:`
+     mutation ($input:wishlistactionInput) {
+        wishlistaction(input:$input){
+                 message
+                
+                }
+      }
+    `,
+    variables:{
+      input:{productid}
+    }
+   
+    
+  })
+})  
+
+const data=await res.json()
+if(data.errors){
+  throw new Error('eroor not authorized')
+
+}
+
+console.log(data.data.wishlistaction.message)
 
 }
