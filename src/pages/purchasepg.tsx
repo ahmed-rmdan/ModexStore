@@ -11,11 +11,12 @@ import { useAppDispatch } from "../store/hook";
 import { cartactions } from "../store/store";
 import { useMutation } from "@tanstack/react-query";
 import { islogin } from "../https/https";
+import type { locationtype } from "../types/types";
 export const Puchasepg:React.FC<{}>=()=>{
 const navigate=useNavigate()
 const dispatch=useAppDispatch()
 const [progressvalue,setprogressvalue]=useState(0)
-const [currlocation,setcurrlocation]=useState<[number,number]|string>('')
+const [currlocation,setcurrlocation]=useState<locationtype|null>(null)
 const address=useRef<null|HTMLInputElement>(null)
 const [err,seterr]=useState(false)
 
@@ -51,10 +52,10 @@ console.log(cart)
 
 function handleaddlocation(){
   const location=navigator.geolocation.getCurrentPosition(position=>{
-    setcurrlocation([position.coords.latitude,position.coords.longitude]) 
+    setcurrlocation({latitude:position.coords.latitude,longitude:position.coords.longitude}) 
   },
   (err)=>{
-    setcurrlocation('')
+    
   }
 
 )
@@ -98,15 +99,15 @@ console.log(currlocation)
                           <p className="text-purple-800  text-[1.6em] font-extrabold"> Your TotalPrice : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(totalprice)} </p>
                               <div className="flex flex-col items-center justify-around w-[95%] sm:w-[80%] h-[22%]">
 
-                                   <input  className="w-[55%] rounded-[8px] text-[1.2em] border-2 border-purple-800  h-[25%]" type='text' required ref={address} placeholder="Delivery Address" />
+                                   <input  className=" w-[55%] rounded-[8px] text-[1.2em] border-2 border-purple-800  h-[25%]" type='text' required ref={address} placeholder="Delivery Address" />
                                         <p className="text-purple-800 text-[1.5em]">&</p>
-                                      <button className="buttonstyle w-[45%] 2xl:w-[27%] text-center text-[1.1em] h-[17%] sm:h-[20%] font-semibold" onClick={handleaddlocation}>
-                                        {currlocation===''?'Click here to Add Location':'Location Adeed'}</button>
+                                      <button className="buttonstyle w-[45%] lg:w-[40%] 2xl:w-[27%] text-center text-[1.1em] h-[17%] sm:h-[20%] font-semibold" onClick={handleaddlocation}>
+                                        {!currlocation?'Click here to Add Location':'Location Adeed'}</button>
                                        <p className="text-red-600 text-[1.1em] h-[5%]">{err?'please add order address':''}</p>
                              </div>
 
                             
-                    <button onClick={handlegotopayment} className="buttonstyle text-center item-center  w-[40%] xl:w-[20%] h-[5%] text-[1.5em] font-bold ">Go To Payment</button>
+                    <button onClick={handlegotopayment} className="buttonstyle text-center item-center  w-[40%] sm:w-[35%] xl:w-[25%] 2xl:w-[20%] h-[5%] text-[1.5em] font-bold ">Go To Payment</button>
 
                   </div>
 

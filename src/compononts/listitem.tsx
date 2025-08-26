@@ -146,20 +146,20 @@ mutate(props.id)
 
  <motion.li  variants={{visible:{opacity:100,scale:1},invisible:{opacity:0,scale:0.5}}}  transition={{type:'spring',bounce:0.3}}
  key={props.id} className="flex flex-col  w-[47%]  sm:w-[30%] bg-white h-[30%] sm:h-[45%]  rounded-2xl  items-center justify-around text-[9px]  sm:text-[12.5px] lg:-text-[17px] xl:text-[19px]  2xl:text-[23px] " >
-            <div className="flex flex-row w-[95%] h-[60%] justify-around">
+            <div className="flex flex-row w-[95%] h-[55%] justify-around">
                    <img src={props.imgeurl} className="w-[50%] h-full" >
                    </img>   
                    <div className="maininfo w-[45%] flex flex-col items-center justify-around ">
-                         <p className="text-[0.8em] text-purple-800 font-bold text-center">{props.name}</p>
-                         <p className="text-[0.9em] text-purple-800">price : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.price)} </p>
+                         <p className="text-[0.9em] text-purple-800 font-bold text-center">{props.name}</p>
+                         <p className="text-[0.9em] text-purple-800"> {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.price)} </p>
                    </div>
              
 
              </div>
-             <div className="itembuttons h-[30%] font-semibold w-full flex flex-row justify-center gap-[5%] items-center">
+             <div className="itembuttons h-[30%] font-semibold  w-full flex flex-row justify-center gap-[3%] sm:gap-[5%] items-center">
            
-                <button className="buttonstyle text-[0.8em]  h-[50%] w-[35%] sm:w-[23%] md:w-[25%]  " onClick={handleAddcart} >Add to cart</button>
-                <NavLink to={`/product/${props.id}`} className="buttonstyle text-[0.8em] h-[50%] w-[35%] sm:w-[24%] md:w-[30%]  flex items-center justify-center  " >go to product</NavLink>
+                <button className="buttonstyle text-[0.8em]  h-[50%] w-[35%]  sm:w-[30%] xl:w-[28%]  " onClick={handleAddcart} >Add to cart</button>
+                <NavLink to={`/product/${props.id}`} className="buttonstyle text-[0.8em] h-[50%] w-[38%] sm:w-[34%]  xl:w-[33%]  flex items-center justify-center  " >go to product</NavLink>
                 <Heart className="fill-red-500 cursor-pointer h-[50%] w-[20%] sm:w-[15%]" size={'1.5em'} width={'7%'} color="red" onClick={handleremovefav} ></Heart>
 
              </div>

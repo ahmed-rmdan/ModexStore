@@ -9,3 +9,7 @@ export type typeadminproducts={
     type: string ,
     offer:boolean 
 }
+export type locationtype={
+       longitude :number,
+   latitude :number
+}

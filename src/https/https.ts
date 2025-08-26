@@ -1,6 +1,6 @@
-import { number } from "framer-motion";
+import type { item } from "../store/store";
 import type { typeadminproducts } from "../types/types";
-
+import type { locationtype } from "../types/types";
 export async function addproduct(data:FormData){
  console.log('addddd')
     
@@ -525,5 +525,62 @@ if(data.errors){
 }
 console.log(data.data.islogin.message)
 return data.data.islogin.message
+
+}
+
+
+
+ export async function createorder(){
+
+    const token=localStorage.getItem('token')
+  if(!token){
+  throw new Error('not authorized')
+        }
+     const addressstorge:{address:string,location:locationtype|null}=JSON.parse(localStorage.getItem('address') as string)
+     if(!addressstorge){
+      throw new Error('address is missing')
+     }
+       const address=addressstorge.address
+       const location=addressstorge.location
+
+     const purchaseitems:item[]=JSON.parse(localStorage.getItem('items') as string)
+          const items=purchaseitems.map(elm=>{
+            return {productid:elm.id,quantity:elm.quantity}
+          })
+     const input={
+      items,
+      address,
+      location
+     }
+console.log(input)
+const res=await fetch('http://localhost:3000/graphql',{
+  method:'POST',
+  headers:{'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    Authorization: `Bearer ` + token
+  },
+  body:JSON.stringify({
+    query:`
+     mutation ($input:createorderInput){
+        createorder(input:$input){
+                 message          
+                }
+      }
+    ` ,
+variables:{
+     input
+  }
+
+ }
+)})  
+
+const data=await res.json()
+if(data.errors){
+  console.log(data.errors)
+  throw new Error('eroor not authorized')
+
+}
+console.log(data.data.createorder.message)
+return data.data.createorder.message
 
 }
