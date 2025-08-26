@@ -3,7 +3,6 @@ import React, { useState } from "react";
 
 import { Listitem } from "./listitem";
 import { useAppSelector} from "../store/hook";
-import { NavLink } from "react-router-dom";
 import {motion} from 'framer-motion'
 import { AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";

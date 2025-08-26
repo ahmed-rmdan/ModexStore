@@ -492,3 +492,38 @@ if(data.errors){
 console.log(data.data.wishlistaction.message)
 
 }
+
+
+export async function islogin(){
+console.log('dsadsaddsadsads')
+const token=localStorage.getItem('token')
+if(!token){
+  throw new Error('not authorized')
+}
+console.log(token)
+const res=await fetch('http://localhost:3000/graphql',{
+  method:'POST',
+  headers:{'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    Authorization: `Bearer ` + token
+  },
+  body:JSON.stringify({
+    query:`
+     mutation {
+        islogin{
+                 message          
+                }
+      }
+    ` 
+  })
+})  
+
+const data=await res.json()
+if(data.errors){
+  throw new Error('eroor not authorized')
+
+}
+console.log(data.data.islogin.message)
+return data.data.islogin.message
+
+}
