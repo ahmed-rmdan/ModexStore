@@ -584,3 +584,40 @@ console.log(data.data.createorder.message)
 return data.data.createorder.message
 
 }
+
+
+ export async function stripepayment(){
+
+    const token=localStorage.getItem('token')
+  if(!token){
+  throw new Error('not authorized')
+        }
+  
+     const purchaseitems:item[]=JSON.parse(localStorage.getItem('items') as string)
+     if(!purchaseitems){
+      throw new Error('somthing is wrong')
+     }
+          const items=purchaseitems.map(elm=>{
+            return {productid:elm.id,quantity:elm.quantity}
+          })
+try{
+ const res=await fetch('http://localhost:3000/stripecheck',{
+  method:'POST',
+  headers:{'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    Authorization: `Bearer ` + token
+  },
+  body:JSON.stringify(items)
+
+})  
+
+const data=await res.json()
+return data
+}catch(err){
+  throw new Error('not authorized')
+}
+
+
+
+
+}

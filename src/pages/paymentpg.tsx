@@ -7,13 +7,23 @@ import { useState,useEffect } from "react";
 import {motion , animate} from 'framer-motion'
 import { useMutation } from "@tanstack/react-query";
 import { createorder } from "../https/https";
+import { stripepayment } from "../https/https";
 
 export const Paymentpg:React.FC<{}>=()=>{
 const navigate=useNavigate()
-const {mutate}=useMutation({
+const {mutate:ondelivery}=useMutation({
 mutationFn:createorder,
 onSuccess:() =>{   
    navigate('/thankyou')
+},
+onError:()=>{
+  navigate('/signin')
+}
+})
+const {mutate:stripe}=useMutation({
+mutationFn:stripepayment,
+onSuccess:(data) =>{   
+   window.location.href=data
 },
 onError:()=>{
   navigate('/signin')
@@ -33,10 +43,10 @@ const [progressvalue,setprogressvalue]=useState(0)
 
 
 function handlestripechecout(){
-
+stripe()
 }
 function handleondelicey(){
-mutate()
+ondelivery()
 }
 
     return(       
