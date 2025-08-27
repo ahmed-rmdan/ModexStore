@@ -19,9 +19,7 @@ const cartslice=createSlice({name:'cartslice',initialState:intialstate,reducers:
           const id=action.payload.id
           const index=state.items.findIndex(elm=>{return elm.id===id})
           console.log(index)
-       
-          state.items.splice(index,1)
-        
+          state.items.splice(index,1)    
          
      },
       increase(state:{items:item[],purchase:item[]},action:{type:string,payload:{id:string}}){
@@ -47,14 +45,9 @@ const cartslice=createSlice({name:'cartslice',initialState:intialstate,reducers:
           }
 
         const purchaseitems :item[]=JSON.parse(items)
-        return state={...state,purchase:purchaseitems as item[]}
-             
-                    
+        return state={...state,purchase:purchaseitems as item[]}                            
      }
     
-
-
-
 }
    
  })

@@ -8,13 +8,17 @@ import {motion , animate} from 'framer-motion'
 import { useMutation } from "@tanstack/react-query";
 import { createorder } from "../https/https";
 import { stripepayment } from "../https/https";
+import { useQueryClient } from "@tanstack/react-query";
 
 export const Paymentpg:React.FC<{}>=()=>{
 const navigate=useNavigate()
+const queryclient=useQueryClient()
 const {mutate:ondelivery}=useMutation({
 mutationFn:createorder,
 onSuccess:() =>{   
+  queryclient.invalidateQueries({queryKey:['orders']})
    navigate('/thankyou')
+    
 },
 onError:()=>{
   navigate('/signin')

@@ -54,7 +54,7 @@ function handleaddlocation(){
   const location=navigator.geolocation.getCurrentPosition(position=>{
     setcurrlocation({latitude:position.coords.latitude,longitude:position.coords.longitude}) 
   },
-  (err)=>{
+  ()=>{
     
   }
 

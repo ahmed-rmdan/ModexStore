@@ -17,7 +17,7 @@ if(inView)
 },[inView])
   
 return(
-    <motion.div initial={{opacity:0}} transition={{duration:2.5}} animate={{opacity:anmeopicity}}  ref={ref} className=" flex  flex-col  h-[95%] w-full gap-[20px]">
+    <motion.div initial={{opacity:0}} transition={{duration:2.5}} animate={{opacity:anmeopicity}}  ref={ref} className=" text-[1em] flex  flex-col  h-[95%] w-full gap-[20px]">
             <MapContainer className="h-[95%]" center={props.location} zoom={13} scrollWheelZoom={false}>
     <TileLayer
       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

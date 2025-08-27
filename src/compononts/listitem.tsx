@@ -145,7 +145,7 @@ mutate(props.id)
      return(
 
  <motion.li  variants={{visible:{opacity:100,scale:1},invisible:{opacity:0,scale:0.5}}}  transition={{type:'spring',bounce:0.3}}
- key={props.id} className="flex flex-col  w-[47%]  sm:w-[30%] bg-white h-[30%] sm:h-[45%]  rounded-2xl  items-center justify-around text-[9px]  sm:text-[12.5px] lg:-text-[17px] xl:text-[19px]  2xl:text-[23px] " >
+ key={props.id} className="flex flex-col  min-w-[47%] max-w-[47%]   sm:min-w-[30%] sm:max-w-[30%] bg-white h-[30%] sm:h-[45%]  rounded-2xl  items-center justify-around text-[9px]  sm:text-[12.5px] lg:-text-[17px] xl:text-[19px]  2xl:text-[23px] " >
             <div className="flex flex-row w-[95%] h-[55%] justify-around">
                    <img src={props.imgeurl} className="w-[50%] h-full" >
                    </img>   

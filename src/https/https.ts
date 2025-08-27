@@ -1,6 +1,6 @@
 import type { item } from "../store/store";
 import type { typeadminproducts } from "../types/types";
-import type { locationtype } from "../types/types";
+import type { locationtype,order } from "../types/types";
 export async function addproduct(data:FormData){
  console.log('addddd')
     
@@ -617,7 +617,53 @@ return data
   throw new Error('not authorized')
 }
 
+}
 
 
+
+export async function getuserorders(){
+  console.log('start')
+const token=localStorage.getItem('token')
+if(!token){
+  throw new Error('not authorized')
+}
+console.log(token)
+const res=await fetch('http://localhost:3000/graphql',{
+  method:'POST',
+  headers:{'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    Authorization: `Bearer ` + token
+  },
+  body:JSON.stringify({
+    query:`
+     query {
+        getuserorders{
+    orders{
+      id
+      name
+      details
+      address
+      at
+      state
+      payment
+      totalprice
+      location{
+      longitude
+      latitude
+      }
+
+      
+    }
+   
+  }
+      }
+    `
+   
+    
+  })
+})  
+const data=await res.json()
+console.log(data.data.getuserorders)
+return data.data.getuserorders.orders as order[]
 
 }
