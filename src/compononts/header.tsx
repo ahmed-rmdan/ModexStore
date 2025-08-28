@@ -27,7 +27,44 @@ useEffect(()=>{
 },[width])
 
 useEffect(()=>{
-dispatch(useractions.getthetoken())
+  const token=localStorage.getItem('token')
+  if(!token){
+   return;
+  }else{
+   const tokendate:number=JSON.parse(localStorage.getItem('date') as string)
+   console.log(tokendate)
+   
+   if(!tokendate){
+    dispatch(useractions.getthetoken())
+    setTimeout(()=>{
+        dispatch(useractions.deletethetoken())
+        navigate('/')
+    },3300000)
+
+   }else{
+    const expiredtime=Date.now() - tokendate
+   console.log(expiredtime)
+   if(expiredtime>3300000){
+    dispatch(useractions.deletethetoken())
+    navigate('/')
+   }else{
+    const timeleft=3300000-expiredtime
+    console.log(timeleft)
+     dispatch(useractions.getthetoken())
+         setTimeout(()=>{
+        dispatch(useractions.deletethetoken())
+        navigate('/')
+    },timeleft)   
+      
+   }
+
+   }
+  
+
+
+  }
+
+
 
 },[])
 

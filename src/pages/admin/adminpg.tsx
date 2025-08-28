@@ -38,7 +38,7 @@ mutate()
               <div className="flex flex-row text-[2px] sm:text-[3.5px]   lg:text-[4px]  xl:text-[4.5px] ">
              
                 <Dshboard></Dshboard>
-                   <Outlet></Outlet>
+                   <Outlet></Outlet>    
               
               </div>
         </div>

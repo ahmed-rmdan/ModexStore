@@ -16,6 +16,10 @@ mutationKey:['user'],
 mutationFn:loginadmin,
 onSuccess:(data) =>{   
       dispatch(useractions.setthetoken({token:data.token}))
+          setTimeout(()=>{
+                    dispatch(useractions.deletethetoken())
+                    navigate('/admin')
+             },3300000)
    queryClient.invalidateQueries({ queryKey: ['user'] })
   return navigate('/admin/products/allproducts')
 }

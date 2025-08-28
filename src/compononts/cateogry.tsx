@@ -4,7 +4,7 @@ import { PAGES } from "./pages";
 import { Searchproduct } from "./search";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { getadminproducts } from "../https/https";
+import { getproducts } from "../https/https";
 import { useAppSelector } from "../store/hook";
 import { useAppDispatch } from "../store/hook";
 import { paginationactions } from "../store/store";
@@ -17,7 +17,7 @@ export const Cateogry:React.FC<{}>=()=>{
     console.log(cateogry.category as string)
     const {data}=useQuery({
         queryKey:['products', cateogry.category,activepage],
-        queryFn:({signal})=>getadminproducts(signal,cateogry.category as string,activepage),
+        queryFn:({signal})=>getproducts(signal,cateogry.category as string,activepage),
         staleTime:600000 
               
     })

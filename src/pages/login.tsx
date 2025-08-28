@@ -14,6 +14,10 @@ mutationKey:['user'],
 mutationFn:login,
 onSuccess:(data) =>{   
       dispatch(useractions.setthetoken({token:data.token}))
+      setTimeout(()=>{
+             dispatch(useractions.deletethetoken())
+             navigate('/')
+      },3300000)
    queryClient.invalidateQueries({ queryKey: ['user'] })
   return navigate('/')
 }

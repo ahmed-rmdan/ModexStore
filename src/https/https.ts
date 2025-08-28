@@ -68,6 +68,49 @@ const RES=await fetch(`http://localhost:3000/uploadimge/${id}`,{
 }
 
 }
+export async function getproducts(signal:any,type:string,activepage:number){
+      
+const res=await fetch('http://localhost:3000/graphql',{
+  method:'POST',
+  headers:{'Content-Type': 'application/json',
+    'Accept': 'application/json'
+
+  },
+  body:JSON.stringify({
+    query:`
+     query($input: TypeInput!) {
+        getproducts(input: $input){
+    products {
+      id
+      name
+      moreinfo
+      mainimg
+      newprice
+      oldprice
+      slideimg
+      type
+      offer
+    },
+    length
+  }
+      }
+    `,
+       variables: {
+      input:{type,activepage}
+    }
+    
+  })
+})
+const data=await res.json()
+if(data.errors){
+ throw new Error(data.errors[0].message)
+}
+console.log(data)
+return {products:data.data.getproducts.products as [typeadminproducts],length:data.data.getproducts.length}
+
+
+
+}
 
 export async function getadminproducts(signal:any,type:string,activepage:number){
   
