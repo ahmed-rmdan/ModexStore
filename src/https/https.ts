@@ -771,3 +771,46 @@ console.log(data.data.deleteorder.message)
 
 
 }
+
+
+
+export async function editorder(input:{orderid:string,state:string}){
+
+const token=localStorage.getItem('token')
+if(!token){
+  throw new Error('not authorized')
+}
+console.log(input)
+const res=await fetch('http://localhost:3000/graphql',{
+  method:'POST',
+  headers:{'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    Authorization: `Bearer ` + token
+  },
+  body:JSON.stringify({
+    query:`
+     mutation($input:editorderInput){
+        editorder(input:$input){
+                 message
+                }
+      }
+    `,
+    variables:{
+      input
+    }
+   
+    
+  })
+})  
+
+const data=await res.json()
+if(data.errors){
+  console.log(data.errors)
+  throw new Error('eroor not authorized')
+
+}
+
+console.log(data.data.editorder.message)
+
+
+}

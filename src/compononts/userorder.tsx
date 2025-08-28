@@ -6,6 +6,20 @@ import { Location } from "./location";
 export const Orderuser:React.FC<{details:string,address:string,
     id:string,state:string,totalprice:number,payment:string,at:string,name:string,location:{longitude:number,latitude:number}|null}>=(props)=>{
     console.log(props.location)
+      let classname='text-purple-800 font-bold'
+if (props.state==='OutForDelivery'){
+  classname='text-orange-500 font-bold'
+}
+if (props.state==='Done'){
+  classname='text-green-600 font-bold'
+}
+if (props.state==='Cancel'){
+  classname='text-red-600 font-bold'
+}
+if (props.state==='Prepearing'){
+  classname='text-purple-900 font-bold'
+}
+
     return(
                                               
  <motion.li  variants={{visible:{opacity:100,scale:1},invisible:{opacity:0,scale:0.5}}}
@@ -18,12 +32,12 @@ export const Orderuser:React.FC<{details:string,address:string,
                  }
                 
             </div>
-             <div className="flex flex-col text-[0.7em] w-[40%] items-center justify-around">
-            <p className="text-center"> {props.details}</p>
+             <div className="flex flex-col text-[0.7em] w-[40%] h-[90%] items-center justify-around">
+            <p className="text-center font-semibold"> {props.details}</p>
             <p> At : {props.at}</p>
             <p className="text-[0.9em] text-center"> To : {props.address} </p>
-               <p > State : <span className="font-semibold  ">{props.state}</span></p>
-               <p > Payment: {props.payment}</p>
+               <p > State : <span className={classname}>{props.state}</span></p>
+               <p  className="font-semibold"> Payment: {props.payment}</p>
              </div>
          
         </div>

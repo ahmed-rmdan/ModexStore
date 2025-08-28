@@ -22,6 +22,19 @@ if(!confirm) return
 mutate(props.id)
 
 }
+let classname='text-purple-800 font-bold'
+if (props.state==='OutForDelivery'){
+  classname='text-orange-500 font-bold'
+}
+if (props.state==='Done'){
+  classname='text-green-600 font-bold'
+}
+if (props.state==='Cancel'){
+  classname='text-red-600 font-bold'
+}
+if (props.state==='Prepearing'){
+  classname='text-purple-900 font-bold'
+}
 
 
 
@@ -42,7 +55,7 @@ mutate(props.id)
                              <p> At : {props.at}</p>
                             <p> To : {props.address}</p>
                             <p className="font-semibold"> Payment : {props.payment}</p>
-                             <p > State : {props.state}</p>
+                             <p  > State : <span className={classname} >{props.state}</span></p>
                           <p className="font-bold"> TotalPrice: {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.totalprice)}</p> 
                       </div>
                    
