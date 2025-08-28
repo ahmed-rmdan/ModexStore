@@ -730,3 +730,44 @@ console.log(data.data.getadminorders)
 return {orders:data.data.getadminorders.orders as order[],length:data.data.getadminorders.length}
 
 }
+
+export async function deleteorder(orderid:string){
+
+const token=localStorage.getItem('token')
+if(!token){
+  throw new Error('not authorized')
+}
+
+const res=await fetch('http://localhost:3000/graphql',{
+  method:'POST',
+  headers:{'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    Authorization: `Bearer ` + token
+  },
+  body:JSON.stringify({
+    query:`
+     mutation ($input:deleteorderInput) {
+        deleteorder(input:$input){
+                 message
+                
+                }
+      }
+    `,
+    variables:{
+      input:{orderid}
+    }
+   
+    
+  })
+})  
+
+const data=await res.json()
+if(data.errors){
+  throw new Error('eroor not authorized')
+
+}
+
+console.log(data.data.deleteorder.message)
+
+
+}

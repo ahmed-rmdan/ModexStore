@@ -5,8 +5,12 @@ import { PAGES } from "../../compononts/pages";
 import { useQuery } from "@tanstack/react-query";
 import { getadminorders } from "../../https/https";
 import { useAppSelector } from "../../store/hook";
+import { useEffect } from "react";
+import { useAppDispatch } from "../../store/hook";
+import { paginationactions } from "../../store/store";
 export const Ordersadminpg:React.FC<{}>=()=>{
      const activepage=useAppSelector((state)=>state.pagination.page)
+     const dispatch=useAppDispatch()
       const {data,isFetching}=useQuery(
     {
         queryKey:['orders',activepage],
@@ -15,7 +19,9 @@ export const Ordersadminpg:React.FC<{}>=()=>{
         
     }
     )
-
+  useEffect(()=>{
+       dispatch(paginationactions.handlepage({page:1}))
+   },[])
     let productlength=isFetching?0:data?.length
    
     return(
@@ -27,8 +33,8 @@ export const Ordersadminpg:React.FC<{}>=()=>{
                                 
                                 
                                                {data?.orders.map(elm=>{
-                                            return  <Orderadmin payment="ondelivery" username="ahmed" location={[30.78784930823166,31.001840190007467]} details="1x shoes + 2 tshirts" 
-                                                     totalprice={700} address="ALHARM - GIZA - MAROYOTYA" state="preparing" id='szqerdlf88' date="8/7/2025"></Orderadmin>
+                                            return  <Orderadmin  payment={elm.payment} details={elm.details} totalprice={elm.totalprice} 
+                                                 address={elm.address} state={elm.state} id={elm.id} at={elm.at} username={elm.name} location={elm.location}  ></Orderadmin>
                                                         })}          
                                                        
                                             </ul>
