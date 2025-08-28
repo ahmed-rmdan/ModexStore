@@ -410,7 +410,7 @@ console.log(datares.data)
 
 }
 
-export async function getwishlist(){
+export async function getwishlist(signal:any,page:number){
   console.log('start')
 const token=localStorage.getItem('token')
 if(!token){
@@ -425,8 +425,8 @@ const res=await fetch('http://localhost:3000/graphql',{
   },
   body:JSON.stringify({
     query:`
-     query {
-        getwishlist{
+     query ($input:getwishlistInput) {
+        getwishlist(input:$input){
     products{
       id
       name
@@ -437,17 +437,20 @@ const res=await fetch('http://localhost:3000/graphql',{
       slideimg
       type
       offer
-    }
+    },length
    
   }
       }
-    `
+    `,
+    variables:{
+      input:{page}
+    }
    
     
   })
 })  
 const data=await res.json()
-return data.data.getwishlist.products as typeadminproducts[]
+return {products:data.data.getwishlist.products as typeadminproducts[],length:data.data.getwishlist.length}
 
 }
 
@@ -621,7 +624,65 @@ return data
 
 
 
-export async function getuserorders(){
+export async function getuserorders(signal:any,page:number){
+  console.log('start')
+const token=localStorage.getItem('token')
+if(!token){
+  throw new Error('not authorized')
+}
+console.log(token)
+
+try{
+const res=await fetch('http://localhost:3000/graphql',{
+  method:'POST',
+  headers:{'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    Authorization: `Bearer ` + token
+  },
+  body:JSON.stringify({
+    query:`
+     query($input:getuserordersInput){
+        getuserorders(input:$input){
+    orders{
+      id
+      name
+      details
+      address
+      at
+      state
+      payment
+      totalprice
+      location{
+      longitude
+      latitude
+      }
+    },
+      length
+    }
+   
+  }
+      
+    `,
+    variables:{
+      input:{page}
+    }
+       
+  })
+})  
+
+const data=await res.json()
+console.log('sssssssssssssssssssss')
+
+return {orders:data.data.getuserorders.orders as order[],length:data.data.getuserorders.length as number}
+
+}catch(err){
+  console.log(err)
+}
+
+
+}
+
+export async function getadminorders(signal:any,page:number){
   console.log('start')
 const token=localStorage.getItem('token')
 if(!token){
@@ -636,8 +697,8 @@ const res=await fetch('http://localhost:3000/graphql',{
   },
   body:JSON.stringify({
     query:`
-     query {
-        getuserorders{
+     query($input:getuserordersInput){
+        getadminorders(input:$input){
     orders{
       id
       name
@@ -651,19 +712,21 @@ const res=await fetch('http://localhost:3000/graphql',{
       longitude
       latitude
       }
-
       
-    }
+    },
+    length
    
   }
       }
-    `
-   
-    
+    `,
+     variables:{
+      input:{page}
+    }
+       
   })
 })  
 const data=await res.json()
-console.log(data.data.getuserorders)
-return data.data.getuserorders.orders as order[]
+console.log(data.data.getadminorders)
+return {orders:data.data.getadminorders.orders as order[],length:data.data.getadminorders.length}
 
 }
