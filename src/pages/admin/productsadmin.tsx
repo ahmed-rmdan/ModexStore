@@ -2,7 +2,7 @@ import React from "react";
 import { Listitem } from "../../compononts/listitem";
 
 import { PAGES } from "../../compononts/pages";
-import { useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { getadminproducts } from "../../https/https";
 import { useAppSelector } from "../../store/hook";
@@ -12,8 +12,10 @@ import { paginationactions } from "../../store/store";
 
 export const Productsadmin:React.FC<{}>=()=>{
        const parms=useParams()
+       
        const activepage=useAppSelector((state)=>state.pagination.page)
        const dispatch=useAppDispatch()
+       
        console.log(activepage)
 console.log(parms.category as string)
     const {data}=useQuery({

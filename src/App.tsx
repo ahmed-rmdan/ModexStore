@@ -30,7 +30,7 @@ import { Ordersadminpg } from "./pages/admin/ordersadminpg"
 import { Ordereditpg } from "./pages/admin/editorderpg"
 import { Resetpass } from "./pages/resetpass"
 import { Searchproductspg } from "./pages/searchproductspg"
-import { QueryClientProvider,QueryClient } from "@tanstack/react-query"
+import { QueryClientProvider,QueryClient} from "@tanstack/react-query"
 
 
 const router=createBrowserRouter([

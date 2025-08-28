@@ -12,11 +12,11 @@ import { paginationactions } from "../../store/store";
 export const Offersadminpg:React.FC<{}>=()=>{
     const activepage=useAppSelector((state)=>state.pagination.page)
     const dispatch=useAppDispatch()
-   
+ 
     const {data}=useQuery({
         queryKey:['products', 'offers',activepage],
         queryFn:({signal})=>getadminproducts(signal,'offers',activepage),
-        staleTime:600000            
+        staleTime:600000                    
     })
 
 

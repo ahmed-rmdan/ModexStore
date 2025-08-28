@@ -13,7 +13,10 @@ const queryClient=useQueryClient()
 const {mutate:mutateaddproduct}=useMutation({
 mutationKey:['products'],
 mutationFn:addproduct,
-onSuccess:()=>navigate('/admin/products/allproducts')
+onSuccess:()=>navigate('/admin/products/allproducts'),
+onError:()=>{
+  navigate('/admin/login')
+}
 
 })
 
@@ -23,6 +26,9 @@ mutationFn:editproduct,
 onSuccess:()=>{   
    queryClient.invalidateQueries({ queryKey: ['products'] })
   return navigate('/admin/products/allproducts')
+},
+onError:()=>{
+  navigate('/admin/login')
 }
 
 })

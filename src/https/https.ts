@@ -1,8 +1,9 @@
 import type { item } from "../store/store";
 import type { typeadminproducts } from "../types/types";
 import type { locationtype,order } from "../types/types";
+
 export async function addproduct(data:FormData){
- console.log('addddd')
+
     
       let arrslide=data.getAll('sliderimge').join(',')
        data.set('sliderimge',arrslide)
@@ -17,11 +18,18 @@ const input = {
   oldprice: Number(formdata.oldprice),
 };
 
-console.log(input)
+const token=localStorage.getItem('token')
+if(!token){
+  throw new Error('not authorized')
+}
+
+
+
 const res=await fetch('http://localhost:3000/graphql',{
   method:'POST',
   headers:{'Content-Type': 'application/json',
-    'Accept': 'application/json'
+    'Accept': 'application/json',
+    Authorization: `Bearer ` + token
   },
   body:JSON.stringify({
     query:`
@@ -38,12 +46,14 @@ const res=await fetch('http://localhost:3000/graphql',{
   })
 })
 const datars=await res.json() 
-console.log(datars.data.addproduct.id);
+if(datars.errors){
+  throw new Error(datars.errors[0].message)
+}
 
 
 const id=datars.data.addproduct.id
 
-// const datanew = new FormData(ev.currentTarget);
+
 const file=data.get('mainimge') as File
 if(!file) return
 
@@ -60,16 +70,23 @@ const RES=await fetch(`http://localhost:3000/uploadimge/${id}`,{
 }
 
 export async function getadminproducts(signal:any,type:string,activepage:number){
-    console.log(type)
+  
+
+const token=localStorage.getItem('token')
+if(!token){
+  throw new Error('not authorized')
+}
+    
 const res=await fetch('http://localhost:3000/graphql',{
   method:'POST',
   headers:{'Content-Type': 'application/json',
-    'Accept': 'application/json'
+    'Accept': 'application/json',
+    Authorization: `Bearer ` + token
   },
   body:JSON.stringify({
     query:`
      query($input: TypeInput!) {
-        getproducts(input: $input){
+        getadminproducts(input: $input){
     products {
       id
       name
@@ -92,8 +109,11 @@ const res=await fetch('http://localhost:3000/graphql',{
   })
 })
 const data=await res.json()
+if(data.errors){
+ throw new Error(data.errors[0].message)
+}
 console.log(data)
-return {products:data.data.getproducts.products as [typeadminproducts],length:data.data.getproducts.length}
+return {products:data.data.getadminproducts.products as [typeadminproducts],length:data.data.getadminproducts.length}
 
 
 
@@ -106,11 +126,54 @@ const res=await fetch('http://localhost:3000/graphql',{
   method:'POST',
   headers:{'Content-Type': 'application/json',
     'Accept': 'application/json'
+   
   },
   body:JSON.stringify({
     query:`
        query{
        getalloffers{
+    products {
+      id
+      name
+      moreinfo
+      mainimg
+      newprice
+      oldprice
+      slideimg
+      type
+      offer
+    }
+    
+  } 
+  }   
+    `  
+  })
+})
+const data=await res.json()
+if(data.errors){
+  throw new Error(data.errors[0].message)
+}
+console.log(data)
+return {products:data.data.getalloffers.products as [typeadminproducts]}
+
+}
+
+export async function getadminoffers(){
+  const token=localStorage.getItem('token')
+if(!token){
+  throw new Error('not authorized')
+}
+   
+const res=await fetch('http://localhost:3000/graphql',{
+  method:'POST',
+  headers:{'Content-Type': 'application/json',
+    'Accept': 'application/json',
+     Authorization: `Bearer ` + token
+  },
+  body:JSON.stringify({
+    query:`
+       query{
+       getadminoffers{
     products {
       id
       name
@@ -131,10 +194,11 @@ const res=await fetch('http://localhost:3000/graphql',{
   })
 })
 const data=await res.json()
+if(data.errors){
+  throw new Error(data.errors[0].message)
+}
 console.log(data)
-return {products:data.data.getalloffers.products as [typeadminproducts]}
-
-
+return {products:data.data.getadminoffers.products as [typeadminproducts]}
 
 }
 
@@ -201,10 +265,16 @@ return {product:data.data.getproduct.product as singleproduct}
 
 export async function deleteproduct(input:string){
 console.log(input)
+   let token=localStorage.getItem('token')
+   if(!token){
+  token=''
+   }
+
 const res=await fetch('http://localhost:3000/graphql',{
   method:'POST',
   headers:{'Content-Type': 'application/json',
-    'Accept': 'application/json'
+    'Accept': 'application/json',
+    Authorization: `Bearer ` + token
   },
   body:JSON.stringify({
     query:`
@@ -221,6 +291,9 @@ const res=await fetch('http://localhost:3000/graphql',{
   })
 })
 const data=await res.json() 
+if(data.errors){
+  throw new Error(data.errors[0].message)
+}
 console.log(data.data.deleteproduct.message);
 
 
@@ -228,6 +301,10 @@ console.log(data.data.deleteproduct.message);
 
 
 export async function editproduct(data:{data:FormData,id:string}){
+  const token=localStorage.getItem('token')
+if(!token){
+  throw new Error('not authorized')
+}
 
   
       let arrslide=data.data.getAll('sliderimge').join(',')
@@ -248,7 +325,8 @@ console.log(input)
 const res=await fetch('http://localhost:3000/graphql',{
   method:'POST',
   headers:{'Content-Type': 'application/json',
-    'Accept': 'application/json'
+    'Accept': 'application/json',
+    Authorization: `Bearer ` + token
   },
   body:JSON.stringify({
     query:`
@@ -812,5 +890,86 @@ if(data.errors){
 
 console.log(data.data.editorder.message)
 
+
+}
+
+
+export async function loginadmin(data:FormData){
+
+  if(data.get('username')===''){
+    throw new Error('please enter a username')
+  }
+  if(data.get('password')===''){
+    throw new Error('please enter a password')
+  }
+             
+const formdata=Object.fromEntries(data.entries())
+
+
+console.log(formdata)
+
+
+const res=await fetch('http://localhost:3000/graphql',{
+  method:'POST',
+  headers:{'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  },
+  body:JSON.stringify({
+    query:`
+     mutation($input:LoginInput!) {
+        loginadmin(input:$input) {
+          token
+        }
+      }
+    `,
+       variables: {
+      input:formdata
+    }
+    
+  })
+})
+ const datares=await res.json()
+
+ if(datares.errors){
+  throw new Error(datares.errors[0].message)
+ }
+console.log(datares.data)
+
+ return {token:datares.data.loginadmin.token as string}
+
+
+}
+
+export async function isadmin(){
+console.log('dsadsaddsadsads')
+const token=localStorage.getItem('token')
+if(!token){
+  throw new Error('not authorized')
+}
+console.log(token)
+const res=await fetch('http://localhost:3000/graphql',{
+  method:'POST',
+  headers:{'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    Authorization: `Bearer ` + token
+  },
+  body:JSON.stringify({
+    query:`
+     query{
+        isadmin{
+                 message          
+                }
+      }
+    ` 
+  })
+})  
+
+const data=await res.json()
+if(data.errors){
+  throw new Error('eroor not authorized')
+
+}
+
+return data.data.isadmin.message
 
 }
