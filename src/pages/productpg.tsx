@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { ArrowBigLeft } from "lucide-react";
 import { ArrowBigRight } from "lucide-react";
@@ -20,7 +20,7 @@ export const Productpg:React.FC<{}>=()=>{
 const dispatch=useAppDispatch()
 const [imgepag,setimgepg]=useState<number>(0)
 const inputvalue=useRef<HTMLInputElement|null>(null)
-
+const [width,setwidth]=useState<number>(window.innerWidth)
 const parms=useParams()
 const navigate=useNavigate()
 const queryclient=useQueryClient()
@@ -43,6 +43,7 @@ return navigate('/signin')
  })
 
 
+
 function handleaddproduct(){
      let quantity:number=1
       if(!inputvalue.current||inputvalue.current==null||inputvalue.current.value=='0'){
@@ -57,7 +58,11 @@ function handleaddproduct(){
           quantity:quantity,imgeurl:data?.product.mainimg as string}))
        }
 
-
+useEffect(()=>{
+  window.addEventListener('resize',()=>{
+       setwidth(window.innerWidth)
+  })
+},[])
 
 
 function handleimges(noimge:number){
@@ -97,7 +102,7 @@ function handledecrese(){
 
     function handlenext(){
       
-      const width=window.innerWidth
+      
       const slideimgelength=data?.product.slideimg.split(',').length as number
       let numberoslide:number=8
       if(width<=768){
@@ -137,8 +142,9 @@ function handledecrese(){
                    <div className="maininfo w-[55%] h-[90%] gap-[6%] flex flex-col items-center justify-center ">
                          <p className="text-[1.1em] text-center font-extrabold text-purple-800"> {data?.product.name}</p>
                          <p className="text-[1.1em] text-purple-800 font-bold">price : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(data?.product.newprice as number)} </p>
-                             {data?.product.isfav?<Heart size={'2.9em'} onClick={handleaddwishlist} fill={'red'} color="red" className="cursor-pointer "></Heart>:
-                             <Heart size={'2.9em'} onClick={handleaddwishlist}   className="cursor-pointer "></Heart>
+                             {data?.product.isfav? <motion.button title="wishlist" initial={{scale:1.2}} transition={{duration:0.2}} animate={{scale:1}}><Heart size={'2.9em'} 
+                              onClick={handleaddwishlist} fill={'red'} color="red"  className="cursor-pointer "></Heart></motion.button> :
+                            <button title="wishlist" ><Heart size={'2.9em'} onClick={handleaddwishlist}   className="cursor-pointer "></Heart></button> 
                              }
                
                          <div className="flex flex-row  h-[25%] w-full items-center  justify-center">
@@ -146,7 +152,6 @@ function handledecrese(){
                                        <button className="  cursor-pointer text-[1.5em]   font-bold " onClick={handledecrese} >-</button>
                                        <input placeholder="1" className=" h-[3.3em] w-[40%] lg:w-[35%] border-4 border-purple-800 text-center " ref={inputvalue} type="number"/>
                                          <button className="  cursor-pointer  text-[1.5em] text-purple-800 font-bold  " onClick={handleincrease} >+</button>
-
                                 </div>
                             <button className="buttonstyle sm:text-[1em] font-semibold  lg:text-[1.1em] h-[3.3em] w-[35%]  sm:w-[22%] lg:w-[19%]  " onClick={handleaddproduct}> Add Product</button>
                                
@@ -159,7 +164,8 @@ function handledecrese(){
             <div className="flex flex-row w-full h-[150px]  items-center justify-center mb-[20px]">
                     <button className="w-[40px] sm:w-[60px] cursor-pointer "><ArrowBigLeft size={'100%'} color="#6e11b0" onClick={handleprev}/></button>
                           <div className="flex flex-row    h-[100%] overflow-hidden w-[210px] sm:w-[430px]  md:w-[540px]  lg:w-[870px]">
-                        <motion.ul  animate={{x:-imgepag*100}}   className="flex flex-row  h-[80%] overflow-hidden gap-[10px] w-[210px] sm:w-[430px]  md:w-[540px]  lg:w-[870px]  ">
+                        <motion.ul  animate={{x:-imgepag*110}}   className="flex flex-row  h-[80%] overflow-hidden gap-[10px]
+                         w-[210px] sm:w-[430px]  md:w-[540px]  lg:w-[870px]  ">
                            {data?.product.slideimg.split(',').map((elm,i)=>{
                             return   <img key={elm} src={elm} onClick={()=>handleimges(i)} className="min-w-[100px] max-w-[100px] h-[100%] cursor-pointer">
                              </img>
@@ -171,9 +177,9 @@ function handledecrese(){
 
                       <button className="w-[40px] sm:w-[60px] cursor-pointer" ><ArrowBigRight size={'100%'} color="#6e11b0" onClick={handlenext} /></button>
                  </div>
-                 <div className="flex flex-col mx-auto w-[90%] h-200px gap-[20px] justify-between ">
-                      <h2 className="text-[1.4em] underline font-semibold "> More Info </h2>
-                      <p className="text-[0.8em] w-[70%]"> {data?.product.moreinfo}</p>
+                 <div className="flex flex-col mx-auto w-[90%] h-300px gap-[20px] justify-between ">
+                      <h2 className="text-[1.4em] underline font-bold text-purple-800  "> More Info </h2>
+                      <p className="text-[0.8em] text-wrap whitespace-normal break-words  w-[100%]"> {data?.product.moreinfo}</p>
 
                  </div>
              

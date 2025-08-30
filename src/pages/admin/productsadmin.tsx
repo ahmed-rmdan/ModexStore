@@ -40,15 +40,13 @@ let length:number=data===undefined?0:data.length
 
                 <h1 className=" flex underline text-purple-800 text-[12em] h-[5%] justify-center items-center font-bold ">{parms.category}</h1>
                                                  
-                    <ul className="flex flex-col min-h-[80%] max-h-[80%] w-[85%] sm:w-[70%]  justify-between  items-center">  
+                    <ul className="flex flex-col min-h-[80%] max-h-[80%] w-[85%] sm:w-[70%] gap-[2%] justify-start  items-center">  
                                                      
                             {data?.products?.map(elm=>{
                                                         
                                  return <Listitem key={elm.id} listtype="admin" type={elm.type} oldprice={elm.oldprice} price={elm.newprice} id={elm.id} imgeurl={elm.mainimg} name={elm.name} moreinfo={elm.moreinfo}  
                                  quantity={1}></Listitem>
-                            })}
-                                                     
-                                                      
+                            })}                                                      
                     </ul>
                     <div className=" flex items-center justify-center text-[3.5em] h-[5%]">
                         <PAGES legth={length} noproducts={4}  ></PAGES>

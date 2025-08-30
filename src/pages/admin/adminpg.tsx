@@ -7,12 +7,12 @@ import { useMutation } from "@tanstack/react-query"
 import { isadmin } from "../../https/https"
 import { useNavigate } from "react-router"
 import { useLocation } from "react-router-dom";
-import { Loginadmin } from "./loginadminpg"
+
 
 export const Adminpg:React.FC<{}>=()=>{
 const navigate=useNavigate()
 const location=useLocation()
-const {mutate,data,isPending}=useMutation({
+const {mutate}=useMutation({
     mutationKey:['users'],
     mutationFn:isadmin,
     onError:()=>{
@@ -38,7 +38,7 @@ mutate()
               <div className="flex flex-row text-[2px] sm:text-[3.5px]   lg:text-[4px]  xl:text-[4.5px] ">
              
                 <Dshboard></Dshboard>
-                   <Outlet></Outlet>    
+                 <Outlet></Outlet> 
               
               </div>
         </div>

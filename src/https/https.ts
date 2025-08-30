@@ -463,7 +463,7 @@ const res=await fetch('http://localhost:3000/graphql',{
     query:`
      mutation($input:CreateUserInput!) {
         createuser(input: $input) {
-          message
+          token
         }
       }
     `,
@@ -478,7 +478,10 @@ const res=await fetch('http://localhost:3000/graphql',{
  if(datares.errors){
   throw new Error(datares.errors[0].message)
  }
-console.log(datares.data)
+return datares.data.createuser.token as string
+  
+
+
 
 
 }

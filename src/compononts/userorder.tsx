@@ -22,7 +22,7 @@ if (props.state==='Prepearing'){
 
     return(
                                               
- <motion.li  variants={{visible:{opacity:100,scale:1},invisible:{opacity:0,scale:0.5}}}
+ <motion.li   variants={{visible:{opacity:100,scale:1},invisible:{opacity:0,scale:0.5}}}
   key={props.id} className="flex flex-col  w-[47%]  sm:w-[30%] bg-white h-[30%] sm:h-[45%] text-purple-800  rounded-2xl 
    items-center justify-around text-[10px]  sm:text-[12.5px] lg:-text-[17px] xl:text-[19px]  2xl:text-[23px] " >
         <div className="h-[80%] w-[95%] justify-around flex flex-row ">
@@ -32,7 +32,7 @@ if (props.state==='Prepearing'){
                  }
                 
             </div>
-             <div className="flex flex-col text-[0.7em] w-[40%] h-[90%] items-center justify-around">
+             <div className="flex flex-col text-[0.7em] w-[45%] h-[90%] items-center justify-around">
             <p className="text-center font-semibold"> {props.details}</p>
             <p> At : {props.at}</p>
             <p className="text-[0.9em] text-center"> To : {props.address} </p>

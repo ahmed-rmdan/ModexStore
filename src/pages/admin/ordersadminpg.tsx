@@ -29,7 +29,7 @@ export const Ordersadminpg:React.FC<{}>=()=>{
 
                            <h1 className=" flex underline text-purple-800 text-[12em] h-[5%] justify-center items-center font-bold ">Orders</h1>
                                                  
-                                 <ul className="flex flex-col min-h-[80%] w-[85%] sm:w-[70%] justify-between  items-center">  
+                                 <ul className="flex flex-col min-h-[80%] w-[85%] sm:w-[70%] justify-start gap-[3%]  items-center">  
                                 
                                 
                                                {data?.orders.map(elm=>{

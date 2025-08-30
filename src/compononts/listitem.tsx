@@ -110,9 +110,9 @@ if(props.listtype==='products')
              </div>
              <div className="itembuttons h-[25%] w-full flex flex-row justify-center gap-[20%] items-center">
            
-                <button className="buttonstyle text-[0.8em] w-[26%] sm:w-[23%] 2xl:w-[20%] h-[77%] font-semibold  " onClick={handleAddcart} >Add to cart</button>
-                <NavLink to={`/product/${props.id}`} className="buttonstyle text-[0.8em] w-[31%] sm:w-[24%] 2xl:w-[20%] h-[77%] flex items-center justify-center font-semibold " >go to product</NavLink>
-                {/* <Heart className="fill-red-500 cursor-pointer w-[10%] sm:w-[8%]" size={'1.5em'} width={'8%'} color="red" ></Heart> */}
+                <button className="buttonstyle text-[0.8em] w-[35%] sm:w-[23%] 2xl:w-[20%] h-[77%] font-semibold  " onClick={handleAddcart} >Add to cart</button>
+                <NavLink to={`/product/${props.id}`} className="buttonstyle text-[0.8em] w-[35%] sm:w-[24%] 2xl:w-[20%] h-[77%] flex items-center justify-center font-semibold " >go to product</NavLink>
+               
 
              </div>
         </li>
@@ -144,8 +144,9 @@ mutate(props.id)
 
      return(
 
- <motion.li  variants={{visible:{opacity:100,scale:1},invisible:{opacity:0,scale:0.5}}}  transition={{type:'spring',bounce:0.3}}
- key={props.id} className="flex flex-col  min-w-[47%] max-w-[47%]   sm:min-w-[30%] sm:max-w-[30%] bg-white h-[30%] sm:h-[45%]  rounded-2xl  items-center justify-around text-[9px]  sm:text-[12.5px] lg:-text-[17px] xl:text-[19px]  2xl:text-[23px] " >
+ <motion.li layout  variants={{visible:{opacity:100,scale:1},invisible:{opacity:0,scale:0.5}}}  transition={{type:'spring',bounce:0.3}}
+ key={props.id} className="flex flex-col  min-w-[47%] max-w-[47%]   sm:min-w-[30%] sm:max-w-[30%] bg-white h-[30%] sm:h-[45%] 
+  rounded-2xl  items-center justify-around text-[9px]  sm:text-[12.5px] lg:-text-[17px] xl:text-[19px]  2xl:text-[23px] " >
             <div className="flex flex-row w-[95%] h-[55%] justify-around">
                    <img src={props.imgeurl} className="w-[50%] h-full" >
                    </img>   
@@ -158,10 +159,11 @@ mutate(props.id)
              </div>
              <div className="itembuttons h-[30%] font-semibold  w-full flex flex-row justify-center gap-[3%] sm:gap-[5%] items-center">
            
-                <button className="buttonstyle text-[0.8em]  h-[50%] w-[35%]  sm:w-[30%] xl:w-[28%]  " onClick={handleAddcart} >Add to cart</button>
-                <NavLink to={`/product/${props.id}`} className="buttonstyle text-[0.8em] h-[50%] w-[38%] sm:w-[34%]  xl:w-[33%]  flex items-center justify-center  " >go to product</NavLink>
-                <Heart className="fill-red-500 cursor-pointer h-[50%] w-[20%] sm:w-[15%]" size={'1.5em'} width={'7%'} color="red" onClick={handleremovefav} ></Heart>
-
+                <button className="buttonstyle text-[0.8em] font-bold  h-[50%] min-w-[35%] max-w-[35%]  sm:w-[30%] xl:w-[28%]  " onClick={handleAddcart} >Add to cart</button>
+                <NavLink to={`/product/${props.id}`} className="buttonstyle text-[0.8em] font-bold h-[50%] max-w-[38%]
+                 min-w-[38%] sm:w-[34%]  xl:w-[33%]  flex items-center justify-center  " >go to product</NavLink>
+               <button title="remove" className="fill-red-500 cursor-pointer  h-[50%] w-[20%] sm:w-[15%]"><Heart   className="fill-red-500 cursor-pointer"
+                 size={'full'} width={'full'} color="red" onClick={handleremovefav} ></Heart></button> 
              </div>
         </motion.li>
     )
@@ -204,6 +206,8 @@ if(props.listtype==='admin'){
           })
 
           function handledeleteproduct(){
+            const confirm=window.confirm(`you are deleting product : ${props.name} are you sure ?`)
+            if(!confirm) return;
             mutate(props.id)
           }
 

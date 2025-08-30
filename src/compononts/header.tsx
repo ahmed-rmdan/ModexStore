@@ -83,9 +83,11 @@ function handlelogout(){
 
 if(width>=768){
 return(
-           <nav className="flex flex-row sticky top-0 bg-white z-[10000]  w-full  p-10  justify-between   items-center text-black text-[2.5px] sm:text-[3.5px]   lg:text-[4px] xl:flex-row xl:text-[4px] 2xl:text-[4.5px] h-[15px]   ">
+           <nav className="flex flex-row sticky top-0 bg-white z-[10000]  w-full  p-10  
+           justify-between   items-center text-black text-[2.5px] sm:text-[3.5px]   lg:text-[4px] xl:flex-row xl:text-[4px] 2xl:text-[4.5px] h-[15px]   ">
              <NavLink className=" text-center  text-purple-900 font-bold w-[40%] sm:w-[25%]  text-[6em] md:w-[25%] lg:text-[6.5em]   xl:w-[15%] xl:text-[7em]  2xl:w-[20%]  " to={'/'}><h1  > Modex Store</h1></NavLink>
-             <div className="flex flex-row items-center justify-evenly w-[60%] sm:w-[70%] text-[5em] text-black font-semibold md:w-[55%] md:text-[4em] lg:w-[55%] lg:text-[4em]  xl:w-[50%] xl:text-[5em] 2xl:w-[50%] ">
+             <div className="flex flex-row items-center justify-evenly max-w-[60%] min-w-[60%] sm:w-[70%] text-[5em]
+              text-black font-semibold md:w-[55%] md:text-[4em] lg:w-[55%] lg:text-[4em]  xl:w-[50%] xl:text-[5em] 2xl:w-[50%] ">
                 <NavLink to={'/products/allproducts'} className={({isActive})=>isActive?"cursor-pointer text-purple-800 ":"cursor-pointer hover:text-purple-800"}> Shop</NavLink>
                 <NavLink to={'/categories'} className={({isActive})=>isActive?"cursor-pointer text-purple-800 ":"cursor-pointer hover:text-purple-800"}> Categories</NavLink>
                  <NavLink className={({isActive})=>isActive?"cursor-pointer text-purple-800  ":"cursor-pointer hover:text-purple-800 "}  to={'/contact'}> Contact</NavLink>

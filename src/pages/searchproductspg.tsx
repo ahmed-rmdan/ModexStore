@@ -30,7 +30,7 @@ export const Searchproductspg:React.FC<{}>=()=>{
                     
                      <h1 className=" flex underline h-[6%] text-purple-800 text-[3.7em] justify-center items-center  font-bold">Search</h1>
                                              <Searchproduct></Searchproduct>
-                         <ul className="flex flex-col w-[85%] sm:w-[70%] min-h-[77%] max-h-[77%] justify-around gap-[20px] items-center">  
+                         <ul className="flex flex-col w-[85%] sm:w-[70%] min-h-[77%] max-h-[77%] justify-start gap-[20px] items-center">  
                                     {data?.products?.map(elm=>{                                              
                                         return <Listitem key={elm.id} listtype="products" type={elm.type} oldprice={elm.oldprice} price={elm.newprice} id={elm.id} imgeurl={elm.mainimg} name={elm.name} moreinfo={elm.moreinfo}  
                                                     quantity={1}></Listitem>

@@ -1,13 +1,14 @@
 import React from "react";
-
+import { motion } from "framer-motion";
 
 
 
 export const Terms:React.FC<{}>=()=>{
     return(
-     <div className="container flex flex-col w-full mx-auto h-[760px] gap-[20px] text-[5.5px] md:text-[8px] xl:text-[10px] md:gap-[50px]">
-      <h1 className="w-full font-bold text-purple-800 underline text-[5em] text-center   "> Term&Conditions</h1>
-      <p className=" mx-auto w-[90%] text-[2em] text-center text leading-loose">Welcome to Modex!
+     <div className="container flex flex-col w-full mx-auto h-[900px] sm:h-[820px] gap-[20px] text-[5.5px] md:text-[8px] xl:text-[10px] md:gap-[50px]">
+      <motion.h1 initial={{x:-250,opacity:0}} transition={{duration:1}} animate={{x:0,opacity:100}} className="w-full font-bold text-purple-800 underline text-[5em] text-center   "> Term&Conditions</motion.h1>
+      <motion.p initial={{x:-500,opacity:0}} transition={{duration:1.2}} animate={{x:0,opacity:100}} className=" mx-auto w-[90%] text-[2.2em] text-center 
+      text leading-loose">Welcome to Modex!
 
 By accessing and using our website, you agree to be bound by the following terms and conditions. Please read them carefully.
 
@@ -35,7 +36,7 @@ We value your privacy. Please refer to our Privacy Policy to understand how we c
 8. Contact Us
 If you have any questions about these Terms & Conditions, feel free to contact us at modex@gmail.com.
 
-</p>
+</motion.p>
 
 
      </div>

@@ -1,17 +1,26 @@
 import React from "react";
 import { useMutation } from "@tanstack/react-query";
 import { QueryClient } from "@tanstack/react-query";
+import { useAppDispatch } from "../store/hook";
+import { useractions } from "../store/store";
+
 import { useNavigate } from "react-router-dom";
 import { createuser } from "../https/https";
 
 export const Signup:React.FC<{}>=()=>{
 const queryClient=new QueryClient()
+const dispatch=useAppDispatch()
 const navigate=useNavigate()
 const {mutate,isError,error,isPending}=useMutation({
 mutationKey:['user'],
 mutationFn:createuser,
-onSuccess:()=>{   
-   queryClient.invalidateQueries({ queryKey: ['user'] })
+onSuccess:(data)=>{   
+dispatch(useractions.setthetoken({token:data}))
+      setTimeout(()=>{
+                dispatch(useractions.deletethetoken())
+                navigate('/')
+         },3300000)
+    queryClient.invalidateQueries({ queryKey: ['user'] })
   return navigate('/')
 }
 })
