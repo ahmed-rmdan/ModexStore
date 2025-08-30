@@ -21,7 +21,7 @@ const {data,isFetching}=useQuery(
         queryFn:({signal})=>getwishlist(signal,activepage),
         staleTime:600000,
         refetchOnMount:true
-        
+            
     }
     )
     console.log(activepage)
