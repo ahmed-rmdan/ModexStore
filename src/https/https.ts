@@ -4,14 +4,18 @@ import type { locationtype,order } from "../types/types";
 
 export async function addproduct(data:FormData){
 
-    
-      let arrslide=data.getAll('sliderimge').join(',')
-       data.set('sliderimge',arrslide)
+    console.log('add function')
+    console.log(data.getAll('sliderimge'))
+      let arrslide=data.getAll('sliderimge')
+      console.log(arrslide)
+   
       
 const formdata=Object.fromEntries(data.entries())
 
 const input = {
   ...formdata,
+  sliderimge:arrslide
+  ,
   mainimge:''
   ,
   newprice: Number(formdata.newprice),
@@ -47,6 +51,7 @@ const res=await fetch('http://localhost:3000/graphql',{
 })
 const datars=await res.json() 
 if(datars.errors){
+  console.log(datars.errors)
   throw new Error(datars.errors[0].message)
 }
 
@@ -63,6 +68,7 @@ const RES=await fetch(`http://localhost:3000/uploadimge/${id}`,{
            method:'POST',
              body:data
 })
+return {message:"sucessed"}
 }catch(err){
   console.log(err)
 }

@@ -16,7 +16,7 @@ export const Cateogry:React.FC<{}>=()=>{
       const category=useAppSelector((state)=>state.pagination.catogry)
       const dispatch=useAppDispatch()
     console.log(cateogry.category as string)
-    const {data,isLoading}=useQuery({
+    const {data}=useQuery({
         queryKey:['products', cateogry.category,activepage],
         queryFn:({signal})=>getproducts(signal,cateogry.category as string,activepage),
         staleTime:600000 

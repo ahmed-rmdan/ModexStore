@@ -9,7 +9,6 @@ import { getalloffers } from "../https/https";
 
 export const Offers:React.FC<{}>=()=>{
       const widthslider=useRef<HTMLDivElement>(null)
-      
       const intervalRef = useRef<NodeJS.Timeout | null>(null);
 const [transform,settransform]=useState<number>(0)
 
@@ -19,24 +18,41 @@ const [transform,settransform]=useState<number>(0)
              
     })
 
+
 const lengthitems=data===undefined?0:data.products.length
 console.log(lengthitems)
+let numbertotransform=widthslider.current?.clientWidth 
 
-
+console.log(numbertotransform)
       useEffect(()=>{
-           
-      intervalRef.current=setInterval(()=>{                  
-            console.log(transform)             
-                    settransform(prv=>prv+1);                 
+      clearInterval(intervalRef.current as NodeJS.Timeout)
+      intervalRef.current=setInterval(()=>{   
+                    if(lengthitems-(numbertotransform as number/270)<=0){
+                        settransform(0)
+                    }else{
+                        settransform(prv=>prv+1);  
+                    }
+                                   
        },3000)
         return () => clearInterval(intervalRef.current as NodeJS.Timeout);
       },[lengthitems])
 
 
-const numbertotransform=widthslider.current?.clientWidth
-if(transform>lengthitems-(numbertotransform as number/270)){
-                settransform(0);}
-                console.log(transform)
+  if(numbertotransform&&lengthitems-(numbertotransform as number/270)<=0){
+      console.log('sadasdasdasdsadsa')
+               clearInterval(intervalRef.current as NodeJS.Timeout)
+            }
+
+if(numbertotransform&& !(lengthitems-(numbertotransform as number/270)<=0)&&transform>lengthitems-(numbertotransform as number/270) ){
+                settransform(0);         
+            }
+
+          
+console.log(transform)
+
+
+
+
 
       function handleforward(){
             
@@ -49,9 +65,9 @@ if(transform>lengthitems-(numbertotransform as number/270)){
             
       }
       function handleprev(){
-            const numbertotransform=widthslider.current?.clientWidth
+           
             if(transform==0){
-                  settransform(lengthitems-(Math.trunc(numbertotransform as number/270))-1)
+                 return
             }
             else{
                   settransform(prev=>prev-1)
@@ -62,7 +78,7 @@ if(transform>lengthitems-(numbertotransform as number/270)){
 
       const transformvalue=transform*270
 
-console.log(transformvalue)
+
 
     return(
       

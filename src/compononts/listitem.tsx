@@ -74,7 +74,7 @@ if(props.listtype==='slider' ){
                    <div className="maininfo w-[55%] flex flex-col items-center justify-around ">
                          <p className="text-[0.7em] text-center text-purple-800 font-bold">{props.name}</p>
                        
-                          <p className="text-[0.6em] text-red-600 line-through"> {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(200)}</p>
+                          <p className="text-[0.6em] text-red-600 line-through"> {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.oldprice)}</p>
                          <p className="text-[0.6em] text-purple-800">price : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.price)} </p>
                    </div>
              
@@ -180,7 +180,7 @@ mutate(props.id)
         if(props.listtype==='purchase')
     return(
 
- <li className="flex flex-col  w-[90%]  sm:w-[90%] bg-white min-h-[45%] max-h-[45%]  rounded-2xl  items-center justify-around text-[10px]  sm:text-[12.5px] lg:-text-[17px] xl:text-[19px]  2xl:text-[23px] " >
+ <li className="flex flex-col  w-[90%]  sm:w-[90%] bg-white min-h-[45%] max-h-[45%]  rounded-2xl  items-center justify-around text-[10px]  sm:text-[12.5px] lg:-text-[17px] xl:text-[19px]  2xl:text-[21px] " >
             <div className="flex flex-row w-[95%] h-[60%] justify-around">
                    <img src={props.imgeurl} className="w-[40%] h-full" >
                 
@@ -190,7 +190,7 @@ mutate(props.id)
                          <p className="text-[0.8em] text-purple-800 font-bold text-center">{props.name}</p>
                        
                           <p className="text-[0.9em] text-purple-800">quantity: {props.quantity}</p>
-                         <p className="text-[0.9em] text-purple-800">price : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.price)} </p>
+                         <p className="text-[0.9em] text-purple-800">price : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(props.price*props.quantity)} </p>
                    </div>
              
 

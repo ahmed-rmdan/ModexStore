@@ -13,7 +13,12 @@ const queryClient=useQueryClient()
 const {mutate:mutateaddproduct}=useMutation({
 mutationKey:['products'],
 mutationFn:addproduct,
-onSuccess:()=>navigate('/admin/products/allproducts'),
+onSuccess:()=>{
+     queryClient.invalidateQueries({ queryKey: ['products'] })
+    return navigate('/admin/products/allproducts')
+}
+ ,
+
 onError:()=>{
   navigate('/admin/login')
 }
@@ -73,7 +78,8 @@ async function handlesubmit(ev:React.FormEvent<HTMLFormElement>){
                         </div>
                          
                              
-                        <input className="h-[5%] w-[65%] sm:w-[50%] rounded-2xl border-2 border-purple-900 text-center " placeholder="More Info" type='text' name="moreinfo" required={props.type==='add'}></input>           
+                        <textarea className="h-[5%] w-[65%] sm:w-[50%] rounded-2xl border-2 border-purple-900 text-center
+                         " placeholder="More Info"  name="moreinfo" required={props.type==='add'}></textarea>           
                         <input placeholder="old-price" className="h-[5%] w-[65%] sm:w-[50%] rounded-2xl border-2 border-purple-900 text-center " type='number' name="oldprice" required={props.type==='add'}></input>
                         <input placeholder="NEW-Price" className="h-[5%] w-[65%] sm:w-[50%] rounded-2xl border-2 border-purple-900 text-center " type="number" name="newprice" required={props.type==='add'}></input>
                         
