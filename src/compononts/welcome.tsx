@@ -20,7 +20,7 @@ useEffect(() => {
 
 
     return(
-           <div className="container flex flex-row text-black h-[650px]  mx-auto  text-[2.5px] md:text-[4.5px] md:h-[900px] lg:text-[5px] xl:text-[7px] ">
+           <div className="container flex flex-row text-black h-[550px] sm:h-[650px]  mx-auto  text-[2.5px] md:text-[4.5px] md:h-[900px] lg:text-[5px] xl:text-[7px] ">
                 <div className="flex w-[60%] sm:w-[50%] items-center justify-center flex-col gap-[35px] sm:gap-[60px] ">
                    <motion.p initial={{x:-250,opacity:0}} transition={{duration:1.2}} animate={{x:0,opacity:100}} className="text-center font-semibold  
                    text-[9em] leading-[55px] sm:leading-[80px] lg:leading-[100px] ">WELCOME TO OUR STORE we have <br  />

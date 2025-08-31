@@ -29,7 +29,7 @@ if(!token){
 
 
 
-const res=await fetch('http://localhost:3000/graphql',{
+const res=await fetch('https://modexstore-backend.onrender.com/graphql',{
   method:'POST',
   headers:{'Content-Type': 'application/json',
     'Accept': 'application/json',
@@ -64,7 +64,7 @@ if(!file) return
 
 if(file.name==='' && file.size===0) return;
 try{
-const RES=await fetch(`http://localhost:3000/uploadimge/${id}`,{
+const RES=await fetch(`https://modexstore-backend.onrender.com/uploadimge/${id}`,{
            method:'POST',
              body:data
 })
@@ -76,7 +76,7 @@ return {message:"sucessed"}
 }
 export async function getproducts(signal:any,type:string,activepage:number){
       
-const res=await fetch('http://localhost:3000/graphql',{
+const res=await fetch('https://modexstore-backend.onrender.com/graphql',{
   method:'POST',
   headers:{'Content-Type': 'application/json',
     'Accept': 'application/json'
@@ -126,7 +126,7 @@ if(!token){
   throw new Error('not authorized')
 }
     
-const res=await fetch('http://localhost:3000/graphql',{
+const res=await fetch('https://modexstore-backend.onrender.com/graphql',{
   method:'POST',
   headers:{'Content-Type': 'application/json',
     'Accept': 'application/json',
@@ -171,7 +171,7 @@ return {products:data.data.getadminproducts.products as [typeadminproducts],leng
 
 export async function getalloffers(){
    
-const res=await fetch('http://localhost:3000/graphql',{
+const res=await fetch('https://modexstore-backend.onrender.com/graphql',{
   method:'POST',
   headers:{'Content-Type': 'application/json',
     'Accept': 'application/json'
@@ -200,6 +200,7 @@ const res=await fetch('http://localhost:3000/graphql',{
 })
 const data=await res.json()
 if(data.errors){
+  console.log(data.errors)
   throw new Error(data.errors[0].message)
 }
 console.log(data)
@@ -213,7 +214,7 @@ if(!token){
   throw new Error('not authorized')
 }
    
-const res=await fetch('http://localhost:3000/graphql',{
+const res=await fetch('https://modexstore-backend.onrender.com/graphql',{
   method:'POST',
   headers:{'Content-Type': 'application/json',
     'Accept': 'application/json',
@@ -258,7 +259,7 @@ export async function getproduct(signal:any,id:string){
   token=''
    }
 
-const res=await fetch('http://localhost:3000/graphql',{
+const res=await fetch('https://modexstore-backend.onrender.com/graphql',{
   method:'POST',
   headers:{'Content-Type': 'application/json',
     'Accept': 'application/json',
@@ -319,7 +320,7 @@ console.log(input)
   token=''
    }
 
-const res=await fetch('http://localhost:3000/graphql',{
+const res=await fetch('https://modexstore-backend.onrender.com/graphql',{
   method:'POST',
   headers:{'Content-Type': 'application/json',
     'Accept': 'application/json',
@@ -371,7 +372,7 @@ const input = {
 };
 
 console.log(input)
-const res=await fetch('http://localhost:3000/graphql',{
+const res=await fetch('https://modexstore-backend.onrender.com/graphql',{
   method:'POST',
   headers:{'Content-Type': 'application/json',
     'Accept': 'application/json',
@@ -400,7 +401,7 @@ if(!file) return
 
 if(file.name==='' && file.size===0) return;
 try{
-const RES=await fetch(`http://localhost:3000/uploadimge/${data.id}`,{
+const RES=await fetch(`https://modexstore-backend.onrender.com/uploadimge/${data.id}`,{
            method:'POST',
              body:data.data
 })
@@ -413,7 +414,7 @@ const RES=await fetch(`http://localhost:3000/uploadimge/${data.id}`,{
 
 export async function getsearchproducts(signal:any,search:string,activepage:number){
     console.log(search)
-const res=await fetch('http://localhost:3000/graphql',{
+const res=await fetch('https://modexstore-backend.onrender.com/graphql',{
   method:'POST',
   headers:{'Content-Type': 'application/json',
     'Accept': 'application/json'
@@ -460,7 +461,7 @@ const formdata=Object.fromEntries(data.entries())
 console.log(formdata)
 
 
-const res=await fetch('http://localhost:3000/graphql',{
+const res=await fetch('https://modexstore-backend.onrender.com/graphql',{
   method:'POST',
   headers:{'Content-Type': 'application/json',
     'Accept': 'application/json'
@@ -509,7 +510,7 @@ const formdata=Object.fromEntries(data.entries())
 console.log(formdata)
 
 
-const res=await fetch('http://localhost:3000/graphql',{
+const res=await fetch('https://modexstore-backend.onrender.com/graphql',{
   method:'POST',
   headers:{'Content-Type': 'application/json',
     'Accept': 'application/json'
@@ -547,7 +548,7 @@ if(!token){
   throw new Error('not authorized')
 }
 console.log(token)
-const res=await fetch('http://localhost:3000/graphql',{
+const res=await fetch('https://modexstore-backend.onrender.com/graphql',{
   method:'POST',
   headers:{'Content-Type': 'application/json',
     'Accept': 'application/json',
@@ -593,7 +594,7 @@ if(!token){
   throw new Error('not authorized')
 }
 
-const res=await fetch('http://localhost:3000/graphql',{
+const res=await fetch('https://modexstore-backend.onrender.com/graphql',{
   method:'POST',
   headers:{'Content-Type': 'application/json',
     'Accept': 'application/json',
@@ -634,7 +635,7 @@ if(!token){
   throw new Error('not authorized')
 }
 console.log(token)
-const res=await fetch('http://localhost:3000/graphql',{
+const res=await fetch('https://modexstore-backend.onrender.com/graphql',{
   method:'POST',
   headers:{'Content-Type': 'application/json',
     'Accept': 'application/json',
@@ -686,7 +687,7 @@ return data.data.islogin.message
       location
      }
 console.log(input)
-const res=await fetch('http://localhost:3000/graphql',{
+const res=await fetch('https://modexstore-backend.onrender.com/graphql',{
   method:'POST',
   headers:{'Content-Type': 'application/json',
     'Accept': 'application/json',
@@ -734,7 +735,7 @@ return data.data.createorder.message
             return {productid:elm.id,quantity:elm.quantity}
           })
 try{
- const res=await fetch('http://localhost:3000/stripecheck',{
+ const res=await fetch('https://modexstore-backend.onrender.com/stripecheck',{
   method:'POST',
   headers:{'Content-Type': 'application/json',
     'Accept': 'application/json',
@@ -763,7 +764,7 @@ if(!token){
 console.log(token)
 
 try{
-const res=await fetch('http://localhost:3000/graphql',{
+const res=await fetch('https://modexstore-backend.onrender.com/graphql',{
   method:'POST',
   headers:{'Content-Type': 'application/json',
     'Accept': 'application/json',
@@ -819,7 +820,7 @@ if(!token){
   throw new Error('not authorized')
 }
 console.log(token)
-const res=await fetch('http://localhost:3000/graphql',{
+const res=await fetch('https://modexstore-backend.onrender.com/graphql',{
   method:'POST',
   headers:{'Content-Type': 'application/json',
     'Accept': 'application/json',
@@ -868,7 +869,7 @@ if(!token){
   throw new Error('not authorized')
 }
 
-const res=await fetch('http://localhost:3000/graphql',{
+const res=await fetch('https://modexstore-backend.onrender.com/graphql',{
   method:'POST',
   headers:{'Content-Type': 'application/json',
     'Accept': 'application/json',
@@ -911,7 +912,7 @@ if(!token){
   throw new Error('not authorized')
 }
 console.log(input)
-const res=await fetch('http://localhost:3000/graphql',{
+const res=await fetch('https://modexstore-backend.onrender.com/graphql',{
   method:'POST',
   headers:{'Content-Type': 'application/json',
     'Accept': 'application/json',
@@ -961,7 +962,7 @@ const formdata=Object.fromEntries(data.entries())
 console.log(formdata)
 
 
-const res=await fetch('http://localhost:3000/graphql',{
+const res=await fetch('https://modexstore-backend.onrender.com/graphql',{
   method:'POST',
   headers:{'Content-Type': 'application/json',
     'Accept': 'application/json'
@@ -999,7 +1000,7 @@ if(!token){
   throw new Error('not authorized')
 }
 console.log(token)
-const res=await fetch('http://localhost:3000/graphql',{
+const res=await fetch('https://modexstore-backend.onrender.com/graphql',{
   method:'POST',
   headers:{'Content-Type': 'application/json',
     'Accept': 'application/json',
