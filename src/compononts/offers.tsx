@@ -14,8 +14,7 @@ const [transform,settransform]=useState<number>(0)
 
     const {data}=useQuery({
         queryKey:['products'],
-        queryFn:getalloffers
-             
+        queryFn:getalloffers          
     })
 
 

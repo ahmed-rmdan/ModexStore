@@ -164,7 +164,7 @@ function handledecrese(){
             <div className="flex flex-row w-full h-[150px]  items-center justify-center mb-[20px]">
                     <button className="w-[40px] sm:w-[60px] cursor-pointer "><ArrowBigLeft size={'100%'} color="#6e11b0" onClick={handleprev}/></button>
                           <div className="flex flex-row    h-[100%] overflow-hidden w-[210px] sm:w-[430px]  md:w-[540px]  lg:w-[870px]">
-                        <motion.ul  animate={{x:-imgepag*110}}   className="flex flex-row  h-[80%] overflow-hidden gap-[10px]
+                        <motion.ul  animate={{x:-imgepag*110}}   className="flex flex-row  h-[80%] gap-[10px]
                          w-[210px] sm:w-[430px]  md:w-[540px]  lg:w-[870px]  ">
                            {data?.product.slideimg.split(',').map((elm,i)=>{
                             return   <img key={elm} src={elm} onClick={()=>handleimges(i)} className="min-w-[100px] max-w-[100px] h-[100%] cursor-pointer">
