@@ -4,8 +4,11 @@ import { QueryClient, useMutation } from "@tanstack/react-query";
 import { login } from "../https/https";
 import { useAppDispatch } from "../store/hook";
 import { useractions } from "../store/store";
+import { useAppSelector } from "../store/hook";
+
 
 export const Login:React.FC<{}>=()=>{
+ const activepage=useAppSelector((state)=>state.pagination.page)
       const dispatch=useAppDispatch()
       const queryClient=new QueryClient()
 const navigate=useNavigate()
@@ -13,12 +16,16 @@ const {mutate,isError,error,isPending}=useMutation({
 mutationKey:['user'],
 mutationFn:login,
 onSuccess:(data) =>{   
+      console.log(data.token)
       dispatch(useractions.setthetoken({token:data.token}))
       setTimeout(()=>{
              dispatch(useractions.deletethetoken())
              navigate('/')
       },3300000)
    queryClient.clear()
+    queryClient.invalidateQueries({queryKey:['wishlist',activepage]})
+     queryClient.invalidateQueries({queryKey:['orders',activepage]})
+     
   return navigate('/')
 }
 })

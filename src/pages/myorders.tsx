@@ -16,9 +16,10 @@ export const Myorders:React.FC<{}>=()=>{
     const dispatch=useAppDispatch()
   const {data,isLoading}=useQuery(
     {
-        queryKey:['orders'],
+        queryKey:['orders',activepage],
         queryFn:({signal})=>getuserorders(signal,activepage),
-        staleTime:600000               
+        staleTime:600000,
+             
     }
     )
 
