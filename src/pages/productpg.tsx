@@ -148,7 +148,7 @@ function handledecrese(){
                    <div className="maininfo w-[55%] h-[90%] gap-[6%] flex flex-col items-center justify-center ">
                          <p className="text-[1.1em] text-center font-extrabold text-purple-800"> {data?.product.name}</p>
                          <p className="text-[1.1em] text-purple-800 font-bold">price : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(data?.product.newprice as number)} </p>
-                             {isLoading?
+                             {isPending?
                              <button className="w-[2.9em] h-[2.9em] border-red-600 border-2  animate-spin "></button>
                              :
                              data?.product.isfav?

@@ -35,7 +35,7 @@ export const Myorders:React.FC<{}>=()=>{
                                 <h1 className="text-purple-800 text-[3.5em] underline font-bold mt-[30px]"> My Orders</h1>
                               
 
-                    {!data ? '' : 
+                   
              <motion.ul key={'myorders'} variants={{invisible:{opacity:0,scale:0.6},visible:{scale:1,opacity:1,transition:{staggerChildren:0.2}}}} transition={{duration:1,type:'spring'}}  initial='invisible' animate='visible'
               className="flex flex-row flex-wrap justify-around h-[80%] sm:h-[70%] xl:h-[80%] md:w-[95%] lg:w-[85%] xl:w-[80%]  items-center  ">      
                       { isLoading? 
@@ -49,9 +49,9 @@ export const Myorders:React.FC<{}>=()=>{
                       </>  
                       
                       : 
-                     
-                        data.length!==0?
-                        data.orders.map(elm=>{
+                       
+                        data?.length!==0?
+                       data?.orders.map(elm=>{
                             return <Orderuser  payment={elm.payment} details={elm.details} totalprice={elm.totalprice} 
                             address={elm.address} state={elm.state} id={elm.id} at={elm.at} name={elm.name} location={elm.location}  ></Orderuser>
                         })
@@ -64,7 +64,7 @@ export const Myorders:React.FC<{}>=()=>{
                         
 
                     </motion.ul>
-                           } 
+                            
                       { isLoading?'':<PAGES noproducts={6} legth={productlength as number} ></PAGES>   }                        
 
             </section>
