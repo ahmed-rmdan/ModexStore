@@ -3,11 +3,13 @@ import { useMutation } from "@tanstack/react-query";
 import { QueryClient } from "@tanstack/react-query";
 import { useAppDispatch } from "../store/hook";
 import { useractions } from "../store/store";
-
+  import { useAppSelector } from "../store/hook";
 import { useNavigate } from "react-router-dom";
 import { createuser } from "../https/https";
 
 export const Signup:React.FC<{}>=()=>{
+   
+ const activepage=useAppSelector((state)=>state.pagination.page)
 const queryClient=new QueryClient()
 const dispatch=useAppDispatch()
 const navigate=useNavigate()
@@ -21,6 +23,8 @@ dispatch(useractions.setthetoken({token:data}))
                 navigate('/')
          },3300000)
     queryClient.clear()
+       queryClient.invalidateQueries({queryKey:['wishlist',activepage]})
+     queryClient.invalidateQueries({queryKey:['orders',activepage]})
   return navigate('/')
 }
 })
