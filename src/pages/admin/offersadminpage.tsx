@@ -7,13 +7,13 @@ import { useAppSelector } from "../../store/hook";
 import { useEffect } from "react";
 import { useAppDispatch } from "../../store/hook";
 import { paginationactions } from "../../store/store";
-
+import { Loadingproduct } from "../../compononts/loadingcards";
 
 export const Offersadminpg:React.FC<{}>=()=>{
     const activepage=useAppSelector((state)=>state.pagination.page)
     const dispatch=useAppDispatch()
  
-    const {data}=useQuery({
+    const {data,isLoading}=useQuery({
         queryKey:['products', 'offers',activepage],
         queryFn:({signal})=>getadminproducts(signal,'offers',activepage),
         staleTime:600000                    
@@ -34,7 +34,15 @@ export const Offersadminpg:React.FC<{}>=()=>{
                                                  
                                                 <ul className="flex flex-col min-h-[80%] max-h-[80%] w-[85%] sm:w-[70%] justify-start gap-[2%]  items-center">  
                                                    
-                                                    {data?.products?.map(elm=>{
+                                                    {isLoading?
+                                                    <>
+                                                      <Loadingproduct></Loadingproduct>
+                                                      <Loadingproduct></Loadingproduct>
+                                                      <Loadingproduct></Loadingproduct>
+                                                      <Loadingproduct></Loadingproduct>
+                                                    </>
+                                                    :
+                                                    data?.products?.map(elm=>{
                                                                                                         
                                                         return <Listitem key={elm.id} listtype="offer" type={elm.type} oldprice={elm.oldprice}  price={elm.newprice} id={elm.id} imgeurl={elm.mainimg} name={elm.name} moreinfo={elm.moreinfo}  
                                                                 quantity={1}></Listitem>
@@ -42,7 +50,7 @@ export const Offersadminpg:React.FC<{}>=()=>{
                                                       
                                                 </ul>
                                                 <div className=" flex items-center justify-center text-[3.5em] h-[5%]">
-                                                    <PAGES noproducts={4} legth={length} ></PAGES>
+                                                   { isLoading?'':<PAGES noproducts={4} legth={length} ></PAGES>}
                              </div>
                                                 
                      

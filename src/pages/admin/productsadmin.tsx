@@ -9,7 +9,7 @@ import { useAppSelector } from "../../store/hook";
 import { useEffect } from "react";
 import { useAppDispatch } from "../../store/hook";
 import { paginationactions } from "../../store/store";
-
+import { Loadingproduct } from "../../compononts/loadingcards";
 export const Productsadmin:React.FC<{}>=()=>{
        const parms=useParams()
        
@@ -18,14 +18,12 @@ export const Productsadmin:React.FC<{}>=()=>{
        
        console.log(activepage)
 console.log(parms.category as string)
-    const {data}=useQuery({
+    const {data,isLoading}=useQuery({
         queryKey:['products', parms.category,activepage],
         queryFn:({signal})=>getadminproducts(signal,parms.category as string,activepage),
         staleTime:600000            
     })
  
-
-
 
     useEffect(()=>{
      dispatch(paginationactions.handlepage({page:1}))
@@ -41,15 +39,25 @@ let length:number=data===undefined?0:data.length
                 <h1 className=" flex underline text-purple-800 text-[12em] h-[5%] justify-center items-center font-bold ">{parms.category}</h1>
                                                  
                     <ul className="flex flex-col min-h-[80%] max-h-[80%] w-[85%] sm:w-[70%] gap-[2%] justify-start  items-center">  
-                                                     
-                            {data?.products?.map(elm=>{
+                          { isLoading?
+                          <>
+                           <Loadingproduct></Loadingproduct>
+                           <Loadingproduct></Loadingproduct>
+                           <Loadingproduct></Loadingproduct>
+                           <Loadingproduct></Loadingproduct>
+                          </>  
+                          :                        
+                            data?.products?.map(elm=>{
                                                         
-                                 return <Listitem key={elm.id} listtype="admin" type={elm.type} oldprice={elm.oldprice} price={elm.newprice} id={elm.id} imgeurl={elm.mainimg} name={elm.name} moreinfo={elm.moreinfo}  
+                                 return <Listitem key={elm.id} listtype="admin" type={elm.type} oldprice={elm.oldprice} price={elm.newprice} id={elm.id} 
+                                 imgeurl={elm.mainimg} name={elm.name} moreinfo={elm.moreinfo}  
                                  quantity={1}></Listitem>
-                            })}                                                      
+                                  })  
+                                  
+                                  }                       
                     </ul>
                     <div className=" flex items-center justify-center text-[3.5em] h-[5%]">
-                        <PAGES legth={length} noproducts={4}  ></PAGES>
+                       {isLoading?'': <PAGES legth={length} noproducts={4}  ></PAGES>}
                      </div>
                                                 
                      

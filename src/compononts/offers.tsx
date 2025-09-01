@@ -6,13 +6,14 @@ import { useEffect,useState,useRef } from "react";
 import { motion } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 import { getalloffers } from "../https/https";
+import { Loadingslider } from "./loadingcards";
 
 export const Offers:React.FC<{}>=()=>{
       const widthslider=useRef<HTMLDivElement>(null)
       const intervalRef = useRef<NodeJS.Timeout | null>(null);
 const [transform,settransform]=useState<number>(0)
 
-    const {data}=useQuery({
+    const {data,isLoading}=useQuery({
         queryKey:['products'],
         queryFn:getalloffers          
     })
@@ -90,11 +91,26 @@ console.log(transform)
                                 <motion.div variants={{visible:{transition:{staggerChildren:0.05}}}} ref={widthslider} animate={{x:-transformvalue}}
                                  transition={{duration:1,type:'spring',bounce:0.25}} className={`flex flex-row items-center  min-w-[250px] max-w-[250px] justify-between
                                   h-[100%] gap-[20px]  md:min-w-[540px] xl:min-w-[810px] 2xl:min-w-[1080px]`}>
-                                             {data?.products.map(elm=>{
-                                     return <Listitem key={elm.id} listtype="slider" type={elm.type} oldprice={elm.oldprice} price={elm.newprice} id={elm.id} imgeurl={elm.mainimg} name={elm.name} moreinfo={elm.moreinfo}  
-                                                                                         quantity={1}></Listitem>
-                                })}
-                                </motion.div>
+                                         { isLoading? 
+                                         <>
+                                        <Loadingslider></Loadingslider>
+                                        <Loadingslider></Loadingslider>
+                                        <Loadingslider></Loadingslider>
+                                        <Loadingslider></Loadingslider>
+                                        <Loadingslider></Loadingslider>
+                                        <Loadingslider></Loadingslider>
+                                        <Loadingslider></Loadingslider>
+                                        <Loadingslider></Loadingslider>
+                                        <Loadingslider></Loadingslider>
+                                         </>     
+                                         
+                                         
+                                         :data?.products.map(elm=>{
+                                     return <Listitem key={elm.id} listtype="slider" type={elm.type} oldprice={elm.oldprice} price={elm.newprice} 
+                                     id={elm.id} imgeurl={elm.mainimg} name={elm.name} moreinfo={elm.moreinfo}  
+                                                                              quantity={1}></Listitem>
+                                                   })}
+                                    </motion.div>
                                
                     
                     </ul>

@@ -26,14 +26,15 @@ useEffect(() => {
                    text-[9em] leading-[55px] sm:leading-[80px] lg:leading-[100px] ">WELCOME TO OUR STORE we have <br  />
                 
                     <motion.span className="text-purple-800 text-center text-[1.2em] font-bold relative" >     
-                    <motion.span key={typeindex} initial={{width:'110%'}} transition={{duration:3,repeat:Infinity}} animate={{width:['110%','-10%','110%']}} className="absolute top-0 right-[0%] max-w-full text-[10em] h-full z-10 bg-white border-l-[1px]  border-purple-800">
+                    <motion.span key={typeindex} initial={{width:'110%'}} transition={{duration:3,repeat:Infinity}} animate={{width:['110%','-10%','110%']}} 
+                    className="absolute top-0 right-[0%] max-w-full text-[10em] h-full z-10 bg-white border-l-[1px]  border-purple-800">
                         
                         </motion.span > {types[typeindex]}</motion.span> </motion.p>
 
                   <NavLink to={'/products/allproducts'}><motion.button  initial={{opacity:0}} 
                    transition={{duration:2}} animate={{opacity:[0.1,0.30,0.60,0.80,1]}} 
                    
-                    className="buttonstyle w-[8em] h-[2.5em] text-[5em] font-bold   md:w-[7em]  md:text-[4em]  md:h-[2.3em]   " >Shop Now !</motion.button></NavLink> 
+                    className="buttonstyle w-[8em] h-[2.9em] sm:h-[2.5em] text-[5em] font-bold   md:w-[7em]  md:text-[4em]  md:h-[2.3em] " >Shop Now !</motion.button></NavLink> 
                 </div>
                 <div className="w-[50%] h-full" >  
                     <motion.img initial={{x:350,opacity:0}} animate={{x:0,opacity:100}}  transition={{duration:1}} src={fationimg} className="w-[100%] h-[100%]">

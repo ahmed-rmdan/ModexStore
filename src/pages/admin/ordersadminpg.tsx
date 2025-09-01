@@ -8,10 +8,11 @@ import { useAppSelector } from "../../store/hook";
 import { useEffect } from "react";
 import { useAppDispatch } from "../../store/hook";
 import { paginationactions } from "../../store/store";
+import { Loadingorderadmin } from "../../compononts/loadingcards";
 export const Ordersadminpg:React.FC<{}>=()=>{
      const activepage=useAppSelector((state)=>state.pagination.page)
      const dispatch=useAppDispatch()
-      const {data,isFetching}=useQuery(
+      const {data,isLoading}=useQuery(
     {
         queryKey:['orders',activepage],
         queryFn:({signal})=>getadminorders(signal,activepage),
@@ -22,7 +23,7 @@ export const Ordersadminpg:React.FC<{}>=()=>{
   useEffect(()=>{
        dispatch(paginationactions.handlepage({page:1}))
    },[])
-    let productlength=isFetching?0:data?.length
+    let productlength=isLoading?0:data?.length
    
     return(
             <div className=" flex flex-col items-center justify-around h-[760px] sm:h-[1050px] w-full  bg-gray-200">
@@ -32,14 +33,21 @@ export const Ordersadminpg:React.FC<{}>=()=>{
                                  <ul className="flex flex-col min-h-[80%] w-[85%] sm:w-[70%] justify-start gap-[3%]  items-center">  
                                 
                                 
-                                               {data?.orders.map(elm=>{
+                                               {isLoading?
+                                               <>
+                                               <Loadingorderadmin></Loadingorderadmin>
+                                               <Loadingorderadmin></Loadingorderadmin>
+                                               <Loadingorderadmin></Loadingorderadmin>
+                                               </>
+                                               
+                                               :data?.orders.map(elm=>{
                                             return  <Orderadmin  payment={elm.payment} details={elm.details} totalprice={elm.totalprice} 
                                                  address={elm.address} state={elm.state} id={elm.id} at={elm.at} username={elm.name} location={elm.location}  ></Orderadmin>
                                                         })}          
                                                        
                                             </ul>
                                                 <div className=" flex items-center justify-center text-[3.5em] h-[5%]">
-                                                    <PAGES legth={productlength} noproducts={3} ></PAGES>
+                                                    {isLoading?"":<PAGES legth={productlength} noproducts={3} ></PAGES>}
                                                 </div>
                                                 
                      

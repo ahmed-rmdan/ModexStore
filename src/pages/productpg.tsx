@@ -16,6 +16,7 @@ import { useMutation } from "@tanstack/react-query";
 import { wishlistaction } from "../https/https";
 import { useNavigate } from "react-router-dom";
 import { useQueryClient } from "@tanstack/react-query";
+import { Loadingsingleproduct } from "../compononts/loadingcards";
 export const Productpg:React.FC<{}>=()=>{
 const dispatch=useAppDispatch()
 const [imgepag,setimgepg]=useState<number>(0)
@@ -24,13 +25,13 @@ const [width,setwidth]=useState<number>(window.innerWidth)
 const parms=useParams()
 const navigate=useNavigate()
 const queryclient=useQueryClient()
-    const {data}=useQuery({
+    const {data,isLoading}=useQuery({
         queryKey:['product', parms.productid,'wishlist'],
         queryFn:({signal})=>getproduct(signal,parms.productid as string),
         staleTime:600000,
         refetchOnMount:'always'            
     })
- const {mutate}= useMutation({
+ const {mutate,isPending}= useMutation({
   mutationKey:['wishlist']
   ,mutationFn:wishlistaction,
   onError:()=>{
@@ -128,21 +129,30 @@ function handledecrese(){
         
 
     }
+
+    if(isLoading){
+  return(
+<Loadingsingleproduct></Loadingsingleproduct>
+  )
+
+    }
+
+
+
           
     return(
-        <section className="container mx-auto flex flex-col h-[800px]  justify-around text-[15px] sm:text-[18px]  md:text-[20px] xl:text-[24px]  ">
-           
-     
-
+       <section className="container mx-auto flex flex-col h-[800px]  justify-around text-[15px] sm:text-[18px]  md:text-[20px] xl:text-[24px]  ">
              <div className=" flex flex-row items-center justify-around w-[100%] text-black h-[400px]  mx-auto ">
                     <img src={data?.product.mainimg} className="w-[40%] h-[70%] sm:h-[75%] 2xl:h-[90%]">
-
-                    </img>
-                
+                    </img>             
                    <div className="maininfo w-[55%] h-[90%] gap-[6%] flex flex-col items-center justify-center ">
                          <p className="text-[1.1em] text-center font-extrabold text-purple-800"> {data?.product.name}</p>
                          <p className="text-[1.1em] text-purple-800 font-bold">price : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(data?.product.newprice as number)} </p>
-                             {data?.product.isfav? <motion.button title="wishlist" initial={{scale:1.2}} transition={{duration:0.2}} animate={{scale:1}}><Heart size={'2.9em'} 
+                             {isLoading?
+                             <button className="w-[2.9em] h-[2.9em] border-red-600 border-2  animate-spin "></button>
+                             :
+                             data?.product.isfav?
+                              <motion.button title="wishlist" initial={{scale:1.2}} transition={{duration:0.2}} animate={{scale:1}}><Heart size={'2.9em'} 
                               onClick={handleaddwishlist} fill={'red'} color="red"  className="cursor-pointer "></Heart></motion.button> :
                             <button title="wishlist" ><Heart size={'2.9em'} onClick={handleaddwishlist}   className="cursor-pointer "></Heart></button> 
                              }
@@ -158,8 +168,6 @@ function handledecrese(){
 
                          </div>
                    </div>
-
-
            </div> 
             <div className="flex flex-row w-full h-[150px]  items-center justify-center mb-[20px]">
                     <button className="w-[40px] sm:w-[60px] cursor-pointer "><ArrowBigLeft size={'100%'} color="#6e11b0" onClick={handleprev}/></button>
@@ -181,11 +189,7 @@ function handledecrese(){
                       <h2 className="text-[1.4em] underline font-bold text-purple-800  "> More Info </h2>
                       <p className="text-[0.8em] text-wrap whitespace-normal break-words  w-[100%]"> {data?.product.moreinfo}</p>
 
-                 </div>
-             
-             
-
-
+                 </div>                          
         </section>
   
     )
