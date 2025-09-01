@@ -18,10 +18,7 @@ onSuccess:(data) =>{
              dispatch(useractions.deletethetoken())
              navigate('/')
       },3300000)
-   queryClient.invalidateQueries({ queryKey: ['user'] })
-    queryClient.invalidateQueries({ queryKey: ['wishlist'],exact:false })
-         queryClient.invalidateQueries({ queryKey: ['product'],exact:false })
-         queryClient.invalidateQueries({ queryKey: ['orders'],exact:false })
+   queryClient.clear()
   return navigate('/')
 }
 })
