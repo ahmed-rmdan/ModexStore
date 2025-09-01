@@ -39,7 +39,8 @@ return navigate('/signin')
   },
   onSuccess:()=>{
          queryclient.invalidateQueries({queryKey:['product', parms.productid,'wishlist']})
-         queryclient.invalidateQueries({ queryKey: ['wishlist'] })
+         queryclient.invalidateQueries({ queryKey: ['wishlist'],exact:false })
+         queryclient.invalidateQueries({ queryKey: ['product'],exact:false })
   }
  })
 

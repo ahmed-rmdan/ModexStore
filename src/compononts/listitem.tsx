@@ -163,7 +163,7 @@ mutate(props.id)
                 <NavLink to={`/product/${props.id}`} className="buttonstyle text-[0.8em] font-bold h-[50%] max-w-[38%]
                  min-w-[38%] sm:w-[34%]  xl:w-[33%]  flex items-center justify-center  " >go to product</NavLink>
              { isPending?
-             <button className="w-[1.5em] h-[1.5em] border-red-600 border-r-2 rounded-full  animate-spin "></button>
+             <button className="w-[2.5em] h-[2.5em] border-red-600 border-r-2 rounded-full  animate-spin "></button>
              :  <button title="remove" className="fill-red-500 cursor-pointer  h-[50%] w-[20%] sm:w-[15%]"><Heart   className="fill-red-500 cursor-pointer"
                  size={'full'} width={'full'} color="red" onClick={handleremovefav} ></Heart></button> 
              }
