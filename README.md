@@ -12,7 +12,7 @@ It provides a seamless shopping experience for users and full control for admins
 - Wishlist management
 - Multiple payment methods (Stripe or Cash on Delivery)
 - Place orders with current location
-- Track order status in real-timeس
+- Track order status in real-time
 - View branch locations via Google Maps
 ### 🛠️ Admin
 - Add, update, and delete products
@@ -23,12 +23,12 @@ It provides a seamless shopping experience for users and full control for admins
 - Pagination support
 ## Technologies 🔧
 - Frontend: React, TypeScript, TailwindCSS, React Query ,
-  React Router , redux toolkit , React leaflet  
+  React Router , redux toolkit , framer-motion , React leaflet  
 - Backend: Node.js, Express.js, Prisma, mysql , Graphql,
   Restfull api , stripejs , validator , nodemailer/sendgrid , websockets (socket i/o),
   cloundairy , multer
 - Auth: JWT , bcrypt
-- devTools : vite , ts
+- devTools : vite , ts-node-dev
 - Deployment: Render + Netlify
 ## project live demo
 https://modexstore.netlify.app
