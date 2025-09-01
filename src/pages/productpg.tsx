@@ -149,7 +149,7 @@ function handledecrese(){
                          <p className="text-[1.1em] text-center font-extrabold text-purple-800"> {data?.product.name}</p>
                          <p className="text-[1.1em] text-purple-800 font-bold">price : {new Intl.NumberFormat("de-DE", { style: "currency", currency: "EGP" }).format(data?.product.newprice as number)} </p>
                              {isPending?
-                             <button className="w-[2.9em] h-[2.9em] border-red-600 border-2  animate-spin "></button>
+                             <button className="w-[2.9em] h-[2.9em] border-red-600 border-r-2 rounded-full  animate-spin "></button>
                              :
                              data?.product.isfav?
                               <motion.button title="wishlist" initial={{scale:1.2}} transition={{duration:0.2}} animate={{scale:1}}><Heart size={'2.9em'} 

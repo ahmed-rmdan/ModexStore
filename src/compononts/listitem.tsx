@@ -124,7 +124,7 @@ if(props.listtype==='products')
     )
     if(props.listtype==='wishlist'){
 
-        const {mutate}= useMutation({
+        const {mutate,isPending}= useMutation({
          mutationKey:['wishlist']
          ,mutationFn:wishlistaction,
          onError:()=>{
@@ -162,8 +162,11 @@ mutate(props.id)
                 <button className="buttonstyle text-[0.8em] font-bold  h-[50%] min-w-[35%] max-w-[35%]  sm:w-[30%] xl:w-[28%]  " onClick={handleAddcart} >Add to cart</button>
                 <NavLink to={`/product/${props.id}`} className="buttonstyle text-[0.8em] font-bold h-[50%] max-w-[38%]
                  min-w-[38%] sm:w-[34%]  xl:w-[33%]  flex items-center justify-center  " >go to product</NavLink>
-               <button title="remove" className="fill-red-500 cursor-pointer  h-[50%] w-[20%] sm:w-[15%]"><Heart   className="fill-red-500 cursor-pointer"
+             { isPending?
+             <button className="w-[1em] h-[1em] border-red-600 border-r-2 rounded-full  animate-spin "></button>
+             :  <button title="remove" className="fill-red-500 cursor-pointer  h-[50%] w-[20%] sm:w-[15%]"><Heart   className="fill-red-500 cursor-pointer"
                  size={'full'} width={'full'} color="red" onClick={handleremovefav} ></Heart></button> 
+             }
              </div>
         </motion.li>
     )
