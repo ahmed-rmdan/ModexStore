@@ -7,7 +7,7 @@ import { useMutation } from "@tanstack/react-query"
 import { isadmin } from "../../https/https"
 import { useNavigate } from "react-router"
 import { useLocation } from "react-router-dom";
-
+import { End } from "../../compononts/end"
 
 export const Adminpg:React.FC<{}>=()=>{
 const navigate=useNavigate()
@@ -37,10 +37,11 @@ mutate()
               <Headeradmin></Headeradmin>
               <div className="flex flex-row text-[2px] sm:text-[3.5px]   lg:text-[4px]  xl:text-[4.5px] ">
              
-                <Dshboard></Dshboard>
+               { location.pathname!=='/admin/login'&& <Dshboard></Dshboard>}
                  <Outlet></Outlet> 
               
               </div>
+              <End></End>
         </div>
     )
 }

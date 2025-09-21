@@ -6,14 +6,14 @@ import linkedlogo from '/SOCIAL MEDIA/linkdin.png'
 import youtubelogo from '/SOCIAL MEDIA/YouTube_full-color_icon_(2024).svg.png'
 export const End:React.FC<{}>=()=>{
     return(<>
-    <section className="flex flex-col items-center justify-center gap-[2%] w-full h-[120px] sm:h-[220px] bg-purple-800
+    <section className="flex flex-col items-center justify-center gap-[2%] w-full h-[120px] sm:h-[190px] bg-purple-800
      text-white text-[0.65em] md:text-[1em] xl:text-[1.2em]  ">
         <div className="flex flex-row font-semibold items-center justify-around w-full h-[55px] md:h-[60px] " >
                 <NavLink to='/aboutus' className={'hover:underline'} >About Us</NavLink>
          <NavLink to='/terms' className={'hover:underline'}>Term&Conditions</NavLink>
          <NavLink to={'/contact'} className=" cursor-pointer hover:underline" >Contact Us</NavLink>
         </div>
-       <div className="flex flex-col w-full items-center justify-center gap-[19%] h-[120px]">
+       <div className="flex flex-col w-full items-center justify-center gap-[19%] h-[100px]">
            <h2 className="underline font-bold text-[1.6em]">Contact ME</h2>
               <div className=" min-w-[35%] max-w-[35%] h-[35%] flex flex-row  items-center gap-[8%] justify-around  ">
                       <a href="https://github.com/ahmed-rmdan" className="min-w-[18%] max-w-[18%] min-h-full max-h-full relative "> 

@@ -54,7 +54,7 @@ export const Cateogry:React.FC<{}>=()=>{
                                          })
                                          }
                             </ul>
-                       {  isLoading?'' :<PAGES noproducts={4}  legth={length}></PAGES>}
+                       <PAGES noproducts={4}  legth={length}></PAGES>
                     
                     </>
                      

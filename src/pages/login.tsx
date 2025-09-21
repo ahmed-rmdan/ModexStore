@@ -62,7 +62,7 @@ function handlesignin(ev:React.FormEvent<HTMLFormElement>){
                            <button className="buttonstyle w-[22%] sm:w-[22%] h-[15%] xl:w-[17%] text-[1.5em] font-bold text-center"  disabled={isPending} >Login</button>
                            
                     </form>
-                    <NavLink to={'/resetpass'} className="h-[7%] text-[1.1em] text-red-500 cursor-pointer hover:underline">reset your password</NavLink>
+                    {/* <NavLink to={'/resetpass'} className="h-[7%] text-[1.1em] font-semibold text-red-500 cursor-pointer hover:underline">forgot your password ?</NavLink> */}
 
                   <NavLink to='/signup' className="buttonstyle flex justify-center items-center text-center font-semibold  w-[27%] sm:w-[17%] 2xl:w-[14%]  h-[6%] sm:h-[6%] xl:h-[8%]  text-[1.5em]">SignUp</NavLink>
                   </div>

@@ -57,7 +57,7 @@ let length:number=data===undefined?0:data.length
                                   }                       
                     </ul>
                     <div className=" flex items-center justify-center text-[3.5em] h-[5%]">
-                       {isLoading?'': <PAGES legth={length} noproducts={4}  ></PAGES>}
+                        <PAGES legth={length} noproducts={4}  ></PAGES>
                      </div>
                                                 
                      

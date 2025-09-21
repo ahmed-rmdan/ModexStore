@@ -10,6 +10,9 @@ export const Dshboard:React.FC<{}>=()=>{
 const [click,setclick]=useState<boolean>(false)
 const navigate=useNavigate()
 const dispatch=useAppDispatch()
+
+
+
 function handleclick(){
     setclick(prev=>!prev)
 }
@@ -24,7 +27,8 @@ const token=localStorage.getItem('token')
 
   return(                 
            <div className="flex flex-col gap-[35px] sm:gap-[60px]  lg:gap-[40px] ] h-[600px] sm:h-[700px] xl:h-[800px] w-[30%] xl:w-[25%] items-center justify-center bg-white   ">
-                  <div className="flex flex-col items-center justify-start h-[380px] sm:h-[450px] lg:h-[450px] xl:h-[500px] gap-[30px] sm:gap-[35px] lg:gap-[25px] xl:gap-[35px] text-[6em] ">
+                  <div className="flex flex-col items-center justify-start h-[380px] sm:h-[450px] lg:h-[450px] xl:h-[500px] gap-[30px]
+                   sm:gap-[35px] lg:gap-[25px] xl:gap-[45px] text-[6em] ">
                         <button onClick={handleclick} className="cursor-pointer relative hover:text-purple-800 "> 
                         Products      
                                      </button>

@@ -50,7 +50,7 @@ export const Offersadminpg:React.FC<{}>=()=>{
                                                       
                                                 </ul>
                                                 <div className=" flex items-center justify-center text-[3.5em] h-[5%]">
-                                                   { isLoading?'':<PAGES noproducts={4} legth={length} ></PAGES>}
+                                                  <PAGES noproducts={4} legth={length} ></PAGES>
                              </div>
                                                 
                      

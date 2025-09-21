@@ -47,7 +47,7 @@ export const Ordersadminpg:React.FC<{}>=()=>{
                                                        
                                             </ul>
                                                 <div className=" flex items-center justify-center text-[3.5em] h-[5%]">
-                                                    {isLoading?"":<PAGES legth={productlength} noproducts={3} ></PAGES>}
+                                                   <PAGES legth={productlength} noproducts={3} ></PAGES>
                                                 </div>
                                                 
                      

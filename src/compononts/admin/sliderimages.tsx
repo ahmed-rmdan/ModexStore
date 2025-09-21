@@ -17,7 +17,7 @@ const [numberslide,setnumberslide]=useState(1)
                <div className=" flex flex-row w-[98%] sm:w-[75%] justify-start items-start gap-[5%] h-[15%]">
                     <p className="w-[30%] h-[100%] flex text-end justify-end items-center text-[0.85em] sm:text-[0.9em]">Slider_Imges-url:</p>
                     <div className=" flex flex-row h-full w-[70%] items-start justify-between bg-gray-100 rounded-2xl ">
-                         <ul className=" flex flex-col justify-between overflow-y-auto h-full gap-[5%] w-[80%]">
+                         <ul className=" flex flex-col justify-evenly overflow-y-auto h-full gap-[5%] w-[80%]">
 
                           {   
                                 arr.map(elm=>{

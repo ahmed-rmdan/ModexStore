@@ -10,7 +10,10 @@ import { useAppDispatch } from "../store/hook";
 import { useEffect } from "react";
 import { paginationactions } from "../store/store";
 import { Loadingorder } from "../compononts/loadingcards";
+import { useQueryClient } from "@tanstack/react-query";
+import { io } from "socket.io-client";
 export const Myorders:React.FC<{}>=()=>{
+  const queryclient=useQueryClient()
         const activepage=useAppSelector((state)=>state.pagination.page)
        console.log(activepage)
     const dispatch=useAppDispatch()
@@ -19,12 +22,27 @@ export const Myorders:React.FC<{}>=()=>{
         queryKey:['orders',activepage],
         queryFn:({signal})=>getuserorders(signal,activepage),
         staleTime:600000,
+        
+       
+        
              
     }
     )
 
    useEffect(()=>{
        dispatch(paginationactions.handlepage({page:1}))
+       const token=localStorage.getItem('token')
+         let server=io('https://modexstore-backend.onrender.com',{auth:{token}})
+         server.on('connect',()=>{
+        
+          server.emit('joinuserroom')
+         })
+         server.on('getorders',(data)=>{
+         
+          queryclient.invalidateQueries({queryKey:['orders',activepage]
+          })
+         })
+
    },[])
    
        let productlength=isLoading?0:data?.length
