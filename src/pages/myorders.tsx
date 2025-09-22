@@ -37,7 +37,7 @@ export const Myorders:React.FC<{}>=()=>{
         
           server.emit('joinuserroom')
          })
-         server.on('getorders',(data)=>{
+         server.on('getorders',()=>{
          
           queryclient.invalidateQueries({queryKey:['orders',activepage]
           })

@@ -1,3 +1,4 @@
+
 import type { item } from "../store/store";
 import type { typeadminproducts } from "../types/types";
 import type { locationtype,order } from "../types/types";
@@ -1024,5 +1025,48 @@ if(data.errors){
 }
 
 return data.data.isadmin.message
+
+}
+
+export async function resetpassword(email:string){
+  console.log('ok')
+    console.log(email)
+
+const res=await fetch('https://modexstore-backend.onrender.com/resetpassword',{
+  method:'POST',
+  headers:{
+    'Content-Type': 'application/json', 
+  },
+  body:JSON.stringify({email})
+})
+if(!res.ok){
+throw new Error('wrong email !')
+}
+const data=await res.json()
+return {data}
+
+
+}
+
+export async function confirmnewpass(input:{form:FormData,email:string,token:string}){
+  if(input.form.get('newpass')!== input.form.get('confirmnewpass')){
+    throw new Error('password arent similar')
+  }
+console.log('sadsadsa')
+const newpass=input.form.get('newpass') as string
+console.log(newpass)
+const res=await fetch('https://modexstore-backend.onrender.com/confirmnewpass',{
+  method:'POST',
+  headers:{
+    'Content-Type': 'application/json', 
+  },
+  body:JSON.stringify({token:input.token,email:input.email,newpass})
+})
+if(!res.ok){
+throw new Error('token is expired !')
+}
+const data=await res.json()
+return {data}
+
 
 }

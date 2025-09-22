@@ -29,6 +29,7 @@ import { Editproduct } from "./pages/admin/editproduct"
 import { Ordersadminpg } from "./pages/admin/ordersadminpg"
 import { Ordereditpg } from "./pages/admin/editorderpg"
 import { Resetpass } from "./pages/resetpass"
+import { Confirmnewpass } from "./pages/confirmnewpass"
 import { Searchproductspg } from "./pages/searchproductspg"
 import { QueryClientProvider,QueryClient} from "@tanstack/react-query"
 
@@ -55,7 +56,8 @@ const router=createBrowserRouter([
       {path:'/payment',element:<Paymentpg></Paymentpg>},
       {path:'/thankyou',element:<Thankyoupg></Thankyoupg>},
       {path:'/myorders',element:<Myorders></Myorders>},
-      {path:'/resetpass',element:<Resetpass></Resetpass>}
+      {path:'/resetpass',element:<Resetpass></Resetpass>},
+      {path:'/confirmnewpass',element:<Confirmnewpass></Confirmnewpass>}
       
     ]
   }
