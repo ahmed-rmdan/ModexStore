@@ -25,10 +25,12 @@ It provides a seamless shopping experience for users and full control for admins
 - Frontend: React, TypeScript, TailwindCSS, React Query ,
   React Router , redux toolkit , framer-motion , React leaflet  
 - Backend: Node.js, Express.js, Prisma, mysql , Graphql,
-  Restfull api , stripejs , validator , nodemailer/sendgrid , websockets (socket i/o),
+  Restfull api , stripejs , validator , nodemailer , Brevo , websockets (socket i/o),
   cloundairy , multer
 - Auth: JWT , bcrypt
 - devTools : vite , ts-node-dev
 - Deployment: Render + Netlify
 ## project live demo
 https://modexstore.netlify.app
+## project live Video
+https://www.youtube.com/watch?v=pR-HC799oLM

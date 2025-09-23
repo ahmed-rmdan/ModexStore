@@ -59,7 +59,7 @@ if(datars.errors){
 
 const id=datars.data.addproduct.id
 
-
+console.log(data.get('mainimge'),id)
 const file=data.get('mainimge') as File
 if(!file) return
 
