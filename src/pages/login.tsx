@@ -59,7 +59,7 @@ function handlesignin(ev:React.FormEvent<HTMLFormElement>){
                                     
                                      </p>
                            </div>
-                           <button className="buttonstyle w-[22%] sm:w-[22%] h-[15%] xl:w-[17%] text-[1.5em] font-bold text-center"  disabled={isPending} >Login</button>
+                           <button className="buttonstyle w-[25%] sm:w-[24%] h-[15%] xl:w-[18%] text-[1.5em] font-bold text-center"  disabled={isPending} >{isPending?'..pending':'login'}</button>
                            
                     </form>
                     <NavLink to={'/resetpass'} className="h-[7%] text-[1.1em] font-semibold text-red-500 cursor-pointer hover:underline">forgot your password ?</NavLink>

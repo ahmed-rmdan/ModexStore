@@ -9,7 +9,7 @@ import { useMutation } from "@tanstack/react-query";
 export const Resetpass:React.FC<{}>=()=>{
 
 const emailinput=useRef<HTMLInputElement|null>(null)
-const {mutate,isError,error}=useMutation({mutationFn:resetpassword})
+const {mutate,isError,error,isPending}=useMutation({mutationFn:resetpassword})
 function handlesend(){
   const email=emailinput.current?.value
   console.log(email)
@@ -31,7 +31,7 @@ console.log(isError)
                                   <div className=" flex flex-col items-center justify-center gap-[10%] w-[85%] sm:w-[70%] lg:w-[60%] h-[40%]">
                                         <input ref={emailinput} type="email" className="h-[35%] w-[85%] 2xl:w-[80%] text-[1em] border-2 rounded-2xl " placeholder="Email-address"/>
                                     <p className="text-red-500 flex items-center justify-center text-[0.7em] w-full h-[10%] text-center">{isError?error.message:''}</p>
-                                      <button className=" buttonstyle text-[1em] flex items-center justify-center  text-center h-[30%] w-[30%] 2xl:w-[23%]" onClick={handlesend}> Send</button>
+                                      <button className=" buttonstyle text-[1em] flex items-center justify-center  text-center h-[30%] w-[30%] 2xl:w-[24%]" onClick={handlesend}> {isPending?'..pending':'Send'}</button>
                                    </div>
                                               
                   </div>

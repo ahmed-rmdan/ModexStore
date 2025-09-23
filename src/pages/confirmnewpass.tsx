@@ -10,7 +10,7 @@ export const Confirmnewpass:React.FC<{}>=()=>{
  const [searchParams, setSearchParams] = useSearchParams();
  const navigate=useNavigate()
 const emailinput=useRef<HTMLInputElement|null>(null)
-const {mutate,isError,error}=useMutation({
+const {mutate,isError,error,isPending}=useMutation({
     mutationFn:confirmnewpass,
     onSuccess:()=>{
         navigate('/signin')
@@ -40,7 +40,7 @@ console.log(isError)
                                         <input ref={emailinput} name="newpass" type='password' className="h-[38%] w-[85%] 2xl:w-[80%] text-[1em] border-2 rounded-2xl " placeholder="new password"/>
                                         <input ref={emailinput} name="confirmnewpass" type='password' className="h-[38%] w-[85%] 2xl:w-[80%] text-[1em] border-2 rounded-2xl " placeholder="confirm new password"/>
                                     <p className="text-red-500 flex items-center justify-center text-[0.7em] w-full h-[10%] text-center">{isError?error.message:''}</p>
-                                      <button className=" buttonstyle text-[1em] flex items-center justify-center  text-center h-[30%] w-[32%] 2xl:w-[25%]" > Confirm</button>
+                                      <button className=" buttonstyle text-[1em] flex items-center justify-center  text-center h-[30%] w-[32%] 2xl:w-[25%]" >  {isPending?'..pending':'Confirm'}</button>
                                    </form>
                                               
                   </div>

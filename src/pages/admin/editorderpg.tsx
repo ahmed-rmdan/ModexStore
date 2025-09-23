@@ -7,7 +7,7 @@ export const Ordereditpg:React.FC<{}>=()=>{
 const parms=useParams()
 const navigate=useNavigate()
         const queryclient=useQueryClient()
-    const {mutate}=useMutation({
+    const {mutate,isPending}=useMutation({
         mutationFn:editorder,
         onSuccess:()=>{
               queryclient.invalidateQueries({queryKey:['orders']})
@@ -45,7 +45,7 @@ function handleorderedit(ev:React.FormEvent<HTMLFormElement>){
                              </select>
                         </div>
                                      
-                              <button className="buttonstyle font-bold w-[26%] text-[1.3em] sm:w-[20%] lg:w-[13%] h-[14%]  sm:h-[15%] "  >Edit</button>
+                              <button className="buttonstyle font-bold w-[26%] text-[1.3em] sm:w-[20%] lg:w-[13%] h-[14%]  sm:h-[15%] "  > {isPending?'..pending':'Edit'}</button>
                                  
                     </form>
                                      

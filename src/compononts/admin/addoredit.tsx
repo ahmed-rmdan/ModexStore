@@ -92,7 +92,7 @@ async function handlesubmit(ev:React.FormEvent<HTMLFormElement>){
 
                               <Sliderimge></Sliderimge>
                    
-                              <button className="buttonstyle font-bold w-[25%] sm:w-[12%] h-[5%]" >{props.type==='add'?'Add':'Edit'}</button>
+                              <button className="buttonstyle font-bold w-[25%] sm:w-[19%] lg:w-[15%] h-[5%]" >{props.type==='add'?'Add':'Edit'}</button>
                                  
                     </form>
                                      

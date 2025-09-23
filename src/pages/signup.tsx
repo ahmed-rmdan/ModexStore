@@ -77,7 +77,7 @@ function handlesignup(ev:React.FormEvent<HTMLFormElement>){
                                               {isError?error.message:''}
                                   </p>  
                                  
-                              <button className="buttonstyle w-[37%] sm:w-[28%] 2xl:w-[25%] h-[50%]  text-[1.4em] font-bold text-center" disabled={isPending} >SignUp</button>
+                              <button className="buttonstyle w-[37%] sm:w-[28%] 2xl:w-[25%] h-[50%]  text-[1.4em] font-bold text-center" disabled={isPending} >{isPending?'..pending':'SignUp'}</button>
                                
                            </div>
                            

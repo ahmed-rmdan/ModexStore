@@ -11,7 +11,7 @@ export const Loginadmin:React.FC<{}>=()=>{
          const dispatch=useAppDispatch()
       const queryClient=new QueryClient()
 const navigate=useNavigate()
-const {mutate,isError,error}=useMutation({
+const {mutate,isError,error,isPending}=useMutation({
 mutationKey:['user'],
 mutationFn:loginadmin,
 onSuccess:(data) =>{   
@@ -54,7 +54,7 @@ function handlesignin(ev:React.FormEvent<HTMLFormElement>){
                            </div>
                            <div className="flex flex-row items-center justify-around w-[27%] sm:w-[22%] lg:w-[17%] gap-1 h-[23%]">
                                  <p className="text-red-600" style={{height:'15px'}} > </p>
-                              <button className="buttonstyle h-[55%] w-full text-[5.2em] sm:text-[4.8em] text-center font-bold" >login</button>
+                              <button className="buttonstyle h-[55%] w-full text-[5.2em] sm:text-[4.8em] text-center font-bold" >{isPending?'..pending':'login'}</ button>
                                
                            </div>
                            

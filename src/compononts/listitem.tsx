@@ -10,6 +10,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { wishlistaction } from "../https/https";
 import { useParams } from "react-router-dom";
+import { useAppSelector } from "../store/hook";
 export const Listitem:React.FC<{imgeurl:string,name:string,quantity:number,oldprice:number,price:number,type:string,listtype:string,id:string,moreinfo:string}>=(props)=>{
    const parms=useParams()
     const dispatch=useAppDispatch()
@@ -123,18 +124,19 @@ if(props.listtype==='products')
 
     )
     if(props.listtype==='wishlist'){
-
+  const activepage=useAppSelector((state)=>state.pagination.page)
         const {mutate,isPending}= useMutation({
          mutationKey:['wishlist']
          ,mutationFn:wishlistaction,
          onError:()=>{
        return navigate('/signin')
          },
+        
          onSuccess:()=>{
                 
-                queryclient.invalidateQueries({ queryKey: ['wishlist'] })
+                queryclient.invalidateQueries({ queryKey: ['wishlist', activepage] , exact:false  })
                 queryclient.invalidateQueries({queryKey:['product', parms.productid,'wishlist']})
-         }
+         } 
         })
 function handleremovefav(){
 mutate(props.id)
