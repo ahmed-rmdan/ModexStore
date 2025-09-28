@@ -30,6 +30,7 @@ It provides a seamless shopping experience for users and full control for admins
 - Auth: JWT , bcrypt
 - devTools : vite , ts-node-dev
 - Deployment: Render + Netlify
+- Test : Jest , React Testing Library
 ## project live demo
 https://modexstore.netlify.app
 ## project live Video
